@@ -1,0 +1,10 @@
+?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Respeak</string>
+    <string name="requestor">Requestor:</string>
+    <string name="requestor_name">CGNet Swara</string>
+    <string name="max_reward">Max Reward:</string>
+    <string name="max_reward_amount">10 rupees</string>
+
+</resources>

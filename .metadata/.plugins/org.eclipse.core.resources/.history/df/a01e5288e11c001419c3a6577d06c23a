@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    tools:context=".ListenActivity" >
+    
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:orientation="horizontal" >
+
+        <TableRow>
+	    	<TextView
+	       		android:text="@string/requestor"
+	       		android:layout_weight="1" />
+	    	
+	    	<TextView
+	    	    android:id="@+id/requestorName"
+	       		android:text="@string/requestor_name"
+	       		android:layout_weight="1" />
+	    </TableRow>
+	    
+         <TableRow>
+	    	<TextView
+	       		android:text="@string/max_reward" 
+	       		android:layout_weight="1"/>
+	    	<TextView
+	    	    android:id="@+id/maxRewardAmount"
+	       		android:text="@string/max_reward_amount" 
+	       		android:layout_weight="1"/>
+	    </TableRow>
+	    
+    </TableLayout> 
+    
+   <ImageView
+       android:id="@+id/requestorImage"
+       android:layout_width="match_parent"
+       android:layout_height="75dp"
+       android:paddingTop="5dp"
+       android:contentDescription="@string/image_description"
+       android:src="@drawable/requestor_image" />
+   
+     <SeekBar
+            android:id="@+id/songProgressBar"
+             android:layout_width="fill_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginRight="20dp"
+             android:layout_marginLeft="20dp"
+             android:layout_marginBottom="20dp"
+             android:layout_above="@id/player_footer_bg"
+             android:thumb="@drawable/seek_handler"
+             android:progressDrawable="@drawable/seekbar_progress"
+             android:paddingLeft="6dp"
+             android:paddingRight="6dp"/>
+        
+   <Button
+       android:id="@+id/playButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/play" 
+       android:layout_gravity="center"/>
+   
+    <Button
+       android:id="@+id/listenAgainButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:text="@string/listen_again" 
+       android:layout_gravity="left"/>
+
+    <Button
+        android:id="@+id/respeakButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/respeak" />
+
+</LinearLayout>

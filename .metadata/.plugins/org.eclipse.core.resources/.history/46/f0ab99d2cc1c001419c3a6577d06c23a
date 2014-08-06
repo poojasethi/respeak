@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RecordActivity" >
+    
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TableRow>
+	    	<TextView
+	       		android:text="@string/requestor" />
+	    	<TextView
+	       		android:text="@string/requestor_name" />
+	    </TableRow>
+	    
+         <TableRow>
+	    	<TextView
+	       		android:text="@string/max_reward" />
+	    	<TextView
+	       		android:text="@string/max_reward_amount" />
+	    </TableRow>
+	    
+    </TableLayout> 
+    
+
+</LinearLayout>
