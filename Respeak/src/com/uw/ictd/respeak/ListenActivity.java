@@ -79,19 +79,19 @@ public class ListenActivity extends Activity {
 		});
 	}
 	
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (requestCode == DBX_CHOOSER_REQUEST) {
-	        if (resultCode == Activity.RESULT_OK) {
-	            DbxChooser.Result result = new DbxChooser.Result(data);
-	            Log.d("main", "Link to selected file: " + result.getLink());
-
-	            // Handle the result
-	        } else {
-	            // Failed or was cancelled by the user.
-	        }
-	    } else {
-	        super.onActivityResult(requestCode, resultCode, data);
-	    }
-	}
+//	@Override
+//	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//		if (requestCode == DBX_CHOOSER_REQUEST) {
+//	        if (resultCode == Activity.RESULT_OK) {
+//	            DbxChooser.Result result = new DbxChooser.Result(data);
+//	            Log.d("main", "Link to selected file: " + result.getLink());
+//
+//	            // Handle the result
+//	        } else {
+//	            // Failed or was cancelled by the user.
+//	        }
+//	    } else {
+//	        super.onActivityResult(requestCode, resultCode, data);
+//	    }
+//	}
 }
