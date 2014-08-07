@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="custom_rules" default="help">
+    <target name="javadoc">
+        <javadoc
+            access="public"
+            author="true"
+            classpath="libs/android-support-v4.jar:/Users/josiah/android-dev-environment/android-sdk-macosx/tools/support/annotations.jar"
+            destdir="doc"
+            nodeprecated="false"
+            nodeprecatedlist="false"
+            noindex="false"
+            nonavbar="false"
+            notree="false"
+            packagenames="com.dropbox.chooser.android"
+            source="1.6"
+            sourcepath="src"
+            splitindex="true"
+            use="true"
+            version="true"/>
+    </target>
+</project>
+
