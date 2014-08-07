@@ -36,6 +36,7 @@ public class ListenActivity extends Activity {
 			}
 		});
 
+		
 		// Allows user to listen to the recording again. If the recording is
 		// already playing, restarts from the beginning
 		mListenAgainButton.setOnClickListener(new OnClickListener() {
