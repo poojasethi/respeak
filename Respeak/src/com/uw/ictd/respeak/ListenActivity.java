@@ -2,11 +2,14 @@ package com.uw.ictd.respeak;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.dropbox.chooser.android.DbxChooser;
 
@@ -38,8 +41,9 @@ public class ListenActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				mChooser.forResultType(DbxChooser.ResultType.PREVIEW_LINK)
-						.launch(ListenActivity.this, DBX_CHOOSER_REQUEST);
+				DbxChooser.ResultType resultType = DbxChooser.ResultType.FILE_CONTENT;
+				mChooser.forResultType(resultType).launch(ListenActivity.this,
+						DBX_CHOOSER_REQUEST);
 			}
 		});
 
@@ -78,20 +82,36 @@ public class ListenActivity extends Activity {
 			}
 		});
 	}
-	
-//	@Override
-//	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//		if (requestCode == DBX_CHOOSER_REQUEST) {
-//	        if (resultCode == Activity.RESULT_OK) {
-//	            DbxChooser.Result result = new DbxChooser.Result(data);
-//	            Log.d("main", "Link to selected file: " + result.getLink());
-//
-//	            // Handle the result
-//	        } else {
-//	            // Failed or was cancelled by the user.
-//	        }
-//	    } else {
-//	        super.onActivityResult(requestCode, resultCode, data);
-//	    }
-//	}
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (requestCode == DBX_CHOOSER_REQUEST) {
+			if (resultCode == Activity.RESULT_OK) {
+				DbxChooser.Result result = new DbxChooser.Result(data);
+				Log.d("main", "Link to selected file: " + result.getLink());
+
+				// Handle the result
+				showLink(R.id.uri, result.getLink());
+				((TextView) findViewById(R.id.currentRecordingSelected))
+						.setText(result.getName().toString(),
+								TextView.BufferType.NORMAL);
+
+			} else {
+				// Failed or was cancelled by the user.
+				((TextView) findViewById(R.id.currentRecordingSelected)).setText("failed");
+			}
+		} else {
+			super.onActivityResult(requestCode, resultCode, data);
+		}
+	}
+
+	private void showLink(int id, Uri uri) {
+		TextView v = (TextView) findViewById(id);
+		if (uri == null) {
+			v.setText("", TextView.BufferType.NORMAL);
+			return;
+		}
+		v.setText(uri.toString(), TextView.BufferType.NORMAL);
+		v.setMovementMethod(LinkMovementMethod.getInstance());
+	}
 }
