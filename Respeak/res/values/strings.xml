@@ -8,6 +8,7 @@
     <string name="max_reward_amount">10 rupees</string>
     <string name="image_description">CGNet Swara</string>
     <string name="play">Play</string>
+    <string name="choose_file">Choose file from Dropbox</string>
     <string name="pause">Pause</string>
     <string name="listen_again">Listen Again</string>
     <string name="respeak">Respeak</string>

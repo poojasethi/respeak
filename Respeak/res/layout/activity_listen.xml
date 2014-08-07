@@ -6,63 +6,72 @@
     android:paddingLeft="5dp"
     android:paddingRight="5dp"
     tools:context="com.uw.ictd.respeak.ListenActivity" >
-    
+
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="5dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingTop="5dp" >
 
         <TableRow>
-	    	<TextView
-	       		android:text="@string/requestor"
-	       		android:layout_weight="1" />
-	    	
-	    	<TextView
-	    	    android:id="@+id/requestorName"
-	       		android:text="@string/requestor_name"
-	       		android:layout_weight="1" />
-	    </TableRow>
-	    
-         <TableRow>
-	    	<TextView
-	       		android:text="@string/max_reward" 
-	       		android:layout_weight="1"/>
-	    	<TextView
-	    	    android:id="@+id/maxRewardAmount"
-	       		android:text="@string/max_reward_amount" 
-	       		android:layout_weight="1"/>
-	    </TableRow>
-	    
-    </TableLayout> 
-    
-   <ImageView
-       android:id="@+id/requestorImage"
-       android:layout_width="match_parent"
-       android:layout_height="75dp"
-       android:paddingTop="5dp"
-       android:contentDescription="@string/image_description"
-       android:src="@drawable/requestor_image" />
-   
-     <SeekBar
-       android:id="@+id/audioProgressBar"
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"/>
-        
-   <Button
-       android:id="@+id/playButton"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="@string/play" 
-       android:layout_gravity="center"/>
-   
+            
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/requestor" />
+
+            <TextView
+                android:id="@+id/requestorName"
+                android:layout_weight="1"
+                android:text="@string/requestor_name" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/max_reward" />
+
+            <TextView
+                android:id="@+id/maxRewardAmount"
+                android:layout_weight="1"
+                android:text="@string/max_reward_amount" />
+        </TableRow>
+    </TableLayout>
+
     <Button
-       android:id="@+id/listenAgainButton"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_marginTop="25dp"
-       android:text="@string/listen_again" 
-       android:layout_gravity="left"/>
+        android:id="@+id/chooserButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/choose_file" />
+
+    <ImageView
+        android:id="@+id/requestorImage"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:contentDescription="@string/image_description"
+        android:paddingTop="5dp"
+        android:src="@drawable/requestor_image" />
+
+    <SeekBar
+        android:id="@+id/audioProgressBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/playButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/play" />
+
+    <Button
+        android:id="@+id/listenAgainButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginTop="25dp"
+        android:text="@string/listen_again" />
 
     <Button
         android:id="@+id/respeakButton"
