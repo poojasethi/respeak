@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left" >
+
+    <CheckBox
+        android:id="@+id/completed_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/task_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" />
+    
+    <Button
+        android:id="@+id/delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_delete_button"
+        android:scaleX=".5"
+        android:scaleY=".5"
+        android:minHeight="0dp"
+        android:minWidth="0dp"
+        android:background="@drawable/selector_transparent_button" />
+
+</TableRow>

@@ -1,0 +1,30 @@
+<resources>
+
+    <string name="app_name">Notes Example</string>
+    <string name="title_note_detail">Note Detail</string>
+    <string name="title_note_list">Notes</string>
+    <string name="link_to_dropbox">Link to Dropbox</string>
+    <string name="no_notes">No notes</string>
+    <string name="unlink_from_dropbox">Unlink from Dropbox</string>
+    <string name="new_note_option">New note</string>
+    
+    <string name="cancel">Cancel</string>
+
+    <string name="new_note_dialog_title">New note:</string>
+    <string name="new_note_name_hint">my_note</string>
+    <string name="new_note_confirm">Create</string>
+    
+    <string name="rename_note_dialog_title">Rename note:</string>
+    <string name="rename_note_confirm">Rename</string>
+    
+    <string name="menu_rename">Rename</string>
+    <string name="menu_delete">Delete</string>
+    
+    <string name="status_folder">Folder</string>
+    
+    <string name="old_version">A newer version of this file exists. Any changes made to this version will create a conflicted copy.</string>
+    
+    <string name="error_invalid_filename">Invalid file name</string>
+    <string name="error_file_already_exists">A file with that name already exists</string>
+    <string name="error_failed_load">Couldn\'t connect to Dropbox.</string>
+</resources>

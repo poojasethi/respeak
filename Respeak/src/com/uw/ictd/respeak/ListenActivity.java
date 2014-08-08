@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.dropbox.chooser.android.DbxChooser;
@@ -21,8 +22,9 @@ public class ListenActivity extends Activity {
 	private Button mPlayButton;
 	private Button mListenAgainButton;
 	private Button mRespeakButton;
+	private SeekBar mAudioProgressBar;
 
-	static final int DBX_CHOOSER_REQUEST = 0; // may need to change
+	static final int DBX_CHOOSER_REQUEST = 0; 
 	static final String APP_KEY = "0r2uvgq7r0446r";
 
 	@Override
@@ -37,6 +39,7 @@ public class ListenActivity extends Activity {
 
 		mChooser = new DbxChooser(APP_KEY);
 
+		// Allows user to pick audio file to open from Dropbox 
 		mChooserButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -83,6 +86,7 @@ public class ListenActivity extends Activity {
 		});
 	}
 
+	// TODO: stop this from crashing :(
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == DBX_CHOOSER_REQUEST) {

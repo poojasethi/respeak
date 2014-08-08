@@ -1,0 +1,61 @@
+Dropbox Sync API for Android
+============================
+
+This package contains the Android SDK for the
+[Dropbox Sync API](https://www.dropbox.com/developers/sync) and 
+[Dropbox Datastore API](https://www.dropbox.com/developers/datastore).
+
+Installing
+----------
+
+The Sync and Datastore APIs are both available as part of a single
+SDK.  Installation instructions for the SDK libraries can be found
+[here](https://www.dropbox.com/developers/datastore/sdks/android).
+
+This SDK can be used on Android devices running API version
+8 or higher.  You can build your application using the SDK for API
+version 8 or higher, but building with the latest API version is
+recommended.
+
+Getting Started
+---------------
+
+To learn how to build your first app using the Datastore API, follow
+the Datastore
+[tutorial](https://www.dropbox.com/developers/datastore/tutorial/android).
+
+There is also a [Sync API
+tutorial](https://www.dropbox.com/developers/sync/tutorial/android) to show
+you how to read and write files from Dropbox.
+
+Package Contents
+----------------
+
+In this package you'll find the following items:
+
+`README.mdown`
+>This file.
+
+`CHANGELOG.mdown`
+>A historical list of the changes in each version of this SDK.
+
+`LICENSE.txt`
+>License information for the SDK and sample code.
+
+`NOTICE.txt`
+>License information for the open-source code used in this SDK.
+
+`libs/`
+> The necessary binary files for using the SDK.  Copy these files into
+> the libs/ subdirectory of your Android project.
+
+`javadoc/`
+> The documentation for all public Java classes in the SDK, in
+> Javadoc format.
+
+`examples/`
+> Working sample applications demonstrating the use of the SDK, as
+> well as some re-usable stand-alone classes in the Util directory.
+> Before trying to build and run these applications, you should import
+> them into Eclipse and add the libraries from the libs/ directory.  See
+> the tutorial for more information.

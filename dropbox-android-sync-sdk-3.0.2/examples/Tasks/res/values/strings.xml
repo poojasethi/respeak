@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Tasks Example</string>
+	<string name="link_button">Link to Dropbox</string>
+	<string name="task_label">New Task</string>    
+	<string name="add_button">Add</string>
+	<string name="unlink_button">Unlink Account</string>
+</resources>

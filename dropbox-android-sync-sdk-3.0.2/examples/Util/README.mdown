@@ -1,0 +1,14 @@
+Utility Source Code
+===================
+
+This folder contains some utility classes that may be useful for your own 
+apps. 
+
+`FolderLoader.java`
+> A general-use Loader for loading the contents of a folder. Registers for 
+> changes and automatically delivers updates when the folder contents change.
+  
+`FolderListComparator.java`
+> A Comparator<DbxFileInfo> that provides a reasonable sort order for 
+> displaying folder listings to a user.  This comparator groups folders 
+> together, and properly orders international characters in paths.

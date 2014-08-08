@@ -1,0 +1,64 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@android:id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+	    android:layout_weight="1" >
+        
+		<EditText 
+		    style="?android:attr/textAppearanceLarge"
+		    android:id="@+id/note_detail"
+		    android:background="@android:color/transparent"
+		    android:layout_width="match_parent"
+		    android:layout_height="match_parent"
+		    android:padding="16dp"
+		    android:inputType="textMultiLine"
+		    android:gravity="top"
+            android:visibility="gone"
+		    tools:context=".NoteDetailFragment" />
+        
+        <ProgressBar 
+            android:id="@+id/note_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminateOnly="true"
+            />
+        
+		<TextView 
+		    style="?android:attr/textAppearanceLarge"
+		    android:id="@+id/error_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            />
+		
+	</FrameLayout>
+	<LinearLayout
+	    android:id="@+id/old_version"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:visibility="gone"
+	    android:orientation="vertical"
+	    >
+		<View
+			android:background="#000"
+			android:layout_width="fill_parent"
+			android:layout_height="2dp" 
+			/>
+		<TextView 
+		    android:text="@string/old_version"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:background="#ffff88"
+		    android:padding="10dp"
+		    />
+	</LinearLayout>
+</LinearLayout>

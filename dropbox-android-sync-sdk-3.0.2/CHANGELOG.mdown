@@ -1,0 +1,266 @@
+Changes to the Sync API for Android
+===================================
+
+Changes in 3.0.2
+----------------
+- fix crashes and inconsistencies when an app was repeatedly restarted
+  while being flooded with incoming changes
+
+Changes in 3.0.1
+----------------
+- fix incorrect error reporting where DbxException.Response was reported
+  instead of DbxException.Quota or DbxException.Request.
+- fix an issue with incorrect DbxDatastoreInfo fields (title/mtime) after
+  migration of local datastores.
+- fix crash initializing in an app with no android:label defined in its
+  manifest, or a non-localized android:lable
+- fix possible NullPointerException when failing to list a cache directory
+- fix failed native library load when DbxSyncService starts before the app
+  can initialize a custom native library
+
+Changes in 3.0.0
+----------------
+
+This is a major release, with API changes which may require updates
+to your application code.  See the "Potentially Breaking Changes" section below
+for more information.
+
+###New Features (Accounts):
+
+- __Multiple Accounts__:
+  DbxAccountManager.MultipleAccountsException is no longer thrown.  Instead
+  startLink() can add an additional account.  Calling getLinkedAccount() returns
+  the most recently linked account, while getLinkedAccounts() can be used to
+  get all accounts.
+- __OAuth 2__:
+  OAuth 2 is now used for authentication.  All newly linked tokens will be OAuth
+  2 tokens.  Existing OAuth 1 tokens cached on a device will continue to work
+  normally.  The app secret is still required to provide this backward compatibility.
+
+###New Features (Files):
+
+- __Configurable Cache Size__:
+  You can now set the maximum size of cached file contents to store locally.  Beyond
+  that size, files are removed in LRU order, so long as they are no longer in use.
+  You can use a cache size of 0 to disable caching of files which are not in use.
+  Files which are in use (open or uploading) are never deleted, and may cause
+  the cache to be temporarily larger than the configured size.
+- __Batching of Operations__:
+  Multiple operations manipulating the filesystem (such as moves or deletes) can be
+  automatically batched to be upload together for faster syncing.  File content changes
+  are still processed individually.
+
+###New Features (Datastores):
+
+- __App-Selected Datastore IDs__:
+  You can now use DbxDatastoreManager.openOrCreateDatastore() to create datastores
+  with local IDs like "settings".  The default datastore is no longer a special case, but
+  simply a datastore with the ID "default".
+  ___Backward Compatibility Note: Older SDK versions can open datastores with local IDs.
+  However there is a known issue if the ID of one datastore is a prefix of the ID
+  of another one (e.g. note1 and note11).  In such a situation, when "note1" is
+  deleted, the old SDK will also delete the local cache for "note11".  You should
+  avoid assigning IDs in this way if you need to interoperate with old SDK versions.___
+- __Expanded Datastore Info__:
+  DbxDatastoreInfo now includes fields for title and mtime (last modification time).
+  Title can be set using DbxDatastore.setTitle(), while mtime is set automatically
+  (using the local clock) each time you call DbxDatastore.sync() with outgoing changes.
+- __Expanded Datastore Status__:
+  DbxDatastoreStatus now includes fields indicating errors in background syncing, as well
+  as a new status flag which indicates when a datastore is unable to sync.
+- __Datastore Size Accessors__:
+  There are new accessors to allow you to check the size of your data and avoid the
+  syncing limits.
+- __Datastore Cache Management__:
+  You can use DbxDatastoreManager.uncacheDatastore() to remove a datastore from the
+  cache, in order to save space, or reset it from an unsyncable state.
+- __[Preview Feature] Local Datastores__:
+  This release contains a preview of a new feature that allows you to create and
+  use datastores locally on a device without linking a Dropbox account first.  When
+  the user logs in and wishes to sync, you can then migrate their datastores to a
+  Dropbox account.
+  ___This feature is not ready for production use, and shouldn't be used in production
+  apps.___
+  You can find more details on this feature in the
+  [documentation](https://www.dropbox.com/developers/datastore/docs/android).
+
+###Potentially Breaking Changes:
+
+- Raised minimum API version to 8 (Android 2.2 Froyo).
+- The set of exceptions thrown for errors has changed.  These now include checked
+  exceptions which extend DbxException, as well as unchecked exception which extend
+  DbxRuntimeException.  You may need to adjust catch blocks in your app accordingly.
+- DbxThrowable replaces DbxException to represent errors in background sync.  Such
+  objects may be either DbxException or DbxRuntimeException, which you can check
+  using instanceof.
+- Renamed DbxAccountManager.startLink(android.support.v4.app.Fragment, int)
+  to startLinkFromSupportFragment.  This eliminates compilation errors in apps
+  which do not use the support library.  Those which do should call the renamed method.
+
+### Other Changes
+
+- Added a native binary for the armeabi-v7a architecture.  If your app
+  needs to support only newer phones, use this instead of armeabi.  If your
+  app needs to support older phones too, include both.
+- Now allows longer IDs to be used for datastores, tables, records, and fields.
+- Fixed bug causing datastores created offline to be lost if not synced before
+  restart.
+- Fixed bugs in edge-cases of datastore syncing and conflict resolution.
+- Many general performance and stability improvements.
+
+Changes in 2.1.2
+----------------
+- fix bug where deleting a datastore with ID dsid deletes other datastores
+  whose IDs have dsid as a prefix
+- fix bug where a stale file version is opened after a file is
+  renamed, then written while still open
+- fix cache cleanup when accounts are unlinked to include all
+  subdirectories
+
+Changes in 2.1.1
+----------------
+- avoid possible crashes during DbxFilesystem or DbxDatastore shutdown
+- fix error about timeout in finalizer
+
+Changes in 2.1.0
+----------------
+- reduce memory usage during file upload
+- change permission checking to allow scenarios where multiple apps
+  share the same user account
+- allow apps to optionally pre-load libDropboxSync.so from an alternative
+  location
+- change symbols to avoid conflicts with other uses of sqlite3 library
+- improvements to error reporting
+- added missing equals, hashCode, and toString methods to DbxAccount
+  and DbxFileStatus
+
+Changes in 2.0.3
+----------------
+- add support for Android 4.4 (Kit Kat / API 19)
+- fix possible HTTP 400 when merging a datastore created locally when it
+  already exists on the server
+- fix small memory leak when garbage-collecting a DbxDatastore
+- reduce memory usage and improve progress reporting of uploads
+- enforce strict security settings on SSL communication
+- quicker cleanup of cached files when the cache is above the limit of 500MB
+- add more useful toString() on DbxSyncStatus and DbxFileStatus
+
+Changes in 2.0.2
+----------------
+- fix bug where tables with no records were still listed after sync
+- fix potential crash in error logging
+
+Changes in 2.0.1
+----------------
+- avoid security warnings when linking on some devices and OS versions
+- fix crash in Tasks example app when paused and resumed
+
+Changes in 2.0.0
+----------------
+The Sync API now contains both Datastore and File/Folder sync functionality.
+
+### Feature Changes
+- added the new Datastores API
+- added batch downloads for thumbnails
+
+### Bugs Fixed
+- check for reserved path names regardless of case
+- handle shutdown during HTTP as failure, not success
+- fix crash on attempt to open a not-yet-uploaded locally-created directory as a file
+- fix error code reported when the user is over quota
+- fix ref-counting assertion when combining some redundant operations offline
+- fix server error with offline mkdir not delivered until after restart
+- fix SecurityException in authorization on some devices
+- other stability and performance improvements
+
+Changes in 1.1.2
+----------------
+- verify functionality on Android API 18
+
+Changes in 1.1.1
+----------------
+- fix longpoll timeout calculation when app resumes from suspended state
+
+Changes in 1.1.0
+----------------
+
+### New Features
+- support for File types applications
+- support for server-generated thumbnails for images
+- support for generating sharable links
+- use long-polling to the server for faster updates and reduced
+  power usage
+- added icon name to DbxFileInfo
+- added DbxFile.appendString() and DbxFile.getAppendStream() methods
+
+### Potentially Breaking Changes
+- all listeners are now called on the main UI thread
+- removed unnecessary throws declarations on
+  DbxFileSystem.addSyncStatusListener and removeSyncStatusListener,
+  which never throw DbxException.
+- files are now not downloaded in the background if the DbxFile is no longer open
+- path listeners are now triggered by file creation
+- path listeners are now not triggered by upload or download completion
+
+### Other Changes
+- cancel outstanding server requests to avoid delays on unlink or shutdown
+- optimized upload processing to avoid redundant operations
+- properly report upload/download progress of large files
+- fix possible crash due to race-condition in DbxFileSystem creation
+- improved error behavior when attempting to write a non-file path into a DBFile
+- various performance and stability fixes
+
+Changes in 1.0.8
+----------------
+- fix NullPointerException on some devices in an app with a disabled service
+- fix so that DbxFile.getNewerStatus() on an up-to-date file returns null
+  rather than an object with default fields
+- better recovery in case of cache corruption
+
+Changes in 1.0.7
+----------------
+- fix ProGuard errors in apps using the Sync API
+- fix error on a long-running upload
+- fix OutOfMemoryError in a long-live application
+- fix modified time on folders
+
+Changes in 1.0.6
+----------------
+- fix authentication bug
+
+Changes in 1.0.5
+----------------
+- the Sync API can now be used on Android 1.6 (API 4), and can be used
+  without the Android support library.  When doing so, a cast must be
+  used on the call to DbxAccountManager.startLink() to ensure the
+  right overload is used, e.g:
+
+        mDbxAcctMgr.startLink((Activity)this, REQUEST_LINK_TO_DBX);
+
+- fix a potential crash if the app process is killed while a user
+  is being linked.  The link will fail instead.
+
+Changes in 1.0.4
+----------------
+- fix unnecessary redownloading of files written locally
+- make sure DbxSyncStatus always reports uploading when a file is uploading
+- fix a possible hang during DbxFileSystem startup
+
+Changes in 1.0.3
+----------------
+- path callbacks shouldn't be triggered by file download progress
+- don't log a warning when getting file info for a nonexistant file
+- documentation improvements
+
+Changes in 1.0.2
+----------------
+- removed unused exception type DbxException.InvalidPath
+- bug fixes and documentation improvements
+
+Changes in 1.0.1
+----------------
+- bug fixes and documentation improvements
+
+Changes in 1.0.0
+----------------
+- initial release of Sync API for Android
