@@ -17,17 +17,18 @@ import com.dropbox.sync.android.DbxAccountManager;
 
 public class ListenActivity extends Activity {
 
+	private TextView mRequestorName;
+	private TextView mMaxRewardAmount;
+	private TextView mCurrentRecording;
 	private Button mChooserButton;
 	private DbxChooser mChooser;
-	private DbxAccountManager mDbxAcctMgr;
-	private TextView mTestOutput;
 	private AudioPlayer mPlayer = new AudioPlayer();
 	private Button mPlayButton;
 	private Button mListenAgainButton;
 	private Button mRespeakButton;
 	private SeekBar mAudioProgressBar;
 
-	static final int DBX_CHOOSER_REQUEST = 0; 
+	static final int DBX_CHOOSER_REQUEST = 0;
 	static final int REQUEST_LINK_TO_DBX = 0;
 	static final String APP_KEY = "07r2uvgq7r0446r";
 	static final String APP_SECRET = "m8gxr8wh6anshmw";
@@ -36,8 +37,15 @@ public class ListenActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_listen);
+
+		mRequestorName = (TextView) findViewById(R.id.requestorName);
+		mMaxRewardAmount = (TextView) findViewById(R.id.maxRewardAmount);
+		mCurrentRecording = (TextView) findViewById(R.id.currentRecordingSelected);
 		
-		mTestOutput = (TextView) findViewById(R.id.currentRecordingSelected);
+		mRequestorName.setVisibility(View.INVISIBLE);
+		mMaxRewardAmount.setVisibility(View.INVISIBLE);
+		mCurrentRecording.setVisibility(View.INVISIBLE);
+		
 		mChooserButton = (Button) findViewById(R.id.chooserButton);
 		mPlayButton = (Button) findViewById(R.id.playButton);
 		mListenAgainButton = (Button) findViewById(R.id.listenAgainButton);
@@ -45,12 +53,12 @@ public class ListenActivity extends Activity {
 
 		mChooser = new DbxChooser(APP_KEY);
 
-		// Allows user to pick audio file to open from Dropbox 
+		// Allows user to pick audio file to open from Dropbox
 		mChooserButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				DbxChooser.ResultType resultType = DbxChooser.ResultType.FILE_CONTENT;
+				DbxChooser.ResultType resultType = DbxChooser.ResultType.DIRECT_LINK;
 				mChooser.forResultType(resultType).launch(ListenActivity.this,
 						DBX_CHOOSER_REQUEST);
 			}
@@ -91,37 +99,38 @@ public class ListenActivity extends Activity {
 			}
 		});
 	}
-	
-	// TODO: stop this from crashing :(
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == DBX_CHOOSER_REQUEST) {
 			if (resultCode == Activity.RESULT_OK) {
 				DbxChooser.Result result = new DbxChooser.Result(data);
 				Log.d("main", "Link to selected file: " + result.getLink());
+				
+				// Update to show the requestor's name
+				// possibly implement by parsing the file name
+				mRequestorName.setText("Name of requestor goes here.", TextView.BufferType.NORMAL); 
+				mRequestorName.setVisibility(View.VISIBLE);
+				
+				// Update to show the maximum reward amount
+				mMaxRewardAmount.setText("Max reward amount goes here.", TextView.BufferType.NORMAL); 
+				mMaxRewardAmount.setVisibility(View.VISIBLE);
 
-				// Handle the result
-				showLink(R.id.uri, result.getLink());
-				((TextView) findViewById(R.id.currentRecordingSelected))
-						.setText(result.getName().toString(),
-								TextView.BufferType.NORMAL);
-
+				// Update to show the current recording selected
+				mCurrentRecording.setText(result.getName().toString(), TextView.BufferType.NORMAL);
+				mCurrentRecording.setVisibility(View.VISIBLE);
+				
+				// Pass the player the new recording to be played
+				mPlayer.stop();
+				Uri recording = result.getLink();
+				mPlayer = new AudioPlayer(recording);
 			} else {
-				// Failed or was cancelled by the user.
-				((TextView) findViewById(R.id.currentRecordingSelected)).setText("failed");
+				// Failed or was cancelled by the user
+				((TextView) findViewById(R.id.currentRecordingSelected))
+						.setText("Failed to select recording.");
 			}
 		} else {
 			super.onActivityResult(requestCode, resultCode, data);
 		}
-	}
-
-	private void showLink(int id, Uri uri) {
-		TextView v = (TextView) findViewById(id);
-		if (uri == null) {
-			v.setText("", TextView.BufferType.NORMAL);
-			return;
-		}
-		v.setText(uri.toString(), TextView.BufferType.NORMAL);
-		v.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 }

@@ -2,10 +2,23 @@ package com.uw.ictd.respeak;
 
 import android.content.Context;
 import android.media.MediaPlayer;
+import android.net.Uri;
 
 public class AudioPlayer {
 	
 	private MediaPlayer mPlayer;
+	private int DEFAULT_RECORDING = R.raw.gaetano_lecture; // change later
+	
+	// Recording chosen by user to be played
+	// TODO: Will crash if user picks something that is not an audio file. Perform check. 
+	private Uri mRecording;
+	
+	protected AudioPlayer() {
+	}
+	
+	protected AudioPlayer(Uri uri) {
+		mRecording = uri;
+	}
 	
 	public void stop() {
 		if (mPlayer != null) {
@@ -16,9 +29,14 @@ public class AudioPlayer {
 	
 	public void play(Context c) {
 		if (mPlayer == null) {
-			stop();
 			
-			mPlayer = MediaPlayer.create(c, R.raw.ted_talk);
+			// Checks if a recording has been chosen by the user and creates the appropriate player
+			if (mRecording == null) {
+				mPlayer = MediaPlayer.create(c, DEFAULT_RECORDING);
+			} else {
+				mPlayer = MediaPlayer.create(c, mRecording);
+			}
+			
 			mPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 				@Override
 				public void onCompletion(MediaPlayer mp) {
