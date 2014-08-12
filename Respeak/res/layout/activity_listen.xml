@@ -13,45 +13,60 @@
         android:orientation="horizontal"
         android:paddingTop="5dp" >
 
-        <TableRow>
-            
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/requestor" />
 
             <TextView
                 android:id="@+id/requestorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/requestor_name" />
-            
+
         </TableRow>
 
-        <TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/max_reward" />
 
             <TextView
                 android:id="@+id/maxRewardAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/max_reward_amount" />
-            
         </TableRow>
-        
-         <TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/current_recording" />
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:id="@+id/currentRecordingSelected"
                 android:layout_weight="1"
                 android:text="@string/current_recording_selected" />
-            
         </TableRow>
-
     </TableLayout>
 
     <Button
@@ -69,10 +84,37 @@
         android:paddingTop="5dp"
         android:src="@drawable/requestor_image" />
 
-    <SeekBar
-        android:id="@+id/audioProgressBar"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/audioCurrentDurationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|bottom"
+            android:text="0:00" 
+            android:textColor="#04cbde"
+            android:textStyle="bold"/>
+
+        <SeekBar
+            android:id="@+id/audioProgressBar"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content" 
+            android:layout_gravity="center"/>
+        
+        <TextView
+            android:id="@+id/audioTotalDurationLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:text="0:05" 
+            android:textColor="#04cbde"
+            android:textStyle="bold"/>
+        
+    </LinearLayout>
 
     <Button
         android:id="@+id/playButton"
