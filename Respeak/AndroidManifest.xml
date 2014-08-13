@@ -23,9 +23,8 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter> 
+            </intent-filter>
         </activity>
-        
         <activity
             android:name=".ListenActivity"
             android:label="@string/title_activity_listen" >
@@ -51,6 +50,11 @@
             android:enabled="true"
             android:exported="false"
             android:label="Dropbox Sync" />
+
+        <activity
+            android:name=".RecordActivity"
+            android:label="@string/title_activity_record" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".RecordActivity" >
+
+    <ImageView
+        android:id="@+id/recorderPic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/image_recorder_description"
+        android:paddingTop="5dp"
+        android:src="@drawable/blue_mic" />
+    
+    <TextView
+        android:id="@+id/audioDurationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="0:00"
+        android:textColor="#04cbde"
+        android:paddingTop="10dp"
+        android:textSize="30sp" />
+
+</LinearLayout>

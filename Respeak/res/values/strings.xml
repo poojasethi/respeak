@@ -20,6 +20,8 @@
     <string name="listen_again">Listen Again</string>
     <string name="respeak">Respeak</string>
     <string name="link">Link:</string>
+    <string name="image_recorder_description">Recorder</string>
     <string name="title_activity_listen">ListenActivity</string>
+    <string name="title_activity_record">RecordActivity</string>
 
 </resources>
