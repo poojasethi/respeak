@@ -28,6 +28,8 @@ public class ListenActivity extends Activity {
 	private Button mRespeakButton;
 	private SeekBar mAudioProgressBar;
 
+	static final String EXTRA_PHONE_NUMBER = "com.uw.ictd.respeak.phone_number";
+	
 	static final int DBX_CHOOSER_REQUEST = 0;
 	static final int REQUEST_LINK_TO_DBX = 0;
 	static final String APP_KEY = "07r2uvgq7r0446r";

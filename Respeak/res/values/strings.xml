@@ -3,6 +3,7 @@
 
     <string name="app_name">respeak</string>
     <string name="hint_login">Enter your phone number</string>
+    <string name="invalid_phone_number_toast">Please enter a valid phone number.</string>
     <string name="sign_up">Sign Up</string>
     <string name="login">Log In</string>
     <string name="first_time_on_respeak">First time on respeak?</string>
