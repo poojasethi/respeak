@@ -10,7 +10,6 @@ public class AudioPlayer {
 	private int DEFAULT_RECORDING = R.raw.gaetano_lecture; // change later
 	
 	// Recording chosen by user to be played
-	// TODO: Will crash if user picks something that is not an audio file. Perform check. 
 	private Uri mRecording;
 	
 	protected AudioPlayer() {

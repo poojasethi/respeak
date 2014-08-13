@@ -107,23 +107,30 @@ public class ListenActivity extends Activity {
 				DbxChooser.Result result = new DbxChooser.Result(data);
 				Log.d("main", "Link to selected file: " + result.getLink());
 				
-				// Update to show the requestor's name
-				// possibly implement by parsing the file name
-				mRequestorName.setText("Name of requestor goes here.", TextView.BufferType.NORMAL); 
-				mRequestorName.setVisibility(View.VISIBLE);
-				
-				// Update to show the maximum reward amount
-				mMaxRewardAmount.setText("Max reward amount goes here.", TextView.BufferType.NORMAL); 
-				mMaxRewardAmount.setVisibility(View.VISIBLE);
+				if (result.getName().toString().endsWith(".mp3") || result.getName().toString().endsWith(".MP3")) {
+					// Update to show the requestor's name
+					// TODO: possibly implement by parsing the file name
+					mRequestorName.setText("Name of requestor goes here.", TextView.BufferType.NORMAL); 
+					mRequestorName.setVisibility(View.VISIBLE);
+					
+					// Update to show the maximum reward amount
+					mMaxRewardAmount.setText("Max reward amount goes here.", TextView.BufferType.NORMAL); 
+					mMaxRewardAmount.setVisibility(View.VISIBLE);
 
-				// Update to show the current recording selected
-				mCurrentRecording.setText(result.getName().toString(), TextView.BufferType.NORMAL);
+					// Update to show the current recording selected
+					mCurrentRecording.setText(result.getName().toString(), TextView.BufferType.NORMAL);
+					
+					// Pass the player the new recording to be played
+					mPlayer.stop();
+					Uri recording = result.getLink();
+					mPlayer = new AudioPlayer(recording);
+				 
+					// Error if the user does not select an audio file
+				} else {
+					mCurrentRecording.setText("Error. You must select an audio file.", TextView.BufferType.NORMAL);
+				}
 				mCurrentRecording.setVisibility(View.VISIBLE);
 				
-				// Pass the player the new recording to be played
-				mPlayer.stop();
-				Uri recording = result.getLink();
-				mPlayer = new AudioPlayer(recording);
 			} else {
 				// Failed or was cancelled by the user
 				((TextView) findViewById(R.id.currentRecordingSelected))
