@@ -96,12 +96,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="left|bottom"
             android:text="0:00" 
-            android:textColor="#04cbde"
+            android:textColor="@color/light_blue"
             android:textStyle="bold"/>
 
         <SeekBar
             android:id="@+id/audioProgressBar"
-            android:layout_width="275dp"
+            android:layout_width="245dp"
             android:layout_height="wrap_content" 
             android:layout_gravity="center"/>
         
@@ -111,17 +111,18 @@
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
             android:text="0:05" 
-            android:textColor="#04cbde"
+            android:textColor="@color/light_blue"
             android:textStyle="bold"/>
         
     </LinearLayout>
 
-    <Button
+    <ImageButton
         android:id="@+id/playButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="@string/play" />
+        android:src="@drawable/play"
+        android:background="@null" />
 
     <Button
         android:id="@+id/listenAgainButton"
@@ -129,13 +130,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:layout_marginTop="25dp"
-        android:text="@string/listen_again" />
+        android:text="@string/listen_again" 
+        android:background="@null"/>
 
     <Button
         android:id="@+id/respeakButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="@string/respeak" />
+        android:text="@string/respeak"
+        android:background="@null" />
 
 </LinearLayout>

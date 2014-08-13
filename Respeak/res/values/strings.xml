@@ -16,12 +16,18 @@
     <string name="image_description">CGNet Swara</string>
     <string name="play">Play</string>
     <string name="choose_file">Choose file from Dropbox</string>
-    <string name="pause">Pause</string>
-    <string name="listen_again">Listen Again</string>
-    <string name="respeak">Respeak</string>
+    <string name="pause">pause</string>
+    <string name="listen_again">listen again</string>
+    <string name="respeak">respeak</string>
+    <string name="record">record</string>
     <string name="link">Link:</string>
-    <string name="image_recorder_description">Recorder</string>
-    <string name="title_activity_listen">ListenActivity</string>
-    <string name="title_activity_record">RecordActivity</string>
+    <string name="image_description_recorder">Recorder</string>
+    <string name="image_description_record_button">Press to record</string>
+    <string name="title_activity_listen">listen</string>
+    <string name="title_activity_record">record</string>
+    
+    <color name="white">#FFFFFF</color>
+    <color name="light_blue">#04CBDE</color>
+    <color name="gold">#FF9900</color>
 
 </resources>
