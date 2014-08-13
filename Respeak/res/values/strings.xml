@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Respeak</string>
+    <string name="app_name">respeak</string>
+    <string name="hint_login">Enter your phone number</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="login">Log In</string>
+    <string name="first_time_on_respeak">First time on respeak?</string>
     <string name="requestor">Requestor:</string>
     <string name="requestor_name">CGNet Swara</string>
     <string name="max_reward">Max Reward:</string>
@@ -15,5 +19,6 @@
     <string name="listen_again">Listen Again</string>
     <string name="respeak">Respeak</string>
     <string name="link">Link:</string>
+    <string name="title_activity_listen">ListenActivity</string>
 
 </resources>
