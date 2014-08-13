@@ -20,14 +20,17 @@
     <string name="listen_again">listen again</string>
     <string name="respeak">respeak</string>
     <string name="record">record</string>
+    <string name="done">done</string>
     <string name="link">Link:</string>
     <string name="image_description_recorder">Recorder</string>
     <string name="image_description_record_button">Press to record</string>
+    <string name="image_description_done_button">Press if you are done recording</string>
     <string name="title_activity_listen">listen</string>
     <string name="title_activity_record">record</string>
     
     <color name="white">#FFFFFF</color>
-    <color name="light_blue">#04CBDE</color>
-    <color name="gold">#FF9900</color>
+    <color name="light_blue">#00B8E6</color>
+    <color name="gold">#E6B800</color>
+    <color name="dark_gray">#2E2E2B</color>
 
 </resources>

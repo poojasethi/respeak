@@ -21,7 +21,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/requestor" />
+                android:text="@string/requestor"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/requestorName"
@@ -29,7 +30,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/requestor_name" />
-
         </TableRow>
 
         <TableRow
@@ -40,7 +40,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/max_reward" />
+                android:text="@string/max_reward"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/maxRewardAmount"
@@ -58,12 +59,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/current_recording" />
+                android:text="@string/current_recording"
+                android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/currentRecordingSelected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/currentRecordingSelected"
                 android:layout_weight="1"
                 android:text="@string/current_recording_selected" />
         </TableRow>
@@ -95,25 +97,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|bottom"
-            android:text="0:00" 
-            android:textColor="@color/light_blue"
-            android:textStyle="bold"/>
+            android:text="0:00"
+            android:textColor="@color/gold"
+            android:textStyle="bold" />
 
         <SeekBar
             android:id="@+id/audioProgressBar"
             android:layout_width="245dp"
-            android:layout_height="wrap_content" 
-            android:layout_gravity="center"/>
-        
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
         <TextView
             android:id="@+id/audioTotalDurationLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
-            android:text="0:05" 
-            android:textColor="@color/light_blue"
-            android:textStyle="bold"/>
-        
+            android:text="0:05"
+            android:textColor="@color/gold"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <ImageButton
@@ -121,24 +122,55 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:src="@drawable/play"
-        android:background="@null" />
+        android:background="@drawable/play_button_selector" />
 
-    <Button
-        android:id="@+id/listenAgainButton"
-        android:layout_width="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:layout_marginTop="25dp"
-        android:text="@string/listen_again" 
-        android:background="@null"/>
+        android:orientation="horizontal"
+        android:paddingTop="10dp" >
 
-    <Button
-        android:id="@+id/respeakButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="@string/respeak"
-        android:background="@null" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/listenAgainImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/replay" />
+
+            <Button
+                android:id="@+id/listenAgainButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:gravity="center|left"
+                android:text="@string/listen_again"
+                android:textColor="@color/light_blue" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp" >
+
+            <ImageButton
+                android:id="@+id/respeakImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/blue_mic_small" />
+
+            <Button
+                android:id="@+id/respeakButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center|left"
+                android:background="@null"
+                android:text="@string/respeak" 
+                android:textColor="@color/light_blue" />
+            
+        </TableRow>
+    </TableLayout>
 
 </LinearLayout>
