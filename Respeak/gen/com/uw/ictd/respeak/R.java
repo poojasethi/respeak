@@ -858,7 +858,7 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f0c0002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f080052;
+        public static final int abc_search_url_text_holo=0x7f080053;
         public static final int abc_search_url_text_normal=0x7f08004b;
         public static final int abc_search_url_text_pressed=0x7f08004d;
         public static final int abc_search_url_text_selected=0x7f08004c;
@@ -903,6 +903,7 @@ containing a value of this type.
          */
         public static final int lightBlueBackground2=0x7f08001e;
         public static final int light_blue=0x7f08004f;
+        public static final int light_gray=0x7f080052;
         public static final int listEmptyText=0x7f08000c;
         public static final int localFilelistBackground=0x7f080011;
         public static final int localListEmptyText=0x7f080012;
@@ -1273,10 +1274,11 @@ containing a value of this type.
         public static final int play=0x7f020069;
         public static final int play_button_selector=0x7f02006a;
         public static final int record=0x7f02006b;
-        public static final int replay=0x7f02006c;
-        public static final int requestor_image=0x7f02006d;
-        public static final int tab_dropbox=0x7f02006e;
-        public static final int tab_dropbox_inactive=0x7f02006f;
+        public static final int record_gray=0x7f02006c;
+        public static final int replay=0x7f02006d;
+        public static final int requestor_image=0x7f02006e;
+        public static final int tab_dropbox=0x7f02006f;
+        public static final int tab_dropbox_inactive=0x7f020070;
     }
     public static final class id {
         public static final int action_bar=0x7f0b001c;
@@ -1301,22 +1303,24 @@ containing a value of this type.
         public static final int chooserButton=0x7f0b003f;
         public static final int collapseActionView=0x7f0b000d;
         public static final int currentRecordingSelected=0x7f0b003e;
-        public static final int dbx_bottom_bar=0x7f0b005a;
-        public static final int dbx_bottom_bar_cancel_button=0x7f0b005b;
-        public static final int dbx_bottom_bar_ok_button=0x7f0b005c;
-        public static final int dbx_bottom_space=0x7f0b0059;
-        public static final int dbx_button_bar=0x7f0b0051;
-        public static final int dbx_button_container=0x7f0b0050;
-        public static final int dbx_icon=0x7f0b0056;
-        public static final int dbx_install_main=0x7f0b0057;
-        public static final int dbx_install_sub=0x7f0b0058;
-        public static final int dbx_install_title=0x7f0b0053;
-        public static final int dbx_main_container=0x7f0b0052;
-        public static final int dbx_separator=0x7f0b0054;
-        public static final int dbx_top_space=0x7f0b0055;
+        public static final int dbx_bottom_bar=0x7f0b005c;
+        public static final int dbx_bottom_bar_cancel_button=0x7f0b005d;
+        public static final int dbx_bottom_bar_ok_button=0x7f0b005e;
+        public static final int dbx_bottom_space=0x7f0b005b;
+        public static final int dbx_button_bar=0x7f0b0053;
+        public static final int dbx_button_container=0x7f0b0052;
+        public static final int dbx_icon=0x7f0b0058;
+        public static final int dbx_install_main=0x7f0b0059;
+        public static final int dbx_install_sub=0x7f0b005a;
+        public static final int dbx_install_title=0x7f0b0055;
+        public static final int dbx_main_container=0x7f0b0054;
+        public static final int dbx_separator=0x7f0b0056;
+        public static final int dbx_top_space=0x7f0b0057;
         public static final int default_activity_button=0x7f0b0028;
         public static final int dialog=0x7f0b000e;
         public static final int disableHome=0x7f0b0008;
+        public static final int doneButton=0x7f0b0051;
+        public static final int doneImageButton=0x7f0b0050;
         public static final int dropdown=0x7f0b000f;
         public static final int edit_query=0x7f0b0030;
         public static final int end=0x7f0b0013;
@@ -1342,8 +1346,8 @@ containing a value of this type.
         public static final int progress_circular=0x7f0b0018;
         public static final int progress_horizontal=0x7f0b0019;
         public static final int radio=0x7f0b002f;
-        public static final int recordButton=0x7f0b004e;
-        public static final int recorderDoneButton=0x7f0b004f;
+        public static final int recordButton=0x7f0b004f;
+        public static final int recordImageButton=0x7f0b004e;
         public static final int recorderPic=0x7f0b004c;
         public static final int requestorImage=0x7f0b0040;
         public static final int requestorName=0x7f0b003c;

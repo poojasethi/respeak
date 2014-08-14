@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context=".RecordActivity" >
 
     <ImageView
@@ -31,13 +32,14 @@
         android:orientation="horizontal" >
 
         <ImageButton
-            android:id="@+id/recordButton"
+            android:id="@+id/recordImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/image_description_record_button"
             android:background="@drawable/record" />
 
         <Button
+            android:id="@+id/recordButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -46,13 +48,14 @@
             android:textColor="@color/light_blue" />
 
         <ImageButton
-            android:id="@+id/recorderDoneButton"
+            android:id="@+id/doneImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/image_description_done_button"
             android:background="@drawable/done_black" />
 
         <Button
+            android:id="@+id/doneButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"

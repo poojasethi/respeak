@@ -7,7 +7,7 @@ import android.net.Uri;
 public class AudioPlayer {
 	
 	private MediaPlayer mPlayer;
-	private int DEFAULT_RECORDING = R.raw.gaetano_lecture; // change later
+	private int DEFAULT_RECORDING = R.raw.gaetano_lecture; // TODO: change default later
 	
 	// Recording chosen by user to be played
 	private Uri mRecording;

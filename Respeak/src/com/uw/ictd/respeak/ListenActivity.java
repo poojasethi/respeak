@@ -98,9 +98,8 @@ public class ListenActivity extends Activity {
 		mListenAgainImageButton.setOnClickListener(listenAgainListener);
 		
 
-		// TODO: implement RecordActivity
+		// Starts the recording activity
 		OnClickListener respeakListener = new OnClickListener() {
-
 			@Override
 			public void onClick(View v) {
 				// Stop playing the audio and reset the background
@@ -160,5 +159,11 @@ public class ListenActivity extends Activity {
 		} else {
 			super.onActivityResult(requestCode, resultCode, data);
 		}
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		mPlayer.stop();
 	}
 }

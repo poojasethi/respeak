@@ -32,5 +32,6 @@
     <color name="light_blue">#00B8E6</color>
     <color name="gold">#E6B800</color>
     <color name="dark_gray">#2E2E2B</color>
+    <color name="light_gray">#C1C1AF</color>
 
 </resources>
