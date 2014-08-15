@@ -21,7 +21,12 @@
     <string name="respeak">respeak</string>
     <string name="record">record</string>
     <string name="done">done</string>
+    <string name="sounds_good">Sounds good?</string>
+    <string name="no_record_again">no, record again</string>
+    <string name="yes_submit">yes, submit</string>
     <string name="link">Link:</string>
+    <string name="your_recording">Your Recording:</string>
+    <string name="original_recording">Original Recording:</string>
     <string name="image_description_recorder">Recorder</string>
     <string name="image_description_record_button">Press to record</string>
     <string name="image_description_done_button">Press if you are done recording</string>
@@ -33,5 +38,7 @@
     <color name="gold">#E6B800</color>
     <color name="dark_gray">#2E2E2B</color>
     <color name="light_gray">#C1C1AF</color>
+    <color name="red">#E60000</color>
+    <color name="green">#53CF29</color>
 
 </resources>

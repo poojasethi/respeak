@@ -1,5 +1,6 @@
 package com.uw.ictd.respeak;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,8 +9,11 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 public class RecordFragment extends Fragment {
+	
+	private ImageView mRecorderPic;
 	private Button mRecordButton;
 	private ImageButton mRecordImageButton;
 	private Button mDoneButton;
@@ -21,6 +25,7 @@ public class RecordFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_record, parent, false);
 		
+		mRecorderPic = (ImageView) v.findViewById(R.id.recorderPic);
 		mRecordButton = (Button) v.findViewById(R.id.recordButton);
 		mRecordImageButton = (ImageButton) v.findViewById(R.id.recordImageButton);
 		mDoneButton = (Button) v.findViewById(R.id.doneButton);
@@ -36,6 +41,11 @@ public class RecordFragment extends Fragment {
 			public void onClick(View v) {
 				mRecorder.startRecording();
 				
+				// Changes color of mic for API level 16 and above
+				if (android.os.Build.VERSION.SDK_INT > 15) {
+					mRecorderPic.setImageResource(R.drawable.red_mic);
+				}
+			    
 				disableRecordButton();
 				enableDoneButton();
 			}
@@ -53,6 +63,11 @@ public class RecordFragment extends Fragment {
 				if (mRecorder != null) {
 					mRecorder.stopRecording();
 					
+					// Changes color of mic for API level 16 and above
+					if (android.os.Build.VERSION.SDK_INT > 15) {
+						mRecorderPic.setImageResource(R.drawable.blue_mic);
+					}
+					 
 					disableDoneButton();
 					enableRecordButton();
 				}

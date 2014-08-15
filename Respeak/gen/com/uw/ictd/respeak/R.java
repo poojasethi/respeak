@@ -1268,17 +1268,20 @@ containing a value of this type.
         public static final int common_button_light_gray=0x7f020063;
         public static final int done_black=0x7f020064;
         public static final int done_gray=0x7f020065;
-        public static final int ic_launcher=0x7f020066;
-        public static final int icon_new=0x7f020067;
-        public static final int pause=0x7f020068;
-        public static final int play=0x7f020069;
-        public static final int play_button_selector=0x7f02006a;
-        public static final int record=0x7f02006b;
-        public static final int record_gray=0x7f02006c;
-        public static final int replay=0x7f02006d;
-        public static final int requestor_image=0x7f02006e;
-        public static final int tab_dropbox=0x7f02006f;
-        public static final int tab_dropbox_inactive=0x7f020070;
+        public static final int green_check=0x7f020066;
+        public static final int ic_launcher=0x7f020067;
+        public static final int icon_new=0x7f020068;
+        public static final int pause=0x7f020069;
+        public static final int play=0x7f02006a;
+        public static final int play_button_selector=0x7f02006b;
+        public static final int record=0x7f02006c;
+        public static final int record_gray=0x7f02006d;
+        public static final int red_mic=0x7f02006e;
+        public static final int red_x=0x7f02006f;
+        public static final int replay=0x7f020070;
+        public static final int requestor_image=0x7f020071;
+        public static final int tab_dropbox=0x7f020072;
+        public static final int tab_dropbox_inactive=0x7f020073;
     }
     public static final class id {
         public static final int action_bar=0x7f0b001c;
@@ -1295,9 +1298,15 @@ containing a value of this type.
         public static final int activity_chooser_view_content=0x7f0b0025;
         public static final int always=0x7f0b000b;
         public static final int audioCurrentDurationLabel=0x7f0b0041;
+        public static final int audioCurrentDurationLabelOriginal=0x7f0b0064;
+        public static final int audioCurrentDurationLabelYou=0x7f0b0060;
         public static final int audioDurationLabel=0x7f0b005b;
         public static final int audioProgressBar=0x7f0b0042;
+        public static final int audioProgressBarOriginal=0x7f0b0065;
+        public static final int audioProgressBarYou=0x7f0b0061;
         public static final int audioTotalDurationLabel=0x7f0b0043;
+        public static final int audioTotalDurationLabelOriginal=0x7f0b0066;
+        public static final int audioTotalDurationLabelYou=0x7f0b0062;
         public static final int beginning=0x7f0b0011;
         public static final int checkbox=0x7f0b002d;
         public static final int chooserButton=0x7f0b003f;
@@ -1339,10 +1348,14 @@ containing a value of this type.
         public static final int maxRewardAmount=0x7f0b003d;
         public static final int middle=0x7f0b0012;
         public static final int never=0x7f0b0009;
+        public static final int noButton=0x7f0b0069;
+        public static final int noImageButton=0x7f0b0068;
         public static final int none=0x7f0b0010;
         public static final int normal=0x7f0b0000;
         public static final int phoneNumberField=0x7f0b0049;
         public static final int playButton=0x7f0b0044;
+        public static final int playButtonOriginal=0x7f0b0067;
+        public static final int playButtonYou=0x7f0b0063;
         public static final int progress_circular=0x7f0b0018;
         public static final int progress_horizontal=0x7f0b0019;
         public static final int radio=0x7f0b002f;
@@ -1377,6 +1390,8 @@ containing a value of this type.
         public static final int up=0x7f0b0021;
         public static final int useLogo=0x7f0b0003;
         public static final int withText=0x7f0b000c;
+        public static final int yesButton=0x7f0b006b;
+        public static final int yesImageButton=0x7f0b006a;
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within
@@ -1436,7 +1451,8 @@ containing a value of this type.
         public static final int bottom_bar_light=0x7f03001c;
         public static final int bottom_buttons_light=0x7f03001d;
         public static final int fragment_record=0x7f03001e;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
+        public static final int fragment_submission=0x7f03001f;
+        public static final int support_simple_spinner_dropdown_item=0x7f030020;
     }
     public static final class raw {
         public static final int gaetano_lecture=0x7f050000;
@@ -1500,15 +1516,17 @@ containing a value of this type.
         public static final int first_time_on_respeak=0x7f09001b;
         public static final int hint_login=0x7f090017;
         public static final int image_description=0x7f090022;
-        public static final int image_description_done_button=0x7f09002d;
-        public static final int image_description_record_button=0x7f09002c;
-        public static final int image_description_recorder=0x7f09002b;
+        public static final int image_description_done_button=0x7f090032;
+        public static final int image_description_record_button=0x7f090031;
+        public static final int image_description_recorder=0x7f090030;
         public static final int invalid_phone_number_toast=0x7f090018;
-        public static final int link=0x7f09002a;
+        public static final int link=0x7f09002d;
         public static final int listen_again=0x7f090026;
         public static final int login=0x7f09001a;
         public static final int max_reward=0x7f09001e;
         public static final int max_reward_amount=0x7f09001f;
+        public static final int no_record_again=0x7f09002b;
+        public static final int original_recording=0x7f09002f;
         public static final int pause=0x7f090025;
         public static final int play=0x7f090023;
         public static final int record=0x7f090028;
@@ -1516,8 +1534,11 @@ containing a value of this type.
         public static final int requestor_name=0x7f09001d;
         public static final int respeak=0x7f090027;
         public static final int sign_up=0x7f090019;
-        public static final int title_activity_listen=0x7f09002e;
-        public static final int title_activity_record=0x7f09002f;
+        public static final int sounds_good=0x7f09002a;
+        public static final int title_activity_listen=0x7f090033;
+        public static final int title_activity_record=0x7f090034;
+        public static final int yes_submit=0x7f09002c;
+        public static final int your_recording=0x7f09002e;
     }
     public static final class style {
         /** 
