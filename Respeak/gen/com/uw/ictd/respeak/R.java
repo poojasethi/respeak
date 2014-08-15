@@ -1299,14 +1299,14 @@ containing a value of this type.
         public static final int always=0x7f0b000b;
         public static final int audioCurrentDurationLabel=0x7f0b0041;
         public static final int audioCurrentDurationLabelOriginal=0x7f0b0056;
-        public static final int audioCurrentDurationLabelYou=0x7f0b0052;
+        public static final int audioCurrentDurationLabelUser=0x7f0b0052;
         public static final int audioDurationLabel=0x7f0b004d;
         public static final int audioProgressBar=0x7f0b0042;
         public static final int audioProgressBarOriginal=0x7f0b0057;
-        public static final int audioProgressBarYou=0x7f0b0053;
+        public static final int audioProgressBarUser=0x7f0b0053;
         public static final int audioTotalDurationLabel=0x7f0b0043;
         public static final int audioTotalDurationLabelOriginal=0x7f0b0058;
-        public static final int audioTotalDurationLabelYou=0x7f0b0054;
+        public static final int audioTotalDurationLabelUser=0x7f0b0054;
         public static final int beginning=0x7f0b0011;
         public static final int checkbox=0x7f0b002d;
         public static final int chooserButton=0x7f0b003f;
@@ -1355,7 +1355,7 @@ containing a value of this type.
         public static final int phoneNumberField=0x7f0b0049;
         public static final int playButton=0x7f0b0044;
         public static final int playButtonOriginal=0x7f0b0059;
-        public static final int playButtonYou=0x7f0b0055;
+        public static final int playButtonUser=0x7f0b0055;
         public static final int progress_circular=0x7f0b0018;
         public static final int progress_horizontal=0x7f0b0019;
         public static final int radio=0x7f0b002f;

@@ -27,10 +27,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name=".ListenActivity"
             android:label="@string/title_activity_listen" >
         </activity>
+        
+         <activity
+            android:name=".RecordActivity"
+            android:label="@string/title_activity_record" >
+        </activity>
+        
+        <activity
+            android:name=".SubmissionActivity"
+            android:label="@string/title_activity_record" >
+        </activity>
+        
 
         <!-- Needed for Dropbox Sync API -->
         <activity android:name="com.dropbox.sync.android.DbxAuthActivity" />
@@ -52,11 +64,6 @@
             android:enabled="true"
             android:exported="false"
             android:label="Dropbox Sync" />
-
-        <activity
-            android:name=".RecordActivity"
-            android:label="@string/title_activity_record" >
-        </activity>
     </application>
 
 </manifest>

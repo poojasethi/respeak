@@ -1,16 +1,16 @@
 package com.uw.ictd.respeak;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-public class RecordActivity extends FragmentActivity {
+public class RecordActivity extends Activity {
+	private static final int REQUEST_CODE = 1;
 	
 	private ImageView mRecorderPic;
 	private Button mRecordButton;
@@ -23,6 +23,7 @@ public class RecordActivity extends FragmentActivity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_record);
 		
 		mRecorderPic = (ImageView) findViewById(R.id.recorderPic);
 		mRecordButton = (Button) findViewById(R.id.recordButton);
@@ -41,7 +42,7 @@ public class RecordActivity extends FragmentActivity {
 				mRecorder.startRecording();
 				
 				// Changes color of mic for API level 16 and above
-				if (android.os.Build.VERSION.SDK_INT > 15) {
+				if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
 					mRecorderPic.setImageResource(R.drawable.red_mic);
 				}
 			    
@@ -63,12 +64,16 @@ public class RecordActivity extends FragmentActivity {
 					mRecorder.stopRecording();
 					
 					// Changes color of mic for API level 16 and above
-					if (android.os.Build.VERSION.SDK_INT > 15) {
+					if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
 						mRecorderPic.setImageResource(R.drawable.blue_mic);
 					}
 					 
 					disableDoneButton();
 					enableRecordButton();
+					
+					Intent i = new Intent(RecordActivity.this, SubmissionActivity.class);
+					i.putExtra(SubmissionActivity.EXTRA_RECORDED_FILE_NAME, mRecorder.getFileName());
+					startActivityForResult(i, REQUEST_CODE);
 				}
 			}
 		};

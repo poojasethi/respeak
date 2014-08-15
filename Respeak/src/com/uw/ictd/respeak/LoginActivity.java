@@ -14,6 +14,7 @@ public class LoginActivity extends Activity {
 	private Button mLogInButton;
 	private Button mSignUpButton;
 	private EditText mPhoneNumberField;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

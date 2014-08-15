@@ -23,7 +23,7 @@
         android:paddingTop="10dp" >
 
         <TextView
-            android:id="@+id/audioCurrentDurationLabelYou"
+            android:id="@+id/audioCurrentDurationLabelUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|bottom"
@@ -32,12 +32,12 @@
             android:textStyle="bold" />
 
         <SeekBar
-            android:id="@+id/audioProgressBarYou"
+            android:id="@+id/audioProgressBarUser"
             android:layout_width="245dp"
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/audioTotalDurationLabelYou"
+            android:id="@+id/audioTotalDurationLabelUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
@@ -47,7 +47,7 @@
     </LinearLayout>
 
     <ImageButton
-        android:id="@+id/playButtonYou"
+        android:id="@+id/playButtonUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

@@ -11,24 +11,24 @@ public class AudioRecorder {
 
 	private static final String TAG = "AudioRecorder";
 	private MediaRecorder mRecorder;
-	private MediaPlayer mPlayer;
+//	private MediaPlayer mPlayer;
 	private String mFileName;
 
-    protected void startPlaying() {
-        mPlayer = new MediaPlayer();
-        try {
-            mPlayer.setDataSource(mFileName);
-            mPlayer.prepare();
-            mPlayer.start();
-        } catch (IOException e) {
-            Log.e(TAG, "prepare() failed");
-        }
-    }
-
-    protected void stopPlaying() {
-        mPlayer.release();
-        mPlayer = null;
-    }
+//    protected void startPlaying() {
+//        mPlayer = new MediaPlayer();
+//        try {
+//            mPlayer.setDataSource(mFileName);
+//            mPlayer.prepare();
+//            mPlayer.start();
+//        } catch (IOException e) {
+//            Log.e(TAG, "prepare() failed");
+//        }
+//    }
+//
+//    protected void stopPlaying() {
+//        mPlayer.release();
+//        mPlayer = null;
+//    }
     
     protected void startRecording() {
     	mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -57,16 +57,20 @@ public class AudioRecorder {
     	}
     }
     
+    protected String getFileName() {
+    	return mFileName;
+    }
+    
     protected void stop() {
     	if (mRecorder != null) {
             mRecorder.release();
             mRecorder = null;
         }
 
-        if (mPlayer != null) {
-            mPlayer.release();
-            mPlayer = null;
-        }
+//        if (mPlayer != null) {
+//            mPlayer.release();
+//            mPlayer = null;
+//        }
     }
     
 }
