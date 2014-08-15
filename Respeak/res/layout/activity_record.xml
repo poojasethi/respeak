@@ -2,8 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
+    android:orientation="vertical"
     tools:context=".RecordActivity" >
 
     <ImageView
@@ -14,13 +14,13 @@
         android:paddingTop="5dp"
         android:src="@drawable/blue_mic" />
 
-    <TextView
-        android:id="@+id/audioDurationLabel"
+    <Chronometer
+        android:id="@+id/chronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:format="%s"
         android:paddingTop="10dp"
-        android:text="0:00"
         android:textColor="@color/gold"
         android:textSize="30sp" />
 
@@ -28,15 +28,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center|top"
-        android:paddingTop="10dp"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingTop="10dp" >
 
         <ImageButton
             android:id="@+id/recordImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/image_description_record_button"
-            android:background="@drawable/record" />
+            android:background="@drawable/record"
+            android:contentDescription="@string/image_description_record_button" />
 
         <Button
             android:id="@+id/recordButton"
@@ -51,8 +51,8 @@
             android:id="@+id/doneImageButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/image_description_done_button"
-            android:background="@drawable/done_black" />
+            android:background="@drawable/done_black"
+            android:contentDescription="@string/image_description_done_button" />
 
         <Button
             android:id="@+id/doneButton"

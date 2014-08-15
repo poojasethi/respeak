@@ -3,9 +3,11 @@ package com.uw.ictd.respeak;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
@@ -19,6 +21,7 @@ public class RecordActivity extends Activity {
 	private ImageButton mDoneImageButton;
 	
 	private AudioRecorder mRecorder = new AudioRecorder();
+	private Chronometer mChronometer;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class RecordActivity extends Activity {
 		mRecordImageButton = (ImageButton) findViewById(R.id.recordImageButton);
 		mDoneButton = (Button) findViewById(R.id.doneButton);
 		mDoneImageButton = (ImageButton) findViewById(R.id.doneImageButton);
+		mChronometer = (Chronometer) findViewById(R.id.chronometer);
 		
 		disableDoneButton();
 		
@@ -40,6 +44,9 @@ public class RecordActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				mRecorder.startRecording();
+				
+				mChronometer.setBase(SystemClock.elapsedRealtime());
+				mChronometer.start();
 				
 				// Changes color of mic for API level 16 and above
 				if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
@@ -62,6 +69,8 @@ public class RecordActivity extends Activity {
 			public void onClick(View v) {
 				if (mRecorder != null) {
 					mRecorder.stopRecording();
+					
+					mChronometer.stop();
 					
 					// Changes color of mic for API level 16 and above
 					if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
@@ -108,7 +117,6 @@ public class RecordActivity extends Activity {
 		mRecordImageButton.setEnabled(true);
 		mRecordImageButton.setBackgroundResource(R.drawable.record);
 	}
-	
 	
 	@Override
     public void onPause() {

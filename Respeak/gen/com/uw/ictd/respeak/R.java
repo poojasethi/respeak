@@ -1300,7 +1300,6 @@ containing a value of this type.
         public static final int audioCurrentDurationLabel=0x7f0b0041;
         public static final int audioCurrentDurationLabelOriginal=0x7f0b0056;
         public static final int audioCurrentDurationLabelUser=0x7f0b0052;
-        public static final int audioDurationLabel=0x7f0b004d;
         public static final int audioProgressBar=0x7f0b0042;
         public static final int audioProgressBarOriginal=0x7f0b0057;
         public static final int audioProgressBarUser=0x7f0b0053;
@@ -1310,6 +1309,7 @@ containing a value of this type.
         public static final int beginning=0x7f0b0011;
         public static final int checkbox=0x7f0b002d;
         public static final int chooserButton=0x7f0b003f;
+        public static final int chronometer=0x7f0b004d;
         public static final int collapseActionView=0x7f0b000d;
         public static final int currentRecordingSelected=0x7f0b003e;
         public static final int dbx_bottom_bar=0x7f0b0068;
