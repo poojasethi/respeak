@@ -1312,19 +1312,19 @@ containing a value of this type.
         public static final int chronometer=0x7f0b004d;
         public static final int collapseActionView=0x7f0b000d;
         public static final int currentRecordingSelected=0x7f0b003e;
-        public static final int dbx_bottom_bar=0x7f0b0068;
-        public static final int dbx_bottom_bar_cancel_button=0x7f0b0069;
-        public static final int dbx_bottom_bar_ok_button=0x7f0b006a;
-        public static final int dbx_bottom_space=0x7f0b0067;
-        public static final int dbx_button_bar=0x7f0b005f;
-        public static final int dbx_button_container=0x7f0b005e;
-        public static final int dbx_icon=0x7f0b0064;
-        public static final int dbx_install_main=0x7f0b0065;
-        public static final int dbx_install_sub=0x7f0b0066;
-        public static final int dbx_install_title=0x7f0b0061;
-        public static final int dbx_main_container=0x7f0b0060;
-        public static final int dbx_separator=0x7f0b0062;
-        public static final int dbx_top_space=0x7f0b0063;
+        public static final int dbx_bottom_bar=0x7f0b006b;
+        public static final int dbx_bottom_bar_cancel_button=0x7f0b006c;
+        public static final int dbx_bottom_bar_ok_button=0x7f0b006d;
+        public static final int dbx_bottom_space=0x7f0b006a;
+        public static final int dbx_button_bar=0x7f0b0062;
+        public static final int dbx_button_container=0x7f0b0061;
+        public static final int dbx_icon=0x7f0b0067;
+        public static final int dbx_install_main=0x7f0b0068;
+        public static final int dbx_install_sub=0x7f0b0069;
+        public static final int dbx_install_title=0x7f0b0064;
+        public static final int dbx_main_container=0x7f0b0063;
+        public static final int dbx_separator=0x7f0b0065;
+        public static final int dbx_top_space=0x7f0b0066;
         public static final int default_activity_button=0x7f0b0028;
         public static final int dialog=0x7f0b000e;
         public static final int disableHome=0x7f0b0008;
@@ -1347,6 +1347,7 @@ containing a value of this type.
         public static final int logInButton=0x7f0b004a;
         public static final int maxRewardAmount=0x7f0b003d;
         public static final int middle=0x7f0b0012;
+        public static final int moreRespeaksButton=0x7f0b005f;
         public static final int never=0x7f0b0009;
         public static final int noButton=0x7f0b005b;
         public static final int noImageButton=0x7f0b005a;
@@ -1388,6 +1389,8 @@ containing a value of this type.
         public static final int top_action_bar=0x7f0b0020;
         public static final int up=0x7f0b0021;
         public static final int useLogo=0x7f0b0003;
+        public static final int viewAccountButton=0x7f0b0060;
+        public static final int viewPayScaleButton=0x7f0b005e;
         public static final int withText=0x7f0b000c;
         public static final int yesButton=0x7f0b005d;
         public static final int yesImageButton=0x7f0b005c;
@@ -1447,14 +1450,16 @@ containing a value of this type.
         public static final int activity_login=0x7f030019;
         public static final int activity_record=0x7f03001a;
         public static final int activity_submission=0x7f03001b;
-        public static final int app_store_interstitial=0x7f03001c;
-        public static final int bottom_bar_light=0x7f03001d;
-        public static final int bottom_buttons_light=0x7f03001e;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
+        public static final int activity_submission_confirmation=0x7f03001c;
+        public static final int app_store_interstitial=0x7f03001d;
+        public static final int bottom_bar_light=0x7f03001e;
+        public static final int bottom_buttons_light=0x7f03001f;
+        public static final int support_simple_spinner_dropdown_item=0x7f030020;
     }
     public static final class raw {
-        public static final int gaetano_lecture=0x7f050000;
-        public static final int ted_talk_short=0x7f050001;
+        public static final int big_data=0x7f050000;
+        public static final int gaetano_lecture=0x7f050001;
+        public static final int ted_talk_short=0x7f050002;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1510,13 +1515,15 @@ containing a value of this type.
         public static final int dbx_update_button_ok=0x7f090008;
         public static final int dbx_update_main=0x7f090005;
         public static final int dbx_update_sub=0x7f090006;
+        public static final int do_more_respeaks=0x7f090034;
         public static final int done=0x7f090029;
         public static final int first_time_on_respeak=0x7f09001b;
+        public static final int hello_world=0x7f09003c;
         public static final int hint_login=0x7f090017;
         public static final int image_description=0x7f090022;
-        public static final int image_description_done_button=0x7f090032;
-        public static final int image_description_record_button=0x7f090031;
-        public static final int image_description_recorder=0x7f090030;
+        public static final int image_description_done_button=0x7f090038;
+        public static final int image_description_record_button=0x7f090037;
+        public static final int image_description_recorder=0x7f090036;
         public static final int invalid_phone_number_toast=0x7f090018;
         public static final int link=0x7f09002d;
         public static final int listen_again=0x7f090026;
@@ -1532,9 +1539,15 @@ containing a value of this type.
         public static final int requestor_name=0x7f09001d;
         public static final int respeak=0x7f090027;
         public static final int sign_up=0x7f090019;
+        public static final int sms_update=0x7f090033;
         public static final int sounds_good=0x7f09002a;
-        public static final int title_activity_listen=0x7f090033;
-        public static final int title_activity_record=0x7f090034;
+        public static final int thank_you=0x7f090030;
+        public static final int thank_you_details=0x7f090031;
+        public static final int title_activity_listen=0x7f090039;
+        public static final int title_activity_record=0x7f09003a;
+        public static final int title_activity_submission_confirmation=0x7f09003b;
+        public static final int view_account_balance=0x7f090035;
+        public static final int view_payment_scale=0x7f090032;
         public static final int yes_submit=0x7f09002c;
         public static final int your_recording=0x7f09002e;
     }

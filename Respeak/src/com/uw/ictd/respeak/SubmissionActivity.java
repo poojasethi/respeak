@@ -1,11 +1,11 @@
 package com.uw.ictd.respeak;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.ImageButton;
 
 public class SubmissionActivity extends Activity {
@@ -79,7 +79,8 @@ public class SubmissionActivity extends Activity {
 		OnClickListener yesListener = new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				Intent i = new Intent(SubmissionActivity.this, SubmissionConfirmationActivity.class);
+				startActivity(i);
 			} 
 		};
 		mYesImageButton.setOnClickListener(yesListener);

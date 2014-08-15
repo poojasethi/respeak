@@ -10,8 +10,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -27,22 +27,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name=".ListenActivity"
             android:label="@string/title_activity_listen" >
         </activity>
-        
-         <activity
+        <activity
             android:name=".RecordActivity"
             android:label="@string/title_activity_record" >
         </activity>
-        
         <activity
             android:name=".SubmissionActivity"
             android:label="@string/title_activity_record" >
         </activity>
-        
 
         <!-- Needed for Dropbox Sync API -->
         <activity android:name="com.dropbox.sync.android.DbxAuthActivity" />
@@ -64,6 +60,11 @@
             android:enabled="true"
             android:exported="false"
             android:label="Dropbox Sync" />
+
+        <activity
+            android:name=".SubmissionConfirmationActivity"
+            android:label="@string/title_activity_submission_confirmation" >
+        </activity>
     </application>
 
 </manifest>
