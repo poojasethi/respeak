@@ -63,7 +63,7 @@
 
         <activity
             android:name=".SubmissionConfirmationActivity"
-            android:label="@string/title_activity_submission_confirmation" >
+            android:label="@string/title_activity_thank_you" >
         </activity>
     </application>
 

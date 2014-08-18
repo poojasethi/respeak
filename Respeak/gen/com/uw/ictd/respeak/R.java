@@ -1518,7 +1518,6 @@ containing a value of this type.
         public static final int do_more_respeaks=0x7f090034;
         public static final int done=0x7f090029;
         public static final int first_time_on_respeak=0x7f09001b;
-        public static final int hello_world=0x7f09003c;
         public static final int hint_login=0x7f090017;
         public static final int image_description=0x7f090022;
         public static final int image_description_done_button=0x7f090038;
@@ -1545,7 +1544,7 @@ containing a value of this type.
         public static final int thank_you_details=0x7f090031;
         public static final int title_activity_listen=0x7f090039;
         public static final int title_activity_record=0x7f09003a;
-        public static final int title_activity_submission_confirmation=0x7f09003b;
+        public static final int title_activity_thank_you=0x7f09003b;
         public static final int view_account_balance=0x7f090035;
         public static final int view_payment_scale=0x7f090032;
         public static final int yes_submit=0x7f09002c;

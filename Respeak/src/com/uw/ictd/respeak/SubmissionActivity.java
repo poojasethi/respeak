@@ -3,6 +3,7 @@ package com.uw.ictd.respeak;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -22,6 +23,8 @@ public class SubmissionActivity extends Activity {
 	private Button mNoButton;
 	private ImageButton mYesImageButton;
 	private Button mYesButton;
+	
+	private Handler mHandler = new Handler();;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

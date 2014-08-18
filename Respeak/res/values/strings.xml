@@ -38,6 +38,7 @@
     <string name="image_description_done_button">Press if you are done recording</string>
     <string name="title_activity_listen">listen</string>
     <string name="title_activity_record">record</string>
+    <string name="title_activity_thank_you">thank you</string>
 
     <color name="white">#FFFFFF</color>
     <color name="light_blue">#00B8E6</color>
@@ -46,8 +47,5 @@
     <color name="light_gray">#C1C1AF</color>
     <color name="red">#E60000</color>
     <color name="green">#53CF29</color>
-
-    <string name="title_activity_submission_confirmation">SubmissionConfirmationActivity</string>
-    <string name="hello_world">Hello world!</string>
 
 </resources>
