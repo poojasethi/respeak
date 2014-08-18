@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 
 public class RecordActivity extends Activity {
-	private static final int REQUEST_CODE = 1;
+	private static final int REQUEST_CODE = 0;
 	
 	private ImageView mRecorderPic;
 	private Button mRecordButton;
@@ -82,6 +82,10 @@ public class RecordActivity extends Activity {
 					
 					Intent i = new Intent(RecordActivity.this, SubmissionActivity.class);
 					i.putExtra(SubmissionActivity.EXTRA_RECORDED_FILE_NAME, mRecorder.getFileName());
+					Bundle bundle = getIntent().getExtras();
+					if (bundle != null) {
+						i.putExtras(bundle);
+					}
 					startActivityForResult(i, REQUEST_CODE);
 				}
 			}

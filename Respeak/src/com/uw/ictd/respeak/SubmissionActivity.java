@@ -18,15 +18,13 @@ public class SubmissionActivity extends Activity {
 	private ImageButton mPlayButtonRecorded;
 	private ImageButton mPlayButtonOriginal;
 	private AudioPlayer mPlayerRecorded;
-	private AudioPlayer mPlayerOriginal = new AudioPlayer();
+	private AudioPlayer mPlayerOriginal;
 
 	private ImageButton mNoImageButton;
 	private Button mNoButton;
 	private ImageButton mYesImageButton;
 	private Button mYesButton;
 	
-	private String mRecordedFileName;
-	private String mOriginalFileName;
 	private Uri mRecordedFile;
 	private Uri mOriginalFile;
 
@@ -49,12 +47,15 @@ public class SubmissionActivity extends Activity {
 		mYesImageButton = (ImageButton) findViewById(R.id.yesImageButton);
 		mYesButton = (Button) findViewById(R.id.yesButton);
 		
-		// Get the location of the recorded and original file
+		// Get the location of the recorded and original file and create audio players
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			mRecordedFileName = extras.getString(EXTRA_RECORDED_FILE_NAME);
-			mRecordedFile = Uri.parse(mRecordedFileName);
+			String recordedFileName = extras.getString(EXTRA_RECORDED_FILE_NAME);
+			mRecordedFile = Uri.parse(recordedFileName);
 			mPlayerRecorded = new AudioPlayer(mRecordedFile);
+			
+			mOriginalFile = extras.getParcelable(EXTRA_ORIGINAL_FILE_NAME);
+			mPlayerOriginal = new AudioPlayer(mOriginalFile);
 		}
 
 		// Plays user's audio file (the recorded file)

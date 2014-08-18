@@ -30,11 +30,11 @@ public class ListenActivity extends Activity {
 	private SeekBar mAudioProgressBar;
 
 	static final String EXTRA_PHONE_NUMBER = "com.uw.ictd.respeak.phone_number";
-
+	static final int REQUEST_CODE = 0;
 	static final int DBX_CHOOSER_REQUEST = 0;
 	static final int REQUEST_LINK_TO_DBX = 0;
-	static final String APP_KEY = "07r2uvgq7r0446r";
-	static final String APP_SECRET = "m8gxr8wh6anshmw";
+	private static final String APP_KEY = "07r2uvgq7r0446r";
+	private static final String APP_SECRET = "m8gxr8wh6anshmw";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +107,8 @@ public class ListenActivity extends Activity {
 				mPlayButton.setBackgroundResource(R.drawable.play);
 				
 				Intent i = new Intent(ListenActivity.this, RecordActivity.class);
-				startActivityForResult(i, 0);
+				i.putExtra(SubmissionActivity.EXTRA_ORIGINAL_FILE_NAME, mPlayer.getUri());
+				startActivityForResult(i, REQUEST_CODE);
 			}
 		};
 		mRespeakButton.setOnClickListener(respeakListener);

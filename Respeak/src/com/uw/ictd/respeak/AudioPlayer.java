@@ -58,4 +58,8 @@ public class AudioPlayer {
 			return mPlayer.isPlaying();
 		}
 	}
+	
+	public Uri getUri() {
+		return mRecording;
+	}
 }
