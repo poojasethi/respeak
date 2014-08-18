@@ -16,14 +16,14 @@ public class SubmissionActivity extends Activity {
 
 	private ImageButton mPlayButtonUser;
 	private ImageButton mPlayButtonOriginal;
-	private AudioPlayer mPlayerUser;
-	private AudioPlayer mPlayerOriginal;
+	private AudioPlayer mPlayerUser = new AudioPlayer();
+	private AudioPlayer mPlayerOriginal = new AudioPlayer();
 
 	private ImageButton mNoImageButton;
 	private Button mNoButton;
 	private ImageButton mYesImageButton;
 	private Button mYesButton;
-	
+
 	private Handler mHandler = new Handler();;
 
 	@Override
@@ -33,24 +33,30 @@ public class SubmissionActivity extends Activity {
 
 		mPlayButtonUser = (ImageButton) findViewById(R.id.playButtonUser);
 		mPlayButtonOriginal = (ImageButton) findViewById(R.id.playButtonOriginal);
-		mPlayButtonOriginal.setEnabled(false); // Can only play one at a time
 		
+		// You must listen to your own audio file (the recording) at least once
+		// before playing the original 
+		mPlayButtonOriginal.setEnabled(false);
+
 		mNoImageButton = (ImageButton) findViewById(R.id.noImageButton);
 		mNoButton = (Button) findViewById(R.id.noButton);
 		mYesImageButton = (ImageButton) findViewById(R.id.yesImageButton);
 		mYesButton = (Button) findViewById(R.id.yesButton);
+		
 
 		// Plays user's audio file (the recorded file)
 		mPlayButtonUser.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				// mPlayerUser.play(SubmissionActivity.this);
-				// if (mPlayerUser.isPlaying()) {
-				// mPlayButtonUser.setBackgroundResource(R.drawable.pause);
-				// } else {
-				// mPlayButtonUser.setBackgroundResource(R.drawable.play);
-				// }
+				mPlayerUser.play(SubmissionActivity.this);
+				if (mPlayerUser.isPlaying()) {
+					mPlayButtonUser.setBackgroundResource(R.drawable.pause);
+					mPlayButtonOriginal.setEnabled(false);
+				} else {
+					mPlayButtonUser.setBackgroundResource(R.drawable.play);
+					mPlayButtonOriginal.setEnabled(true);
+				}
 			}
 		});
 
@@ -59,12 +65,14 @@ public class SubmissionActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				// mPlayerOriginal.play(SubmissionActivity.this);
-				// if (mPlayerUser.isPlaying()) {
-				// mPlayButtonOriginal.setBackgroundResource(R.drawable.pause);
-				// } else {
-				// mPlayButtonOriginal.setBackgroundResource(R.drawable.play);
-				// }
+				mPlayerOriginal.play(SubmissionActivity.this);
+				if(mPlayerOriginal.isPlaying()) {
+					mPlayButtonOriginal.setBackgroundResource(R.drawable.pause);
+					mPlayButtonUser.setEnabled(false);
+				} else {
+					mPlayButtonOriginal.setBackgroundResource(R.drawable.play);
+					mPlayButtonUser.setEnabled(true);
+				}
 			}
 		});
 
@@ -82,9 +90,10 @@ public class SubmissionActivity extends Activity {
 		OnClickListener yesListener = new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent i = new Intent(SubmissionActivity.this, SubmissionConfirmationActivity.class);
+				Intent i = new Intent(SubmissionActivity.this,
+						SubmissionConfirmationActivity.class);
 				startActivity(i);
-			} 
+			}
 		};
 		mYesImageButton.setOnClickListener(yesListener);
 		mYesButton.setOnClickListener(yesListener);

@@ -52,6 +52,10 @@ public class AudioPlayer {
 	}
 	
 	public boolean isPlaying() {
-		return mPlayer.isPlaying();
+		if (mPlayer == null) {
+			return false;
+		} else {
+			return mPlayer.isPlaying();
+		}
 	}
 }
