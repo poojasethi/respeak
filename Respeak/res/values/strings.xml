@@ -48,4 +48,8 @@
     <color name="red">#E60000</color>
     <color name="green">#53CF29</color>
 
+    <string name="title_activity_training">TrainingActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
 </resources>

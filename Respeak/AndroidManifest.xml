@@ -65,6 +65,10 @@
             android:name=".SubmissionConfirmationActivity"
             android:label="@string/title_activity_thank_you" >
         </activity>
+        <activity
+            android:name=".TrainingActivity"
+            android:label="@string/title_activity_training" >
+        </activity>
     </application>
 
 </manifest>
