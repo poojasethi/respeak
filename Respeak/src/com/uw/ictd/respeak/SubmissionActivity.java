@@ -37,10 +37,6 @@ public class SubmissionActivity extends Activity {
 
 		mPlayButtonRecorded = (ImageButton) findViewById(R.id.playButtonUser);
 		mPlayButtonOriginal = (ImageButton) findViewById(R.id.playButtonOriginal);
-		
-		// You must listen to your own audio file (the recording) at least once
-		// before playing the original 
-		mPlayButtonOriginal.setEnabled(false);
 
 		mNoImageButton = (ImageButton) findViewById(R.id.noImageButton);
 		mNoButton = (Button) findViewById(R.id.noButton);
@@ -63,13 +59,13 @@ public class SubmissionActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				mPlayerOriginal.stop();
+				mPlayButtonOriginal.setBackgroundResource(R.drawable.play);
 				mPlayerRecorded.play(SubmissionActivity.this);
 				if (mPlayerRecorded.isPlaying()) {
 					mPlayButtonRecorded.setBackgroundResource(R.drawable.pause);
-					mPlayButtonOriginal.setEnabled(false);
 				} else {
 					mPlayButtonRecorded.setBackgroundResource(R.drawable.play);
-					mPlayButtonOriginal.setEnabled(true);
 				}
 			}
 		});
@@ -79,13 +75,13 @@ public class SubmissionActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
+				mPlayerRecorded.stop();
+				mPlayButtonRecorded.setBackgroundResource(R.drawable.play);
 				mPlayerOriginal.play(SubmissionActivity.this);
 				if(mPlayerOriginal.isPlaying()) {
 					mPlayButtonOriginal.setBackgroundResource(R.drawable.pause);
-					mPlayButtonRecorded.setEnabled(false);
 				} else {
 					mPlayButtonOriginal.setBackgroundResource(R.drawable.play);
-					mPlayButtonRecorded.setEnabled(true);
 				}
 			}
 		});
@@ -94,6 +90,7 @@ public class SubmissionActivity extends Activity {
 		OnClickListener noListener = new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				stopPlayers();
 				finish();
 			}
 		};
@@ -104,6 +101,7 @@ public class SubmissionActivity extends Activity {
 		OnClickListener yesListener = new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				stopPlayers();
 				Intent i = new Intent(SubmissionActivity.this,
 						SubmissionConfirmationActivity.class);
 				startActivity(i);
@@ -111,5 +109,11 @@ public class SubmissionActivity extends Activity {
 		};
 		mYesImageButton.setOnClickListener(yesListener);
 		mYesButton.setOnClickListener(yesListener);
+	}
+	
+	// Stops the audio players
+	private void stopPlayers() {
+		mPlayerRecorded.stop();
+		mPlayerOriginal.stop();
 	}
 }
