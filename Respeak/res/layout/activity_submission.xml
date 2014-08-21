@@ -4,8 +4,10 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    android:paddingLeft="5dp"
-    android:paddingRight="5dp" >
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <!-- Your Recording: -->
 
@@ -33,7 +35,7 @@
 
         <SeekBar
             android:id="@+id/audioProgressBarUser"
-            android:layout_width="245dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content" />
 
         <TextView
@@ -79,7 +81,7 @@
 
         <SeekBar
             android:id="@+id/audioProgressBarOriginal"
-            android:layout_width="245dp"
+            android:layout_width="230dp"
             android:layout_height="wrap_content" />
 
         <TextView
