@@ -3,6 +3,7 @@ package com.uw.ictd.respeak;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -54,7 +55,9 @@ public class LoginActivity extends Activity {
 	// TODO: check that the phone number is actually a valid number
 	private boolean checkPhoneNumber(String phoneNumber) {
 		if (phoneNumber.length() < 10) {
-			Toast.makeText(this, R.string.invalid_phone_number_toast, Toast.LENGTH_SHORT).show();
+			Toast toast = Toast.makeText(this, R.string.invalid_phone_number_toast, Toast.LENGTH_SHORT);
+			toast.setGravity(Gravity.CENTER_VERTICAL, 0 ,0);
+			toast.show();
 			return false;
 		}
 		return true;
