@@ -41,12 +41,13 @@ public class LoginActivity extends Activity {
 			}
 		});	
 		
-		// TODO: implement sign up activity
+		// TODO: implement sign up activity using fragments
 		mSignUpButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				
+				Intent i = new Intent(LoginActivity.this, TrainingActivity.class);
+				startActivity(i);
 			}
 		});
 		

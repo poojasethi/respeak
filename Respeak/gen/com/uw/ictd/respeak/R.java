@@ -1304,7 +1304,6 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f0b0016;
         public static final int action_menu_presenter=0x7f0b0017;
         public static final int action_mode_close_button=0x7f0b0024;
-        public static final int action_settings=0x7f0b006e;
         public static final int activity_chooser_view_content=0x7f0b0025;
         public static final int always=0x7f0b000b;
         public static final int audioCurrentDurationLabel=0x7f0b0041;
@@ -1322,19 +1321,19 @@ containing a value of this type.
         public static final int chronometer=0x7f0b004d;
         public static final int collapseActionView=0x7f0b000d;
         public static final int currentRecordingSelected=0x7f0b003e;
-        public static final int dbx_bottom_bar=0x7f0b006b;
-        public static final int dbx_bottom_bar_cancel_button=0x7f0b006c;
-        public static final int dbx_bottom_bar_ok_button=0x7f0b006d;
-        public static final int dbx_bottom_space=0x7f0b006a;
-        public static final int dbx_button_bar=0x7f0b0062;
-        public static final int dbx_button_container=0x7f0b0061;
-        public static final int dbx_icon=0x7f0b0067;
-        public static final int dbx_install_main=0x7f0b0068;
-        public static final int dbx_install_sub=0x7f0b0069;
-        public static final int dbx_install_title=0x7f0b0064;
-        public static final int dbx_main_container=0x7f0b0063;
-        public static final int dbx_separator=0x7f0b0065;
-        public static final int dbx_top_space=0x7f0b0066;
+        public static final int dbx_bottom_bar=0x7f0b006c;
+        public static final int dbx_bottom_bar_cancel_button=0x7f0b006d;
+        public static final int dbx_bottom_bar_ok_button=0x7f0b006e;
+        public static final int dbx_bottom_space=0x7f0b006b;
+        public static final int dbx_button_bar=0x7f0b0063;
+        public static final int dbx_button_container=0x7f0b0062;
+        public static final int dbx_icon=0x7f0b0068;
+        public static final int dbx_install_main=0x7f0b0069;
+        public static final int dbx_install_sub=0x7f0b006a;
+        public static final int dbx_install_title=0x7f0b0065;
+        public static final int dbx_main_container=0x7f0b0064;
+        public static final int dbx_separator=0x7f0b0066;
+        public static final int dbx_top_space=0x7f0b0067;
         public static final int default_activity_button=0x7f0b0028;
         public static final int dialog=0x7f0b000e;
         public static final int disableHome=0x7f0b0008;
@@ -1397,6 +1396,7 @@ containing a value of this type.
         public static final int tabMode=0x7f0b0002;
         public static final int title=0x7f0b002b;
         public static final int top_action_bar=0x7f0b0020;
+        public static final int trainingText=0x7f0b0061;
         public static final int up=0x7f0b0021;
         public static final int useLogo=0x7f0b0003;
         public static final int viewAccountButton=0x7f0b0060;
@@ -1467,13 +1467,11 @@ containing a value of this type.
         public static final int bottom_buttons_light=0x7f030020;
         public static final int support_simple_spinner_dropdown_item=0x7f030021;
     }
-    public static final class menu {
-        public static final int training=0x7f0d0000;
-    }
     public static final class raw {
         public static final int big_data=0x7f050000;
         public static final int gaetano_lecture=0x7f050001;
         public static final int ted_talk_short=0x7f050002;
+        public static final int training_text=0x7f050003;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1516,7 +1514,6 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f090014;
-        public static final int action_settings=0x7f09003e;
         public static final int app_name=0x7f090016;
         public static final int choose_file=0x7f090024;
         public static final int current_recording=0x7f090020;
@@ -1533,7 +1530,6 @@ containing a value of this type.
         public static final int do_more_respeaks=0x7f090034;
         public static final int done=0x7f090029;
         public static final int first_time_on_respeak=0x7f09001b;
-        public static final int hello_world=0x7f09003d;
         public static final int hint_login=0x7f090017;
         public static final int image_description=0x7f090022;
         public static final int image_description_done_button=0x7f090038;

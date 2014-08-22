@@ -1,34 +1,44 @@
 package com.uw.ictd.respeak;
 
-import android.support.v7.app.ActionBarActivity;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
+import android.text.method.ScrollingMovementMethod;
+import android.widget.TextView;
 
 public class TrainingActivity extends ActionBarActivity {
+	private TextView mTrainingText;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_training);
+		
+		mTrainingText = (TextView) findViewById(R.id.trainingText);
+		mTrainingText.setText(readText());
+		mTrainingText.setMovementMethod(new ScrollingMovementMethod());
 	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.training, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
+	
+	// Reads from a training text file and converts into a string 
+	private String readText(){
+		InputStream inputStream = getResources().openRawResource(R.raw.training_text);
+		ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+		
+		int i;
+		try {
+			i = inputStream.read();
+			while (i != -1) {
+				outputStream.write(i);
+				i = inputStream.read();
+			}
+			inputStream.close();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		return super.onOptionsItemSelected(item);
+		
+		return outputStream.toString();
 	}
 }

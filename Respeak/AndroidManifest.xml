@@ -39,6 +39,14 @@
             android:name=".SubmissionActivity"
             android:label="@string/title_activity_record" >
         </activity>
+        <activity
+            android:name=".SubmissionConfirmationActivity"
+            android:label="@string/title_activity_thank_you" >
+        </activity>
+        <activity
+            android:name=".TrainingActivity"
+            android:label="@string/title_activity_training" >
+        </activity>
 
         <!-- Needed for Dropbox Sync API -->
         <activity android:name="com.dropbox.sync.android.DbxAuthActivity" />
@@ -60,15 +68,6 @@
             android:enabled="true"
             android:exported="false"
             android:label="Dropbox Sync" />
-
-        <activity
-            android:name=".SubmissionConfirmationActivity"
-            android:label="@string/title_activity_thank_you" >
-        </activity>
-        <activity
-            android:name=".TrainingActivity"
-            android:label="@string/title_activity_training" >
-        </activity>
     </application>
 
 </manifest>
