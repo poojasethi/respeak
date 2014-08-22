@@ -7,10 +7,17 @@ import java.io.InputStream;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.text.method.ScrollingMovementMethod;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class TrainingActivity extends ActionBarActivity {
 	private TextView mTrainingText;
+	private Button mRecordButton;
+	private ImageButton mRecordImageButton;
+	private Button mDoneButton;
+	private ImageButton mDoneImageButton;
+	private AudioRecorder mRecorder = new AudioRecorder();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
