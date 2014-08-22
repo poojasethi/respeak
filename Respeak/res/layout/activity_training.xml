@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:maxLines="15" 
-        android:scrollbars="vertical" />
+        android:scrollbars="vertical"
+        android:textSize="20sp" />
 
 </LinearLayout>
