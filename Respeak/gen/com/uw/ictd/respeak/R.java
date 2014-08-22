@@ -858,7 +858,7 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f0c0002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f080053;
+        public static final int abc_search_url_text_holo=0x7f080054;
         public static final int abc_search_url_text_normal=0x7f08004b;
         public static final int abc_search_url_text_pressed=0x7f08004d;
         public static final int abc_search_url_text_selected=0x7f08004c;
@@ -904,6 +904,7 @@ containing a value of this type.
         public static final int lightBlueBackground2=0x7f08001e;
         public static final int light_blue=0x7f08004f;
         public static final int light_gray=0x7f080052;
+        public static final int lighter_gray=0x7f080053;
         public static final int listEmptyText=0x7f08000c;
         public static final int localFilelistBackground=0x7f080011;
         public static final int localListEmptyText=0x7f080012;
