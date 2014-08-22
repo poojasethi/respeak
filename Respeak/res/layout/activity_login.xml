@@ -33,6 +33,7 @@
         android:id="@+id/logInButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/gold"
         android:text="@string/login" />
 
     <LinearLayout
@@ -53,6 +54,7 @@
             android:id="@+id/signUpButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/gold"
             android:text="@string/sign_up" />
     </LinearLayout>
 

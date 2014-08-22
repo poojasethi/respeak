@@ -55,12 +55,14 @@
             android:id="@+id/moreRespeaksButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/gold"
             android:text="@string/do_more_respeaks" />
 
         <Button
             android:id="@+id/viewAccountButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/gold"
             android:text="@string/view_account_balance" />
     </LinearLayout>
 
