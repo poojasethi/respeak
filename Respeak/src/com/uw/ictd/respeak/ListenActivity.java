@@ -75,6 +75,8 @@ public class ListenActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				mPlayer.play(ListenActivity.this);
+				mAudioProgressBar.setProgress(0);
+				mAudioProgressBar.setMax(100);
 				if (mPlayer.isPlaying()) {
 					mPlayButton.setBackgroundResource(R.drawable.pause);
 				} else {
