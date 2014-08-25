@@ -61,6 +61,7 @@ public class ListenActivity extends Activity {
 		mListenAgainButton = (Button) findViewById(R.id.listenAgainButton);
 		mRespeakImageButton = (ImageButton) findViewById(R.id.respeakImageButton);
 		mRespeakButton = (Button) findViewById(R.id.respeakButton);
+		mAudioProgressBar = (SeekBar) findViewById(R.id.audioProgressBar);
 
 		mChooser = new DbxChooser(APP_KEY);
 
