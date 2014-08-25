@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
@@ -63,7 +64,10 @@ public class ListenActivity extends Activity implements
 		mRespeakImageButton = (ImageButton) findViewById(R.id.respeakImageButton);
 		mRespeakButton = (Button) findViewById(R.id.respeakButton);
 		mAudioProgressBar = (SeekBar) findViewById(R.id.audioProgressBar);
-
+		
+		// Hides keyboard until user selects edit text (phone number field)
+		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		
 		mChooser = new DbxChooser(APP_KEY);
 
 		// Allows user to pick audio file to open from Dropbox
