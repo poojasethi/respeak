@@ -93,7 +93,12 @@ public class ListenActivity extends Activity {
 			public void onClick(View v) {
 				mPlayer.play(ListenActivity.this);
 				if (mPlayer.isPlaying()) {
+					// Update progress bar and total time
 					updateProgressBar();
+					long totalDuration = mPlayer.getDuration();
+					mAudioTotalDurationLabel.setText(TimeConverter
+							.milliSecondsToTimer(totalDuration));
+					
 					mPlayButton.setBackgroundResource(R.drawable.pause);
 				} else {
 					mPlayButton.setBackgroundResource(R.drawable.play);
@@ -225,11 +230,9 @@ public class ListenActivity extends Activity {
 			long currentDuration = mPlayer.getCurrentPosition();
 			long totalDuration = mPlayer.getDuration();
 
-			// Update the timer labels
+			// Update the current audio duration label
 			mAudioCurrentDurationLabel.setText(TimeConverter
 					.milliSecondsToTimer(currentDuration));
-			mAudioTotalDurationLabel.setText(TimeConverter
-					.milliSecondsToTimer(totalDuration));
 
 			// Update the progress bar
 			int progress = TimeConverter.getProgressPercentage(currentDuration,
