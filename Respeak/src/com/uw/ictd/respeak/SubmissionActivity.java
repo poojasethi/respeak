@@ -55,9 +55,9 @@ public class SubmissionActivity extends Activity {
 		mAudioProgressBarRecorded = (SeekBar) findViewById(R.id.audioProgressBarRecorded);
 		mAudioProgressBarOriginal = (SeekBar) findViewById(R.id.audioProgressBarOriginal);
 		mAudioProgressBarRecorded.setProgress(0);
-		mAudioProgressBarOriginal.setProgress(100);
+		mAudioProgressBarOriginal.setMax(100);
 		mAudioProgressBarRecorded.setProgress(0);
-		mAudioProgressBarOriginal.setProgress(100);
+		mAudioProgressBarOriginal.setMax(100);
 
 		// Get the location of the recorded and original file and create audio
 		// players
