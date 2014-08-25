@@ -77,11 +77,16 @@ public class SubmissionActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				mPlayerOriginal.stop();
+				mPlayerOriginal.pause();
 				mPlayButtonOriginal.setBackgroundResource(R.drawable.play);
 				mPlayerRecorded.play(SubmissionActivity.this);
 				if (mPlayerRecorded.isPlaying()) {
-					updateProgressBarOriginal();
+					// Update progress bar and total time
+					updateProgressBar();
+					long totalDuration = mPlayerRecorded.getDuration();
+					mAudioTotalDurationRecorded.setText(TimeConverter
+							.milliSecondsToTimer(totalDuration));
+					
 					mPlayButtonRecorded.setBackgroundResource(R.drawable.pause);
 				} else {
 					mPlayButtonRecorded.setBackgroundResource(R.drawable.play);
@@ -94,13 +99,13 @@ public class SubmissionActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				mPlayerRecorded.stop();
+				mPlayerRecorded.pause();
 				mPlayButtonRecorded.setBackgroundResource(R.drawable.play);
 				mPlayerOriginal.play(SubmissionActivity.this);
 				if (mPlayerOriginal.isPlaying()) {
 					
 					// Update progress bar and total time
-					updateProgressBarOriginal();
+					updateProgressBar();
 					long totalDuration = mPlayerOriginal.getDuration();
 					mAudioTotalDurationOriginal.setText(TimeConverter
 							.milliSecondsToTimer(totalDuration));
@@ -142,22 +147,27 @@ public class SubmissionActivity extends Activity {
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {
 				// Progress bar no longer updates
-				mHandler.removeCallbacks(mUpdateTimeTaskOriginal);
+				mHandler.removeCallbacks(mUpdateTimeTask);
 			}
 
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
-				mHandler.removeCallbacks(mUpdateTimeTaskOriginal);
-				int totalDuration = (int) mPlayerOriginal.getDuration();
-				int currentPosition = TimeConverter.progressToTimer(
-						seekBar.getProgress(), totalDuration);
+				mHandler.removeCallbacks(mUpdateTimeTask);
+				int totalDurationOriginal = (int) mPlayerOriginal.getDuration();
+				int currentPositionOriginal = TimeConverter.progressToTimer(
+						seekBar.getProgress(), totalDurationOriginal);
+				
+				int totalDurationRecorded = (int) mPlayerOriginal.getDuration();
+				int currentPositionRecorded = TimeConverter.progressToTimer(
+						seekBar.getProgress(), totalDurationRecorded);
 
-				// Move audio player forward or backward appropriate number of
+				// Move audio players forward or backward appropriate number of
 				// seconds
-				mPlayerOriginal.seekTo(currentPosition);
+				mPlayerOriginal.seekTo(currentPositionOriginal);
+				mPlayerRecorded.seekTo(currentPositionRecorded);
 
 				// Update timers
-				updateProgressBarOriginal();
+				updateProgressBar();
 			}
 
 			@Override
@@ -166,6 +176,7 @@ public class SubmissionActivity extends Activity {
 			}
 		};
 		mAudioProgressBarOriginal.setOnSeekBarChangeListener(seekBarChangeListener);
+		mAudioProgressBarRecorded.setOnSeekBarChangeListener(seekBarChangeListener);
 	}
 
 	// Stops the audio players
@@ -184,25 +195,31 @@ public class SubmissionActivity extends Activity {
 	// common code
 
 	// Update timer and audio progress bar for the original recording
-	private void updateProgressBarOriginal() {
-		mHandler.postDelayed(mUpdateTimeTaskOriginal, 100);
+	private void updateProgressBar() {
+		mHandler.postDelayed(mUpdateTimeTask, 100);
 	}
 
-	private Runnable mUpdateTimeTaskOriginal = new Runnable() {
+	private Runnable mUpdateTimeTask = new Runnable() {
 		public void run() {
-			long currentDuration = mPlayerOriginal.getCurrentPosition();
-			long totalDuration = mPlayerOriginal.getDuration();
+			long currentDurationOriginal = mPlayerOriginal.getCurrentPosition();
+			long totalDurationOriginal = mPlayerOriginal.getDuration();
+			
+			long currentDurationRecorded = mPlayerRecorded.getCurrentPosition();
+			long totalDurationRecorded = mPlayerRecorded.getDuration();
 
-			// Update the timer labels
+			// Update the current audio duration labels 
 			mAudioCurrentDurationOriginal.setText(TimeConverter
-					.milliSecondsToTimer(currentDuration));
-			mAudioTotalDurationOriginal.setText(TimeConverter
-					.milliSecondsToTimer(totalDuration));
+					.milliSecondsToTimer(currentDurationOriginal));
+			mAudioCurrentDurationRecorded.setText(TimeConverter
+					.milliSecondsToTimer(currentDurationRecorded));
 
-			// Update the progress bar
-			int progress = TimeConverter.getProgressPercentage(currentDuration,
-					totalDuration);
-			mAudioProgressBarOriginal.setProgress(progress);
+			// Update the progress bars
+			int progressOriginal = TimeConverter.getProgressPercentage(currentDurationOriginal,
+					totalDurationOriginal);
+			int progressRecorded = TimeConverter.getProgressPercentage(currentDurationRecorded,
+					totalDurationRecorded);
+			mAudioProgressBarOriginal.setProgress(progressOriginal);
+			mAudioProgressBarRecorded.setProgress(progressRecorded);
 
 			// Run this thread after 100 milliseconds
 			mHandler.postDelayed(this, 100);

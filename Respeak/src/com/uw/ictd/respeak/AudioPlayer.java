@@ -26,6 +26,12 @@ public class AudioPlayer {
 		}
 	}
 	
+	public void pause() {
+		if (mPlayer != null) {
+			mPlayer.pause();
+		}
+	}
+	
 	public void play(Context c) {
 		if (mPlayer == null) {
 			
