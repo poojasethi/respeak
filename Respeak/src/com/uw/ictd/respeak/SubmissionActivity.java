@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class SubmissionActivity extends Activity {
 
@@ -29,6 +30,10 @@ public class SubmissionActivity extends Activity {
 	private Handler mHandler = new Handler();
 	private SeekBar mAudioProgressBarRecorded;
 	private SeekBar mAudioProgressBarOriginal;
+	private TextView mAudioCurrentDurationRecorded;
+	private TextView mAudioTotalDurationRecorded;
+	private TextView mAudioCurrentDurationOriginal;
+	private TextView mAudioTotalDurationOriginal;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -41,8 +46,12 @@ public class SubmissionActivity extends Activity {
 		mNoButton = (Button) findViewById(R.id.noButton);
 		mYesImageButton = (ImageButton) findViewById(R.id.yesImageButton);
 		mYesButton = (Button) findViewById(R.id.yesButton);
-		mAudioProgressBarRecorded = (SeekBar)findViewById(R.id.audioProgressBarRecorded);
-		mAudioProgressBarOriginal = (SeekBar)findViewById(R.id.audioProgressBarOriginal);
+		mAudioProgressBarRecorded = (SeekBar) findViewById(R.id.audioProgressBarRecorded);
+		mAudioProgressBarOriginal = (SeekBar) findViewById(R.id.audioProgressBarOriginal);
+		mAudioCurrentDurationRecorded = (TextView) findViewById(R.id.audioCurrentDurationRecorded);
+		mAudioTotalDurationRecorded = (TextView) findViewById(R.id.audioTotalDurationRecorded);
+		mAudioCurrentDurationOriginal = (TextView) findViewById(R.id.audioCurrentDurationOriginal);
+		mAudioTotalDurationOriginal = (TextView) findViewById(R.id.audioTotalDurationOriginal);
 
 		// Get the location of the recorded and original file and create audio
 		// players

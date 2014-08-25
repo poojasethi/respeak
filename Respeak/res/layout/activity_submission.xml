@@ -25,7 +25,7 @@
         android:paddingTop="10dp" >
 
         <TextView
-            android:id="@+id/audioCurrentDurationLabelRecorded"
+            android:id="@+id/audioCurrentDurationRecorded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|bottom"
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/audioTotalDurationLabelRecorded"
+            android:id="@+id/audioTotalDurationRecorded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
@@ -71,7 +71,7 @@
         android:paddingTop="10dp" >
 
         <TextView
-            android:id="@+id/audioCurrentDurationLabelOriginal"
+            android:id="@+id/audioCurrentDurationOriginal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left|bottom"
@@ -85,7 +85,7 @@
             android:layout_height="wrap_content" />
 
         <TextView
-            android:id="@+id/audioTotalDurationLabelOriginal"
+            android:id="@+id/audioTotalDurationOriginal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right|bottom"
