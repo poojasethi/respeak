@@ -62,4 +62,20 @@ public class AudioPlayer {
 	public Uri getUri() {
 		return mRecording;
 	}
+	
+	public long getDuration() {
+		if (mPlayer != null) {
+			return mPlayer.getDuration();
+		} else {
+			return -1;
+		}
+	}
+	
+	public long getCurrentPosition() {
+		if (mPlayer != null) {
+			return mPlayer.getCurrentPosition();
+		} else {
+			return -1;
+		}
+	}
 }

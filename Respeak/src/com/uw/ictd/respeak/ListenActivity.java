@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,6 +29,8 @@ public class ListenActivity extends Activity {
 	private Button mRespeakButton;
 	private ImageButton mRespeakImageButton;
 	private SeekBar mAudioProgressBar;
+	private Handler mHandler = new Handler();
+	private Runnable mUpdateTimeTask;
 
 	static final String EXTRA_PHONE_NUMBER = "com.uw.ictd.respeak.phone_number";
 	static final int REQUEST_CODE = 0;
@@ -74,9 +77,11 @@ public class ListenActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				mPlayer.play(ListenActivity.this);
 				mAudioProgressBar.setProgress(0);
 				mAudioProgressBar.setMax(100);
+				updateProgressBar();
+				
+				mPlayer.play(ListenActivity.this);
 				if (mPlayer.isPlaying()) {
 					mPlayButton.setBackgroundResource(R.drawable.pause);
 				} else {
@@ -169,4 +174,17 @@ public class ListenActivity extends Activity {
 		super.onPause();
 		mPlayer.stop();
 	}
+	
+	// Update timer on seekbar
+	private void updateProgressBar() {
+		mHandler.postDelayed(mUpdateTimeTask, 100);
+	}
+	
+	mUpdateTimeTask = new Runnable() {
+		public void run() {
+			long totalDuration = mPlayer.getDuration();
+			long currentDuration = mPlayer.getCurrentPosition();
+		}
+	};
+
 }

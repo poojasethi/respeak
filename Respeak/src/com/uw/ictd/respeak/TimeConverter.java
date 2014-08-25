@@ -7,7 +7,7 @@ public class TimeConverter {
 	 * Function to convert milliseconds time to Timer Format
 	 * Hours:Minutes:Seconds
 	 */
-	public String milliSecondsToTimer(long milliseconds) {
+	public static String milliSecondsToTimer(long milliseconds) {
 		String finalTimerString = "";
 		String secondsString = "";
 
@@ -40,7 +40,7 @@ public class TimeConverter {
 	 * @param currentDuration
 	 * @param totalDuration
 	 */
-	public int getProgressPercentage(long currentDuration, long totalDuration) {
+	public static int getProgressPercentage(long currentDuration, long totalDuration) {
 		Double percentage = (double) 0;
 
 		long currentSeconds = (int) (currentDuration / 1000);
@@ -61,7 +61,7 @@ public class TimeConverter {
 	 * @param totalDuration
 	 *            returns current duration in milliseconds
 	 * */
-	public int progressToTimer(int progress, int totalDuration) {
+	public static int progressToTimer(int progress, int totalDuration) {
 		int currentDuration = 0;
 		totalDuration = (int) (totalDuration / 1000);
 		currentDuration = (int) ((((double) progress) / 100) * totalDuration);
