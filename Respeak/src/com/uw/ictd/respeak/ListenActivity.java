@@ -125,7 +125,7 @@ public class ListenActivity extends Activity {
 		mRespeakButton.setOnClickListener(respeakListener);
 		mRespeakImageButton.setOnClickListener(respeakListener);
 		
-		// Set listener on audio progress bar
+		// Set listener on audio progress bar that tracks user's touch
 		OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener() {
 			@Override
 			public void onStartTrackingTouch(SeekBar seekBar) {

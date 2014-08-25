@@ -24,7 +24,7 @@ public class SubmissionActivity extends Activity {
 	private Button mNoButton;
 	private ImageButton mYesImageButton;
 	private Button mYesButton;
-	
+
 	private Uri mRecordedFile;
 	private Uri mOriginalFile;
 
@@ -42,14 +42,16 @@ public class SubmissionActivity extends Activity {
 		mNoButton = (Button) findViewById(R.id.noButton);
 		mYesImageButton = (ImageButton) findViewById(R.id.yesImageButton);
 		mYesButton = (Button) findViewById(R.id.yesButton);
-		
-		// Get the location of the recorded and original file and create audio players
+
+		// Get the location of the recorded and original file and create audio
+		// players
 		Bundle extras = getIntent().getExtras();
 		if (extras != null) {
-			String recordedFileName = extras.getString(EXTRA_RECORDED_FILE_NAME);
+			String recordedFileName = extras
+					.getString(EXTRA_RECORDED_FILE_NAME);
 			mRecordedFile = Uri.parse(recordedFileName);
 			mPlayerRecorded = new AudioPlayer(mRecordedFile);
-			
+
 			mOriginalFile = extras.getParcelable(EXTRA_ORIGINAL_FILE_NAME);
 			mPlayerOriginal = new AudioPlayer(mOriginalFile);
 		}
@@ -78,7 +80,7 @@ public class SubmissionActivity extends Activity {
 				mPlayerRecorded.stop();
 				mPlayButtonRecorded.setBackgroundResource(R.drawable.play);
 				mPlayerOriginal.play(SubmissionActivity.this);
-				if(mPlayerOriginal.isPlaying()) {
+				if (mPlayerOriginal.isPlaying()) {
 					mPlayButtonOriginal.setBackgroundResource(R.drawable.pause);
 				} else {
 					mPlayButtonOriginal.setBackgroundResource(R.drawable.play);
@@ -110,7 +112,7 @@ public class SubmissionActivity extends Activity {
 		mYesImageButton.setOnClickListener(yesListener);
 		mYesButton.setOnClickListener(yesListener);
 	}
-	
+
 	// Stops the audio players
 	private void stopPlayers() {
 		mPlayerRecorded.stop();
