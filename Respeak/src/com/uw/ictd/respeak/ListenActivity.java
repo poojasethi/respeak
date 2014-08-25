@@ -15,7 +15,8 @@ import android.widget.TextView;
 
 import com.dropbox.chooser.android.DbxChooser;
 
-public class ListenActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
+public class ListenActivity extends Activity implements
+		SeekBar.OnSeekBarChangeListener {
 
 	private TextView mRequestorName;
 	private TextView mMaxRewardAmount;
@@ -204,10 +205,23 @@ public class ListenActivity extends Activity implements SeekBar.OnSeekBarChangeL
 		}
 	};
 
-	private void onStartTrackingTouch(SeekBar seekbar) {
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+		// Progress bar no longer updates
 		mHandler.removeCallbacks(mUpdateTimeTask);
-		long totalDuration = mPlayer.getDuration();
-
+	}
+	
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar ) {
+		mHandler.removeCallbacks(mUpdateTimeTask);
+		int totalDuration = (int) mPlayer.getDuration();
+		int currentPosition = TimeConverter.progressToTimer(seekBar.getProgress(), totalDuration);
+		
+		// Move audio player forward or backward appropriate number of seconds
+		mPlayer.seekTo(currentPosition);
+		
+		// Update timers
+		updateProgressBar();
 	}
 
 }
