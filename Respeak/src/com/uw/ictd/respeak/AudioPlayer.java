@@ -78,4 +78,10 @@ public class AudioPlayer {
 			return -1;
 		}
 	}
+	
+	public void seekTo(int currentPosition) {
+		if (mPlayer != null) {
+			mPlayer.seekTo(currentPosition);
+		}
+	}
 }
