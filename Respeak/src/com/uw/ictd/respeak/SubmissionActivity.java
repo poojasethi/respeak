@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 
 public class SubmissionActivity extends Activity {
 
@@ -46,12 +47,17 @@ public class SubmissionActivity extends Activity {
 		mNoButton = (Button) findViewById(R.id.noButton);
 		mYesImageButton = (ImageButton) findViewById(R.id.yesImageButton);
 		mYesButton = (Button) findViewById(R.id.yesButton);
-		mAudioProgressBarRecorded = (SeekBar) findViewById(R.id.audioProgressBarRecorded);
-		mAudioProgressBarOriginal = (SeekBar) findViewById(R.id.audioProgressBarOriginal);
 		mAudioCurrentDurationRecorded = (TextView) findViewById(R.id.audioCurrentDurationRecorded);
 		mAudioTotalDurationRecorded = (TextView) findViewById(R.id.audioTotalDurationRecorded);
 		mAudioCurrentDurationOriginal = (TextView) findViewById(R.id.audioCurrentDurationOriginal);
 		mAudioTotalDurationOriginal = (TextView) findViewById(R.id.audioTotalDurationOriginal);
+
+		mAudioProgressBarRecorded = (SeekBar) findViewById(R.id.audioProgressBarRecorded);
+		mAudioProgressBarOriginal = (SeekBar) findViewById(R.id.audioProgressBarOriginal);
+		mAudioProgressBarRecorded.setProgress(0);
+		mAudioProgressBarOriginal.setProgress(100);
+		mAudioProgressBarRecorded.setProgress(0);
+		mAudioProgressBarOriginal.setProgress(100);
 
 		// Get the location of the recorded and original file and create audio
 		// players
@@ -75,6 +81,7 @@ public class SubmissionActivity extends Activity {
 				mPlayButtonOriginal.setBackgroundResource(R.drawable.play);
 				mPlayerRecorded.play(SubmissionActivity.this);
 				if (mPlayerRecorded.isPlaying()) {
+					updateProgressBarOriginal();
 					mPlayButtonRecorded.setBackgroundResource(R.drawable.pause);
 				} else {
 					mPlayButtonRecorded.setBackgroundResource(R.drawable.play);
@@ -122,6 +129,36 @@ public class SubmissionActivity extends Activity {
 
 		mYesImageButton.setOnClickListener(yesListener);
 		mYesButton.setOnClickListener(yesListener);
+
+		// Set listener on audio progress bar that tracks user's touch
+		OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener() {
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// Progress bar no longer updates
+				mHandler.removeCallbacks(mUpdateTimeTaskOriginal);
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				mHandler.removeCallbacks(mUpdateTimeTaskOriginal);
+				int totalDuration = (int) mPlayerOriginal.getDuration();
+				int currentPosition = TimeConverter.progressToTimer(
+						seekBar.getProgress(), totalDuration);
+
+				// Move audio player forward or backward appropriate number of
+				// seconds
+				mPlayerOriginal.seekTo(currentPosition);
+
+				// Update timers
+				updateProgressBarOriginal();
+			}
+
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+			}
+		};
+		mAudioProgressBarOriginal.setOnSeekBarChangeListener(seekBarChangeListener);
 	}
 
 	// Stops the audio players
@@ -130,26 +167,29 @@ public class SubmissionActivity extends Activity {
 		mPlayerOriginal.stop();
 	}
 
-	// Update timer and audio progress bar
-	private void updateProgressBar() {
-		mHandler.postDelayed(mUpdateTimeTask, 100);
+	// TODO horrible amount of redundancy ; try to find a way to factor out
+	// common code
+
+	// Update timer and audio progress bar for the original recording
+	private void updateProgressBarOriginal() {
+		mHandler.postDelayed(mUpdateTimeTaskOriginal, 100);
 	}
 
-	private Runnable mUpdateTimeTask = new Runnable() {
+	private Runnable mUpdateTimeTaskOriginal = new Runnable() {
 		public void run() {
-			long currentDuration = mPlayer.getCurrentPosition();
-			long totalDuration = mPlayer.getDuration();
+			long currentDuration = mPlayerOriginal.getCurrentPosition();
+			long totalDuration = mPlayerOriginal.getDuration();
 
 			// Update the timer labels
-			mAudioCurrentDurationLabel.setText(TimeConverter
+			mAudioCurrentDurationOriginal.setText(TimeConverter
 					.milliSecondsToTimer(currentDuration));
-			mAudioTotalDurationLabel.setText(TimeConverter
+			mAudioTotalDurationOriginal.setText(TimeConverter
 					.milliSecondsToTimer(totalDuration));
 
 			// Update the progress bar
 			int progress = TimeConverter.getProgressPercentage(currentDuration,
 					totalDuration);
-			mAudioProgressBar.setProgress(progress);
+			mAudioProgressBarOriginal.setProgress(progress);
 
 			// Run this thread after 100 milliseconds
 			mHandler.postDelayed(this, 100);
