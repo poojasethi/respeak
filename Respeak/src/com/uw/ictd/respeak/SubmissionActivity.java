@@ -98,6 +98,13 @@ public class SubmissionActivity extends Activity {
 				mPlayButtonRecorded.setBackgroundResource(R.drawable.play);
 				mPlayerOriginal.play(SubmissionActivity.this);
 				if (mPlayerOriginal.isPlaying()) {
+					
+					// Update progress bar and total time
+					updateProgressBarOriginal();
+					long totalDuration = mPlayerOriginal.getDuration();
+					mAudioTotalDurationOriginal.setText(TimeConverter
+							.milliSecondsToTimer(totalDuration));
+					
 					mPlayButtonOriginal.setBackgroundResource(R.drawable.pause);
 				} else {
 					mPlayButtonOriginal.setBackgroundResource(R.drawable.play);
@@ -165,6 +172,12 @@ public class SubmissionActivity extends Activity {
 	private void stopPlayers() {
 		mPlayerRecorded.stop();
 		mPlayerOriginal.stop();
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		stopPlayers();
 	}
 
 	// TODO horrible amount of redundancy ; try to find a way to factor out
