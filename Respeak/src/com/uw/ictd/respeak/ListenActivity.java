@@ -65,9 +65,6 @@ public class ListenActivity extends Activity implements
 		mRespeakButton = (Button) findViewById(R.id.respeakButton);
 		mAudioProgressBar = (SeekBar) findViewById(R.id.audioProgressBar);
 		
-		// Hides keyboard until user selects edit text (phone number field)
-		this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-		
 		mChooser = new DbxChooser(APP_KEY);
 
 		// Allows user to pick audio file to open from Dropbox
@@ -128,6 +125,9 @@ public class ListenActivity extends Activity implements
 		};
 		mRespeakButton.setOnClickListener(respeakListener);
 		mRespeakImageButton.setOnClickListener(respeakListener);
+		
+		// Set listener on audio progress bar
+		mAudioProgressBar.setOnSeekBarChangeListener(this);
 	}
 
 	@Override
@@ -216,7 +216,7 @@ public class ListenActivity extends Activity implements
 	}
 	
 	@Override
-	public void onStopTrackingTouch(SeekBar seekBar ) {
+	public void onStopTrackingTouch(SeekBar seekBar) {
 		mHandler.removeCallbacks(mUpdateTimeTask);
 		int totalDuration = (int) mPlayer.getDuration();
 		int currentPosition = TimeConverter.progressToTimer(seekBar.getProgress(), totalDuration);
