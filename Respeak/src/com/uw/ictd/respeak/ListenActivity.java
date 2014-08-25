@@ -8,16 +8,15 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 import com.dropbox.chooser.android.DbxChooser;
 
-public class ListenActivity extends Activity implements
-		SeekBar.OnSeekBarChangeListener {
+public class ListenActivity extends Activity {
 
 	private TextView mRequestorName;
 	private TextView mMaxRewardAmount;
@@ -127,7 +126,32 @@ public class ListenActivity extends Activity implements
 		mRespeakImageButton.setOnClickListener(respeakListener);
 		
 		// Set listener on audio progress bar
-		mAudioProgressBar.setOnSeekBarChangeListener(this);
+		OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener() {
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// Progress bar no longer updates
+				mHandler.removeCallbacks(mUpdateTimeTask);
+			}
+			
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				mHandler.removeCallbacks(mUpdateTimeTask);
+				int totalDuration = (int) mPlayer.getDuration();
+				int currentPosition = TimeConverter.progressToTimer(seekBar.getProgress(), totalDuration);
+				
+				// Move audio player forward or backward appropriate number of seconds
+				mPlayer.seekTo(currentPosition);
+				
+				// Update timers
+				updateProgressBar();
+			}
+
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {	
+			}	
+		};
+		mAudioProgressBar.setOnSeekBarChangeListener(seekBarChangeListener);
 	}
 
 	@Override
@@ -208,29 +232,4 @@ public class ListenActivity extends Activity implements
 			mHandler.postDelayed(this, 100);
 		}
 	};
-
-	@Override
-	public void onStartTrackingTouch(SeekBar seekBar) {
-		// Progress bar no longer updates
-		mHandler.removeCallbacks(mUpdateTimeTask);
-	}
-	
-	@Override
-	public void onStopTrackingTouch(SeekBar seekBar) {
-		mHandler.removeCallbacks(mUpdateTimeTask);
-		int totalDuration = (int) mPlayer.getDuration();
-		int currentPosition = TimeConverter.progressToTimer(seekBar.getProgress(), totalDuration);
-		
-		// Move audio player forward or backward appropriate number of seconds
-		mPlayer.seekTo(currentPosition);
-		
-		// Update timers
-		updateProgressBar();
-	}
-
-	@Override
-	public void onProgressChanged(SeekBar seekBar, int progress,
-			boolean fromUser) {	
-	}
-
 }
