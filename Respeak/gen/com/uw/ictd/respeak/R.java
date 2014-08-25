@@ -1309,13 +1309,13 @@ containing a value of this type.
         public static final int always=0x7f0b000b;
         public static final int audioCurrentDurationLabel=0x7f0b0041;
         public static final int audioCurrentDurationLabelOriginal=0x7f0b0056;
-        public static final int audioCurrentDurationLabelUser=0x7f0b0052;
+        public static final int audioCurrentDurationLabelRecorded=0x7f0b0052;
         public static final int audioProgressBar=0x7f0b0042;
         public static final int audioProgressBarOriginal=0x7f0b0057;
-        public static final int audioProgressBarUser=0x7f0b0053;
+        public static final int audioProgressBarRecorded=0x7f0b0053;
         public static final int audioTotalDurationLabel=0x7f0b0043;
         public static final int audioTotalDurationLabelOriginal=0x7f0b0058;
-        public static final int audioTotalDurationLabelUser=0x7f0b0054;
+        public static final int audioTotalDurationLabelRecorded=0x7f0b0054;
         public static final int beginning=0x7f0b0011;
         public static final int checkbox=0x7f0b002d;
         public static final int chooserButton=0x7f0b003f;

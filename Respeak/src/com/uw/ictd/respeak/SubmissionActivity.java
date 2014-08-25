@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 
 public class SubmissionActivity extends Activity {
 
@@ -19,16 +20,15 @@ public class SubmissionActivity extends Activity {
 	private ImageButton mPlayButtonOriginal;
 	private AudioPlayer mPlayerRecorded;
 	private AudioPlayer mPlayerOriginal;
-
 	private ImageButton mNoImageButton;
 	private Button mNoButton;
 	private ImageButton mYesImageButton;
 	private Button mYesButton;
-
 	private Uri mRecordedFile;
 	private Uri mOriginalFile;
-
-	private Handler mHandler = new Handler();;
+	private Handler mHandler = new Handler();
+	private SeekBar mAudioProgressBarRecorded;
+	private SeekBar mAudioProgressBarOriginal;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -37,11 +37,12 @@ public class SubmissionActivity extends Activity {
 
 		mPlayButtonRecorded = (ImageButton) findViewById(R.id.playButtonUser);
 		mPlayButtonOriginal = (ImageButton) findViewById(R.id.playButtonOriginal);
-
 		mNoImageButton = (ImageButton) findViewById(R.id.noImageButton);
 		mNoButton = (Button) findViewById(R.id.noButton);
 		mYesImageButton = (ImageButton) findViewById(R.id.yesImageButton);
 		mYesButton = (Button) findViewById(R.id.yesButton);
+		mAudioProgressBarRecorded = (SeekBar)findViewById(R.id.audioProgressBarRecorded);
+		mAudioProgressBarOriginal = (SeekBar)findViewById(R.id.audioProgressBarOriginal);
 
 		// Get the location of the recorded and original file and create audio
 		// players
@@ -109,6 +110,7 @@ public class SubmissionActivity extends Activity {
 				startActivity(i);
 			}
 		};
+
 		mYesImageButton.setOnClickListener(yesListener);
 		mYesButton.setOnClickListener(yesListener);
 	}
@@ -118,4 +120,30 @@ public class SubmissionActivity extends Activity {
 		mPlayerRecorded.stop();
 		mPlayerOriginal.stop();
 	}
+
+	// Update timer and audio progress bar
+	private void updateProgressBar() {
+		mHandler.postDelayed(mUpdateTimeTask, 100);
+	}
+
+	private Runnable mUpdateTimeTask = new Runnable() {
+		public void run() {
+			long currentDuration = mPlayer.getCurrentPosition();
+			long totalDuration = mPlayer.getDuration();
+
+			// Update the timer labels
+			mAudioCurrentDurationLabel.setText(TimeConverter
+					.milliSecondsToTimer(currentDuration));
+			mAudioTotalDurationLabel.setText(TimeConverter
+					.milliSecondsToTimer(totalDuration));
+
+			// Update the progress bar
+			int progress = TimeConverter.getProgressPercentage(currentDuration,
+					totalDuration);
+			mAudioProgressBar.setProgress(progress);
+
+			// Run this thread after 100 milliseconds
+			mHandler.postDelayed(this, 100);
+		}
+	};
 }
