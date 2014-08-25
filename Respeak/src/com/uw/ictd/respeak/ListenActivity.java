@@ -20,6 +20,8 @@ public class ListenActivity extends Activity {
 	private TextView mRequestorName;
 	private TextView mMaxRewardAmount;
 	private TextView mCurrentRecording;
+	private TextView mAudioCurrentDurationLabel;
+	private TextView mAudioTotalDurationLabel;
 	private Button mChooserButton;
 	private DbxChooser mChooser;
 	private AudioPlayer mPlayer = new AudioPlayer();
@@ -30,7 +32,6 @@ public class ListenActivity extends Activity {
 	private ImageButton mRespeakImageButton;
 	private SeekBar mAudioProgressBar;
 	private Handler mHandler = new Handler();
-	private Runnable mUpdateTimeTask;
 
 	static final String EXTRA_PHONE_NUMBER = "com.uw.ictd.respeak.phone_number";
 	static final int REQUEST_CODE = 0;
@@ -47,6 +48,8 @@ public class ListenActivity extends Activity {
 		mRequestorName = (TextView) findViewById(R.id.requestorName);
 		mMaxRewardAmount = (TextView) findViewById(R.id.maxRewardAmount);
 		mCurrentRecording = (TextView) findViewById(R.id.currentRecordingSelected);
+		mAudioCurrentDurationLabel = (TextView) findViewById(R.id.audioCurrentDurationLabel);
+		mAudioTotalDurationLabel = (TextView) findViewById(R.id.audioTotalDurationLabel);
 
 		mRequestorName.setVisibility(View.INVISIBLE);
 		mMaxRewardAmount.setVisibility(View.INVISIBLE);
@@ -180,10 +183,21 @@ public class ListenActivity extends Activity {
 		mHandler.postDelayed(mUpdateTimeTask, 100);
 	}
 	
-	mUpdateTimeTask = new Runnable() {
+	private Runnable mUpdateTimeTask = new Runnable() {
 		public void run() {
-			long totalDuration = mPlayer.getDuration();
 			long currentDuration = mPlayer.getCurrentPosition();
+			long totalDuration = mPlayer.getDuration();
+			
+			// Update the timer labels
+			mAudioCurrentDurationLabel.setText(TimeConverter.milliSecondsToTimer(currentDuration));
+			mAudioTotalDurationLabel.setText(TimeConverter.milliSecondsToTimer(totalDuration));
+			
+			// Update the progress bar
+			int progress = TimeConverter.getProgressPercentage(currentDuration, totalDuration);
+			mAudioProgressBar.setProgress(progress);
+			
+			// Run this thread after 100 milliseconds
+			mHandler.postDelayed(this, 100);
 		}
 	};
 
