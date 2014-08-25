@@ -33,6 +33,7 @@ public class ListenActivity extends Activity {
 	private ImageButton mRespeakImageButton;
 	private SeekBar mAudioProgressBar;
 	private Handler mHandler = new Handler();
+	private UpdateTimeTask mUpdateTimeTask;
 
 	static final String EXTRA_PHONE_NUMBER = "com.uw.ictd.respeak.phone_number";
 	static final int REQUEST_CODE = 0;
@@ -63,7 +64,12 @@ public class ListenActivity extends Activity {
 		mRespeakImageButton = (ImageButton) findViewById(R.id.respeakImageButton);
 		mRespeakButton = (Button) findViewById(R.id.respeakButton);
 		mAudioProgressBar = (SeekBar) findViewById(R.id.audioProgressBar);
-		
+
+		// Create a new task to update time 
+		mUpdateTimeTask = new UpdateTimeTask(mPlayer,
+				mAudioCurrentDurationLabel, mAudioTotalDurationLabel,
+				mAudioProgressBar, mHandler);
+
 		mChooser = new DbxChooser(APP_KEY);
 
 		// Allows user to pick audio file to open from Dropbox
@@ -84,7 +90,7 @@ public class ListenActivity extends Activity {
 			public void onClick(View v) {
 				mAudioProgressBar.setProgress(0);
 				mAudioProgressBar.setMax(100);
-				updateProgressBar();
+				mUpdateTimeTask.updateProgressBar();
 
 				mPlayer.play(ListenActivity.this);
 				if (mPlayer.isPlaying()) {
@@ -124,7 +130,7 @@ public class ListenActivity extends Activity {
 		};
 		mRespeakButton.setOnClickListener(respeakListener);
 		mRespeakImageButton.setOnClickListener(respeakListener);
-		
+
 		// Set listener on audio progress bar that tracks user's touch
 		OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener() {
 			@Override
@@ -132,24 +138,26 @@ public class ListenActivity extends Activity {
 				// Progress bar no longer updates
 				mHandler.removeCallbacks(mUpdateTimeTask);
 			}
-			
+
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				mHandler.removeCallbacks(mUpdateTimeTask);
 				int totalDuration = (int) mPlayer.getDuration();
-				int currentPosition = TimeConverter.progressToTimer(seekBar.getProgress(), totalDuration);
-				
-				// Move audio player forward or backward appropriate number of seconds
+				int currentPosition = TimeConverter.progressToTimer(
+						seekBar.getProgress(), totalDuration);
+
+				// Move audio player forward or backward appropriate number of
+				// seconds
 				mPlayer.seekTo(currentPosition);
-				
+
 				// Update timers
-				updateProgressBar();
+				mUpdateTimeTask.updateProgressBar();
 			}
 
 			@Override
 			public void onProgressChanged(SeekBar seekBar, int progress,
-					boolean fromUser) {	
-			}	
+					boolean fromUser) {
+			}
 		};
 		mAudioProgressBar.setOnSeekBarChangeListener(seekBarChangeListener);
 	}
@@ -206,30 +214,30 @@ public class ListenActivity extends Activity {
 		super.onPause();
 		mPlayer.stop();
 	}
-
-	// Update timer and audio progress bar
-	private void updateProgressBar() {
-		mHandler.postDelayed(mUpdateTimeTask, 100);
-	}
-
-	private Runnable mUpdateTimeTask = new Runnable() {
-		public void run() {
-			long currentDuration = mPlayer.getCurrentPosition();
-			long totalDuration = mPlayer.getDuration();
-
-			// Update the timer labels
-			mAudioCurrentDurationLabel.setText(TimeConverter
-					.milliSecondsToTimer(currentDuration));
-			mAudioTotalDurationLabel.setText(TimeConverter
-					.milliSecondsToTimer(totalDuration));
-
-			// Update the progress bar
-			int progress = TimeConverter.getProgressPercentage(currentDuration,
-					totalDuration);
-			mAudioProgressBar.setProgress(progress);
-
-			// Run this thread after 100 milliseconds
-			mHandler.postDelayed(this, 100);
-		}
-	};
+	//
+	// // Update timer and audio progress bar
+	// private void updateProgressBar() {
+	// mHandler.postDelayed(mUpdateTimeTask, 100);
+	// }
+	//
+	// private Runnable mUpdateTimeTask = new Runnable() {
+	// public void run() {
+	// long currentDuration = mPlayer.getCurrentPosition();
+	// long totalDuration = mPlayer.getDuration();
+	//
+	// // Update the timer labels
+	// mAudioCurrentDurationLabel.setText(TimeConverter
+	// .milliSecondsToTimer(currentDuration));
+	// mAudioTotalDurationLabel.setText(TimeConverter
+	// .milliSecondsToTimer(totalDuration));
+	//
+	// // Update the progress bar
+	// int progress = TimeConverter.getProgressPercentage(currentDuration,
+	// totalDuration);
+	// mAudioProgressBar.setProgress(progress);
+	//
+	// // Run this thread after 100 milliseconds
+	// mHandler.postDelayed(this, 100);
+	// }
+	// };
 }
