@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.dropbox.chooser.android.DbxChooser;
 
-public class ListenActivity extends Activity {
+public class ListenActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
 
 	private TextView mRequestorName;
 	private TextView mMaxRewardAmount;
@@ -84,7 +84,7 @@ public class ListenActivity extends Activity {
 				mAudioProgressBar.setProgress(0);
 				mAudioProgressBar.setMax(100);
 				updateProgressBar();
-				
+
 				mPlayer.play(ListenActivity.this);
 				if (mPlayer.isPlaying()) {
 					mPlayButton.setBackgroundResource(R.drawable.pause);
@@ -93,7 +93,6 @@ public class ListenActivity extends Activity {
 				}
 			}
 		});
-		
 
 		// Allows user to listen to the recording again. If the recording is
 		// already playing, restarts from the beginning
@@ -107,7 +106,6 @@ public class ListenActivity extends Activity {
 		};
 		mListenAgainButton.setOnClickListener(listenAgainListener);
 		mListenAgainImageButton.setOnClickListener(listenAgainListener);
-		
 
 		// Starts the recording activity
 		OnClickListener respeakListener = new OnClickListener() {
@@ -116,9 +114,10 @@ public class ListenActivity extends Activity {
 				// Stop playing the audio and reset the background
 				mPlayer.stop();
 				mPlayButton.setBackgroundResource(R.drawable.play);
-				
+
 				Intent i = new Intent(ListenActivity.this, RecordActivity.class);
-				i.putExtra(SubmissionActivity.EXTRA_ORIGINAL_FILE_NAME, mPlayer.getUri());
+				i.putExtra(SubmissionActivity.EXTRA_ORIGINAL_FILE_NAME,
+						mPlayer.getUri());
 				startActivityForResult(i, REQUEST_CODE);
 			}
 		};
@@ -172,34 +171,43 @@ public class ListenActivity extends Activity {
 			super.onActivityResult(requestCode, resultCode, data);
 		}
 	}
-	
+
 	@Override
 	protected void onPause() {
 		super.onPause();
 		mPlayer.stop();
 	}
-	
-	// Update timer on seekbar
+
+	// Update timer and audio progress bar
 	private void updateProgressBar() {
 		mHandler.postDelayed(mUpdateTimeTask, 100);
 	}
-	
+
 	private Runnable mUpdateTimeTask = new Runnable() {
 		public void run() {
 			long currentDuration = mPlayer.getCurrentPosition();
 			long totalDuration = mPlayer.getDuration();
-			
+
 			// Update the timer labels
-			mAudioCurrentDurationLabel.setText(TimeConverter.milliSecondsToTimer(currentDuration));
-			mAudioTotalDurationLabel.setText(TimeConverter.milliSecondsToTimer(totalDuration));
-			
+			mAudioCurrentDurationLabel.setText(TimeConverter
+					.milliSecondsToTimer(currentDuration));
+			mAudioTotalDurationLabel.setText(TimeConverter
+					.milliSecondsToTimer(totalDuration));
+
 			// Update the progress bar
-			int progress = TimeConverter.getProgressPercentage(currentDuration, totalDuration);
+			int progress = TimeConverter.getProgressPercentage(currentDuration,
+					totalDuration);
 			mAudioProgressBar.setProgress(progress);
-			
+
 			// Run this thread after 100 milliseconds
 			mHandler.postDelayed(this, 100);
 		}
 	};
+
+	private void onStartTrackingTouch(SeekBar seekbar) {
+		mHandler.removeCallbacks(mUpdateTimeTask);
+		long totalDuration = mPlayer.getDuration();
+
+	}
 
 }
