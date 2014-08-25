@@ -228,4 +228,9 @@ public class ListenActivity extends Activity implements
 		updateProgressBar();
 	}
 
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress,
+			boolean fromUser) {	
+	}
+
 }
