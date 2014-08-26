@@ -40,6 +40,12 @@ public class AudioRecorder {
     	}
     }
     
+    protected void pauseRecording() {
+    	if (mRecorder != null) {
+    		mRecorder.stop();
+    	}
+    }
+    
     protected String getFileName() {
     	return mFileName;
     }
