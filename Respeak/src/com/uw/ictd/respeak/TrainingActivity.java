@@ -24,7 +24,6 @@ public class TrainingActivity extends ActionBarActivity {
 	private Button mDoneButton;
 	private ImageButton mDoneImageButton;
 	private AudioRecorder mRecorder = new AudioRecorder();
-	private boolean isRecording;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -47,18 +46,16 @@ public class TrainingActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
-				if (!isRecording) {
+				if (!mRecorder.isRecording()) {
 					mRecorder.startRecording();
 					mRecordImageButton.setBackgroundResource(R.drawable.pause_large);
 					mRecordButton.setText("pause");
 					enableDoneButton();
-					isRecording = true;
 				} else {
 					mRecorder.pauseRecording();
 					// disableRecordButton();
 					mRecordImageButton.setBackgroundResource(R.drawable.record);
 					mRecordButton.setText("record");
-					isRecording = false;
 				}
 			}
 		};
@@ -75,6 +72,7 @@ public class TrainingActivity extends ActionBarActivity {
 					mRecorder.stopRecording();
 					disableDoneButton();
 					enableRecordButton();
+					mRecordButton.setText("record");
 
 					Intent i = new Intent(TrainingActivity.this,
 							SubmissionActivity.class);
