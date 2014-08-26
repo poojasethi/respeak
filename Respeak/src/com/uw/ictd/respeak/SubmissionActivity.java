@@ -79,6 +79,10 @@ public class SubmissionActivity extends Activity {
 			public void onClick(View v) {
 				mPlayerOriginal.pause();
 				mPlayButtonOriginal.setBackgroundResource(R.drawable.play);
+				
+				mAudioProgressBarRecorded.setEnabled(true);
+				mAudioProgressBarOriginal.setEnabled(false);
+				
 				mPlayerRecorded.play(SubmissionActivity.this);
 				if (mPlayerRecorded.isPlaying()) {
 					// Update progress bar and total time
@@ -101,6 +105,10 @@ public class SubmissionActivity extends Activity {
 			public void onClick(View v) {
 				mPlayerRecorded.pause();
 				mPlayButtonRecorded.setBackgroundResource(R.drawable.play);
+				
+				mAudioProgressBarRecorded.setEnabled(false);
+				mAudioProgressBarOriginal.setEnabled(true);
+				
 				mPlayerOriginal.play(SubmissionActivity.this);
 				if (mPlayerOriginal.isPlaying()) {
 					
@@ -153,19 +161,22 @@ public class SubmissionActivity extends Activity {
 			@Override
 			public void onStopTrackingTouch(SeekBar seekBar) {
 				mHandler.removeCallbacks(mUpdateTimeTask);
-				int totalDurationOriginal = (int) mPlayerOriginal.getDuration();
-				int currentPositionOriginal = TimeConverter.progressToTimer(
-						seekBar.getProgress(), totalDurationOriginal);
 				
-				int totalDurationRecorded = (int) mPlayerOriginal.getDuration();
-				int currentPositionRecorded = TimeConverter.progressToTimer(
-						seekBar.getProgress(), totalDurationRecorded);
+				if (seekBar == mAudioProgressBarOriginal) {
+					int totalDurationOriginal = (int) mPlayerOriginal.getDuration();
+					int currentPositionOriginal = TimeConverter.progressToTimer(
+							seekBar.getProgress(), totalDurationOriginal);
+					
+					mPlayerOriginal.seekTo(currentPositionOriginal);
+					
+				} else if (seekBar == mAudioProgressBarRecorded) {
+					int totalDurationRecorded = (int) mPlayerRecorded.getDuration();
+					int currentPositionRecorded = TimeConverter.progressToTimer(
+							seekBar.getProgress(), totalDurationRecorded);
 
-				// Move audio players forward or backward appropriate number of
-				// seconds
-				mPlayerOriginal.seekTo(currentPositionOriginal);
-				mPlayerRecorded.seekTo(currentPositionRecorded);
-
+					mPlayerRecorded.seekTo(currentPositionRecorded);
+				}
+			
 				// Update timers
 				updateProgressBar();
 			}
