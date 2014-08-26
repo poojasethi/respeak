@@ -125,12 +125,12 @@ public class TrainingActivity extends ActionBarActivity {
 		mDoneImageButton.setBackgroundResource(R.drawable.done_black);
 	}
 	
-	private void disableRecordButton() {
-		mRecordButton.setEnabled(false);
-		mRecordButton.setTextColor(getResources().getColor(R.color.light_gray));
-		mRecordImageButton.setEnabled(false);
-		mRecordImageButton.setBackgroundResource(R.drawable.record_gray);
-	}
+//	private void disableRecordButton() {
+//		mRecordButton.setEnabled(false);
+//		mRecordButton.setTextColor(getResources().getColor(R.color.light_gray));
+//		mRecordImageButton.setEnabled(false);
+//		mRecordImageButton.setBackgroundResource(R.drawable.record_gray);
+//	}
 	
 	private void enableRecordButton() {
 		mRecordButton.setEnabled(true);
