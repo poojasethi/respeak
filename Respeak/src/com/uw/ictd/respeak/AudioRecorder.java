@@ -35,7 +35,7 @@ public class AudioRecorder {
     }
 
     protected void stopRecording() {
-    	if (mRecorder != null) {
+    	if (mRecorder != null && isRecording) {
 	        mRecorder.stop();
 	        mRecorder.release();
 	        mRecorder = null;
@@ -44,7 +44,7 @@ public class AudioRecorder {
     }
     
     protected void pauseRecording() {
-    	if (mRecorder != null) {
+    	if (mRecorder != null && isRecording()) {
     		mRecorder.stop();
     		isRecording = false;
     	}
@@ -52,13 +52,6 @@ public class AudioRecorder {
     
     protected String getFileName() {
     	return mFileName;
-    }
-    
-    protected void stop() {
-    	if (mRecorder != null) {
-            mRecorder.release();
-            mRecorder = null;
-        }
     }
     
     protected boolean isRecording() {

@@ -125,6 +125,6 @@ public class RecordActivity extends Activity {
 	@Override
     public void onPause() {
         super.onPause();
-        mRecorder.stop();
+        mRecorder.stopRecording();
     }
 }

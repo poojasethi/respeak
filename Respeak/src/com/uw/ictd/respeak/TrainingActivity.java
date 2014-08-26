@@ -142,6 +142,6 @@ public class TrainingActivity extends ActionBarActivity {
 	@Override
     public void onPause() {
         super.onPause();
-        mRecorder.stop();
+        mRecorder.stopRecording();
     }
 }
