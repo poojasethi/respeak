@@ -12,6 +12,7 @@ public class AudioRecorder {
 	private static final String TAG = "AudioRecorder";
 	private MediaRecorder mRecorder;
 	private String mFileName;
+	private boolean isRecording;
 
     protected void startRecording() {
     	mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
@@ -30,6 +31,7 @@ public class AudioRecorder {
         }
 
         mRecorder.start();
+        isRecording = true;
     }
 
     protected void stopRecording() {
@@ -37,12 +39,14 @@ public class AudioRecorder {
 	        mRecorder.stop();
 	        mRecorder.release();
 	        mRecorder = null;
+	        isRecording = false;
     	}
     }
     
     protected void pauseRecording() {
     	if (mRecorder != null) {
     		mRecorder.stop();
+    		isRecording = false;
     	}
     }
     
@@ -55,6 +59,10 @@ public class AudioRecorder {
             mRecorder.release();
             mRecorder = null;
         }
+    }
+    
+    protected boolean isRecording() {
+    	return isRecording;
     }
     
 }

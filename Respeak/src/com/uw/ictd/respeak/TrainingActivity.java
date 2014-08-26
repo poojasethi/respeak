@@ -39,7 +39,6 @@ public class TrainingActivity extends ActionBarActivity {
 		mRecordImageButton = (ImageButton) findViewById(R.id.recordImageButtonTrain);
 		mDoneButton = (Button) findViewById(R.id.doneButtonTrain);
 		mDoneImageButton = (ImageButton) findViewById(R.id.doneImageButtonTrain);
-		isRecording = false;
 		disableDoneButton();
 
 		// Starts recording
