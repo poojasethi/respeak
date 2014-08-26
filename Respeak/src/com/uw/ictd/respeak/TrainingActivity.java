@@ -6,7 +6,6 @@ import java.io.InputStream;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
@@ -17,7 +16,7 @@ import android.widget.TextView;
 
 public class TrainingActivity extends ActionBarActivity {
 	public static int REQUEST_CODE = 100;
-	
+
 	private TextView mTrainingText;
 	private Button mRecordButton;
 	private ImageButton mRecordImageButton;
@@ -46,17 +45,21 @@ public class TrainingActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
-				if (!mRecorder.isRecording()) {
-					mRecorder.startRecording();
-					mRecordImageButton.setBackgroundResource(R.drawable.pause_large);
-					mRecordButton.setText("pause");
-					enableDoneButton();
-				} else {
-					mRecorder.pauseRecording();
-					// disableRecordButton();
-					mRecordImageButton.setBackgroundResource(R.drawable.record);
-					mRecordButton.setText("record");
-				}
+				mRecorder.startRecording();
+				disableRecordButton();
+				enableDoneButton();
+				// if (!mRecorder.isRecording()) {
+				// mRecorder.startRecording();
+				// mRecordImageButton
+				// .setBackgroundResource(R.drawable.pause_large);
+				// mRecordButton.setText("pause");
+				// enableDoneButton();
+				// } else {
+				// mRecorder.pauseRecording();
+				// // disableRecordButton();
+				// mRecordImageButton.setBackgroundResource(R.drawable.record);
+				// mRecordButton.setText("record");
+				// }
 			}
 		};
 		mRecordButton.setOnClickListener(recordListener);
@@ -72,7 +75,6 @@ public class TrainingActivity extends ActionBarActivity {
 					mRecorder.stopRecording();
 					disableDoneButton();
 					enableRecordButton();
-					mRecordButton.setText("record");
 
 					Intent i = new Intent(TrainingActivity.this,
 							SubmissionActivity.class);
@@ -110,38 +112,38 @@ public class TrainingActivity extends ActionBarActivity {
 		}
 		return outputStream.toString();
 	}
-	
+
 	private void disableDoneButton() {
 		mDoneButton.setEnabled(false);
 		mDoneButton.setTextColor(getResources().getColor(R.color.light_gray));
 		mDoneImageButton.setEnabled(false);
 		mDoneImageButton.setBackgroundResource(R.drawable.done_gray);
 	}
-	
+
 	private void enableDoneButton() {
 		mDoneButton.setEnabled(true);
 		mDoneButton.setTextColor(getResources().getColor(R.color.light_blue));
 		mDoneImageButton.setEnabled(true);
 		mDoneImageButton.setBackgroundResource(R.drawable.done_black);
 	}
-	
-//	private void disableRecordButton() {
-//		mRecordButton.setEnabled(false);
-//		mRecordButton.setTextColor(getResources().getColor(R.color.light_gray));
-//		mRecordImageButton.setEnabled(false);
-//		mRecordImageButton.setBackgroundResource(R.drawable.record_gray);
-//	}
-	
+
+	private void disableRecordButton() {
+		mRecordButton.setEnabled(false);
+		mRecordButton.setTextColor(getResources().getColor(R.color.light_gray));
+		mRecordImageButton.setEnabled(false);
+		mRecordImageButton.setBackgroundResource(R.drawable.record_gray);
+	}
+
 	private void enableRecordButton() {
 		mRecordButton.setEnabled(true);
 		mRecordButton.setTextColor(getResources().getColor(R.color.light_blue));
 		mRecordImageButton.setEnabled(true);
 		mRecordImageButton.setBackgroundResource(R.drawable.record);
 	}
-	
+
 	@Override
-    public void onPause() {
-        super.onPause();
-        mRecorder.stopRecording();
-    }
+	public void onPause() {
+		super.onPause();
+		mRecorder.stopRecording();
+	}
 }
