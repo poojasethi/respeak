@@ -24,6 +24,7 @@ public class TrainingActivity extends ActionBarActivity {
 	private Button mDoneButton;
 	private ImageButton mDoneImageButton;
 	private AudioRecorder mRecorder = new AudioRecorder();
+	private boolean isRecording;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +39,7 @@ public class TrainingActivity extends ActionBarActivity {
 		mRecordImageButton = (ImageButton) findViewById(R.id.recordImageButtonTrain);
 		mDoneButton = (Button) findViewById(R.id.doneButtonTrain);
 		mDoneImageButton = (ImageButton) findViewById(R.id.doneImageButtonTrain);
-
+		isRecording = false;
 		disableDoneButton();
 
 		// Starts recording
@@ -47,9 +48,19 @@ public class TrainingActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
-				mRecorder.startRecording();
-				disableRecordButton();
-				enableDoneButton();
+				if (!isRecording) {
+					mRecorder.pauseRecording();
+					mRecordImageButton.setBackgroundResource(R.drawable.pause);
+					mRecordButton.setText("resume");
+					isRecording = true;
+				} else {
+					mRecorder.startRecording();
+					// disableRecordButton();
+					mRecordImageButton.setBackgroundResource(R.drawable.record);
+					mRecordButton.setText("record");
+					enableDoneButton();
+					isRecording = false;
+				}
 			}
 		};
 		mRecordButton.setOnClickListener(recordListener);
