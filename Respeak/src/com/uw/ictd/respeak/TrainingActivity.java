@@ -27,6 +27,11 @@ public class TrainingActivity extends ActionBarActivity {
 		mTrainingText = (TextView) findViewById(R.id.trainingText);
 		mTrainingText.setText(readText());
 		mTrainingText.setMovementMethod(new ScrollingMovementMethod());
+		
+		mRecordButton = (Button) findViewById(R.id.recordButtonTrain);
+		mRecordImageButton = (ImageButton) findViewById(R.id.recordImageButtonTrain);
+		mDoneButton = (Button) findViewById(R.id.doneButtonTrain);
+		mDoneImageButton = (ImageButton) findViewById(R.id.doneImageButtonTrain);
 	}
 	
 	// Reads from a training text file and converts into a string 

@@ -27,14 +27,14 @@
         android:paddingTop="20dp" >
 
         <ImageButton
-            android:id="@+id/recordImageButton"
+            android:id="@+id/recordImageButtonTrain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/record"
             android:contentDescription="@string/image_description_record_button" />
 
         <Button
-            android:id="@+id/recordButton"
+            android:id="@+id/recordButtonTrain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
@@ -43,14 +43,14 @@
             android:textColor="@color/light_blue" />
 
         <ImageButton
-            android:id="@+id/doneImageButton"
+            android:id="@+id/doneImageButtonTrain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/done_black"
             android:contentDescription="@string/image_description_done_button" />
 
         <Button
-            android:id="@+id/doneButton"
+            android:id="@+id/doneButtonTrain"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@null"
