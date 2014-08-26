@@ -49,16 +49,16 @@ public class TrainingActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 				if (!isRecording) {
-					mRecorder.pauseRecording();
-					mRecordImageButton.setBackgroundResource(R.drawable.pause);
-					mRecordButton.setText("resume");
+					mRecorder.startRecording();
+					mRecordImageButton.setBackgroundResource(R.drawable.pause_large);
+					mRecordButton.setText("pause");
+					enableDoneButton();
 					isRecording = true;
 				} else {
-					mRecorder.startRecording();
+					mRecorder.pauseRecording();
 					// disableRecordButton();
 					mRecordImageButton.setBackgroundResource(R.drawable.record);
 					mRecordButton.setText("record");
-					enableDoneButton();
 					isRecording = false;
 				}
 			}

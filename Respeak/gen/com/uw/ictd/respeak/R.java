@@ -1282,16 +1282,17 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020067;
         public static final int icon_new=0x7f020068;
         public static final int pause=0x7f020069;
-        public static final int play=0x7f02006a;
-        public static final int play_button_selector=0x7f02006b;
-        public static final int record=0x7f02006c;
-        public static final int record_gray=0x7f02006d;
-        public static final int red_mic=0x7f02006e;
-        public static final int red_x=0x7f02006f;
-        public static final int replay=0x7f020070;
-        public static final int requestor_image=0x7f020071;
-        public static final int tab_dropbox=0x7f020072;
-        public static final int tab_dropbox_inactive=0x7f020073;
+        public static final int pause_large=0x7f02006a;
+        public static final int play=0x7f02006b;
+        public static final int play_button_selector=0x7f02006c;
+        public static final int record=0x7f02006d;
+        public static final int record_gray=0x7f02006e;
+        public static final int red_mic=0x7f02006f;
+        public static final int red_x=0x7f020070;
+        public static final int replay=0x7f020071;
+        public static final int requestor_image=0x7f020072;
+        public static final int tab_dropbox=0x7f020073;
+        public static final int tab_dropbox_inactive=0x7f020074;
     }
     public static final class id {
         public static final int action_bar=0x7f0b001c;
