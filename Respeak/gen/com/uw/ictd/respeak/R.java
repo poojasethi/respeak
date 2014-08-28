@@ -1306,6 +1306,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f0b0016;
         public static final int action_menu_presenter=0x7f0b0017;
         public static final int action_mode_close_button=0x7f0b0024;
+        public static final int action_settings=0x7f0b0073;
         public static final int activity_chooser_view_content=0x7f0b0025;
         public static final int always=0x7f0b000b;
         public static final int audioCurrentDurationLabel=0x7f0b0041;
@@ -1464,14 +1465,18 @@ containing a value of this type.
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_listen=0x7f030018;
         public static final int activity_login=0x7f030019;
-        public static final int activity_record=0x7f03001a;
-        public static final int activity_submission=0x7f03001b;
-        public static final int activity_submission_confirmation=0x7f03001c;
-        public static final int activity_training=0x7f03001d;
-        public static final int app_store_interstitial=0x7f03001e;
-        public static final int bottom_bar_light=0x7f03001f;
-        public static final int bottom_buttons_light=0x7f030020;
-        public static final int support_simple_spinner_dropdown_item=0x7f030021;
+        public static final int activity_pay_scale=0x7f03001a;
+        public static final int activity_record=0x7f03001b;
+        public static final int activity_submission=0x7f03001c;
+        public static final int activity_submission_confirmation=0x7f03001d;
+        public static final int activity_training=0x7f03001e;
+        public static final int app_store_interstitial=0x7f03001f;
+        public static final int bottom_bar_light=0x7f030020;
+        public static final int bottom_buttons_light=0x7f030021;
+        public static final int support_simple_spinner_dropdown_item=0x7f030022;
+    }
+    public static final class menu {
+        public static final int pay_scale=0x7f0d0000;
     }
     public static final class raw {
         public static final int big_data=0x7f050000;
@@ -1520,6 +1525,7 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f090014;
+        public static final int action_settings=0x7f09003f;
         public static final int app_name=0x7f090016;
         public static final int choose_file=0x7f090024;
         public static final int current_recording=0x7f090020;
@@ -1536,6 +1542,7 @@ containing a value of this type.
         public static final int do_more_respeaks=0x7f090034;
         public static final int done=0x7f090029;
         public static final int first_time_on_respeak=0x7f09001b;
+        public static final int hello_world=0x7f09003e;
         public static final int hint_login=0x7f090017;
         public static final int image_description=0x7f090022;
         public static final int image_description_done_button=0x7f090038;
@@ -1561,6 +1568,7 @@ containing a value of this type.
         public static final int thank_you=0x7f090030;
         public static final int thank_you_details=0x7f090031;
         public static final int title_activity_listen=0x7f090039;
+        public static final int title_activity_pay_scale=0x7f09003d;
         public static final int title_activity_record=0x7f09003a;
         public static final int title_activity_thank_you=0x7f09003b;
         public static final int title_activity_training=0x7f09003c;

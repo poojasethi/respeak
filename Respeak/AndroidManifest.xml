@@ -68,6 +68,11 @@
             android:enabled="true"
             android:exported="false"
             android:label="Dropbox Sync" />
+
+        <activity
+            android:name=".PayScaleActivity"
+            android:label="@string/title_activity_pay_scale" >
+        </activity>
     </application>
 
 </manifest>

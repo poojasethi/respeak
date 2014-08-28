@@ -40,7 +40,7 @@
     <string name="title_activity_record">record</string>
     <string name="title_activity_thank_you">thank you</string>
     <string name="title_activity_training">training</string>
-  
+
     <color name="white">#FFFFFF</color>
     <color name="light_blue">#00B8E6</color>
     <color name="gold">#E6B800</color>
@@ -49,7 +49,9 @@
     <color name="lighter_gray">#F6F6F6</color>
     <color name="red">#E60000</color>
     <color name="green">#53CF29</color>
-    
 
+    <string name="title_activity_pay_scale">PayScaleActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
 
 </resources>
