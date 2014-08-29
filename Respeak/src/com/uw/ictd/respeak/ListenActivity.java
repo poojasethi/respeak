@@ -46,6 +46,7 @@ public class ListenActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_listen);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		mRequestorName = (TextView) findViewById(R.id.requestorName);
 		mMaxRewardAmount = (TextView) findViewById(R.id.maxRewardAmount);
