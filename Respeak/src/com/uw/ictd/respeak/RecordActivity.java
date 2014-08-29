@@ -27,6 +27,7 @@ public class RecordActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_record);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		mRecorderPic = (ImageView) findViewById(R.id.recorderPic);
 		mRecordButton = (Button) findViewById(R.id.recordButton);
