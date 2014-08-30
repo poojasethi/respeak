@@ -17,18 +17,22 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-        
+
         <TableRow>
 
             <TextView
                 style="@style/TableText"
                 android:layout_weight="1"
-                android:text="test" />
+                android:text="@string/accuracy"
+                android:textStyle="bold"
+                android:textColor="@color/gold" />
 
             <TextView
                 style="@style/TableText"
                 android:layout_weight="1"
-                android:text="test" />
+                android:text="@string/payment"
+                android:textStyle="bold"
+                android:textColor="@color/gold" />
         </TableRow>
 
         <TableRow>
@@ -37,12 +41,13 @@
                 style="@style/TableText"
                 android:layout_weight="1"
                 android:background="@color/green"
-                android:text="test" />
+                android:text="@string/high_accuracy" />
 
             <TextView
                 style="@style/TableText"
                 android:layout_weight="1"
-                android:text="test" />
+                android:background="@color/light_gray"
+                android:text="@string/high_payment" />
         </TableRow>
 
         <TableRow>
@@ -51,12 +56,13 @@
                 style="@style/TableText"
                 android:layout_weight="1"
                 android:background="@color/gold"
-                android:text="test" />
+                android:text="@string/medium_accuracy" />
 
             <TextView
                 style="@style/TableText"
                 android:layout_weight="1"
-                android:text="test" />
+                android:background="@color/light_gray"
+                android:text="@string/medium_payment" />
         </TableRow>
 
         <TableRow>
@@ -65,12 +71,13 @@
                 style="@style/TableText"
                 android:layout_weight="1"
                 android:background="@color/dark_red"
-                android:text="test" />
+                android:text="@string/low_accuracy" />
 
             <TextView
                 style="@style/TableText"
                 android:layout_weight="1"
-                android:text="test" />
+                android:background="@color/light_gray"
+                android:text="@string/low_payment" />
         </TableRow>
     </TableLayout>
 

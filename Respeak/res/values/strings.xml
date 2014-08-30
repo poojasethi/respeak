@@ -31,6 +31,14 @@
     <string name="thank_you_details">All payments will be awarded based on the perecentage accuracy of your speech.</string>
     <string name="view_payment_scale"><u>View the payment scale.</u></string>
     <string name="payment_scale">payment scale</string>
+    <string name="accuracy">accuracy</string>
+    <string name="payment">payment</string>
+    <string name="high_accuracy">80% +</string>
+    <string name="medium_accuracy">50% - 79%</string>
+    <string name="low_accuracy">49% and below</string>
+    <string name="high_payment">100%</string>
+    <string name="medium_payment">50%</string>
+    <string name="low_payment">0%</string>
     <string name="sms_update">An update of your accuracy and payment status will be sent via SMS within two business days.</string>
     <string name="do_more_respeaks">Do more respeaks</string>
     <string name="view_account_balance">View account balance</string>
