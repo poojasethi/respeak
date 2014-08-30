@@ -53,7 +53,9 @@
     <color name="lighter_gray">#F6F6F6</color>
     <color name="red">#E60000</color>
     <color name="light_red_background">#FFCCB2</color>
-    <color name="green">#53CF29</color>
+    <color name="dark_red">#CC0000</color>
+    <color name="green">#CCFF33</color>
+   
 
     <string name="title_activity_pay_scale">PayScaleActivity</string>
     <string name="hello_world">Hello world!</string>

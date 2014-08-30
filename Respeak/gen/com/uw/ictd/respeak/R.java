@@ -858,7 +858,7 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f0c0002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f080055;
+        public static final int abc_search_url_text_holo=0x7f080056;
         public static final int abc_search_url_text_normal=0x7f08004b;
         public static final int abc_search_url_text_pressed=0x7f08004d;
         public static final int abc_search_url_text_selected=0x7f08004c;
@@ -879,6 +879,7 @@ containing a value of this type.
         public static final int darkButtonText=0x7f08001c;
         public static final int darkGrayText=0x7f080021;
         public static final int dark_gray=0x7f080051;
+        public static final int dark_red=0x7f080055;
         public static final int dialogBoxTitleBackground=0x7f080005;
         public static final int errorText=0x7f080028;
         public static final int feature_popover_bg=0x7f080032;

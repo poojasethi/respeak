@@ -17,7 +17,7 @@
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
-
+        
         <TableRow>
 
             <TextView
@@ -36,6 +36,7 @@
             <TextView
                 style="@style/TableText"
                 android:layout_weight="1"
+                android:background="@color/green"
                 android:text="test" />
 
             <TextView
@@ -49,6 +50,21 @@
             <TextView
                 style="@style/TableText"
                 android:layout_weight="1"
+                android:background="@color/gold"
+                android:text="test" />
+
+            <TextView
+                style="@style/TableText"
+                android:layout_weight="1"
+                android:text="test" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TableText"
+                android:layout_weight="1"
+                android:background="@color/dark_red"
                 android:text="test" />
 
             <TextView
