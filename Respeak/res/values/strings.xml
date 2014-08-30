@@ -34,6 +34,8 @@
     <string name="do_more_respeaks">Do more respeaks</string>
     <string name="view_account_balance">View account balance</string>
     <string name="settings">Settings</string>
+    <string name="welcome">Welcome!</string>
+    <string name="training_dialog">Let\'s start training respeak to understand your voice. Please record yourself reading the following passage outloud as clearly as possible.</string>
     <string name="image_description_recorder">Recorder</string>
     <string name="image_description_record_button">Press to record</string>
     <string name="image_description_done_button">Press if you are done recording</string>

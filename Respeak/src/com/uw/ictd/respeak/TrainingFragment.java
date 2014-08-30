@@ -4,9 +4,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 
 public class TrainingFragment extends Fragment {
 	public static int REQUEST_CODE = 100;
+	private static final String DIALOG_TRAINING = "training welcome";
 
 	private TextView mTrainingText;
 	private Button mRecordButton;
@@ -25,6 +27,14 @@ public class TrainingFragment extends Fragment {
 	private Button mDoneButton;
 	private ImageButton mDoneImageButton;
 	private AudioRecorder mRecorder = new AudioRecorder();
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		FragmentManager fm = getActivity().getFragmentManager();
+		TrainingDialogFragment dialog = new TrainingDialogFragment();
+		dialog.show(fm, DIALOG_TRAINING);
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
