@@ -17,6 +17,7 @@ public class TrainingActivity extends ActionBarActivity {
 		
 		if (fragment == null) {
 			fragment = new TrainingFragment();
+			fm.beginTransaction().add(R.id.trainingFragmentContainer, fragment).commit();
 		}
 	}
 }
