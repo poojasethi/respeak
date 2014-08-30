@@ -1641,6 +1641,7 @@ containing a value of this type.
         public static final int CommonButtonGreen=0x7f0a0005;
         public static final int CommonButtonLightGray=0x7f0a0006;
         public static final int GoldTitle=0x7f0a0092;
+        public static final int TableText=0x7f0a0093;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0a006a;

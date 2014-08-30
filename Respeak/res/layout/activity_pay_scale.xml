@@ -14,4 +14,48 @@
         style="@style/GoldTitle"
         android:text="@string/payment_scale" />
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow>
+
+            <TextView
+                style="@style/TableText"
+                android:layout_weight="1"
+                android:text="test" />
+
+            <TextView
+                style="@style/TableText"
+                android:layout_weight="1"
+                android:text="test" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TableText"
+                android:layout_weight="1"
+                android:text="test" />
+
+            <TextView
+                style="@style/TableText"
+                android:layout_weight="1"
+                android:text="test" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                style="@style/TableText"
+                android:layout_weight="1"
+                android:text="test" />
+
+            <TextView
+                style="@style/TableText"
+                android:layout_weight="1"
+                android:text="test" />
+        </TableRow>
+    </TableLayout>
+
 </LinearLayout>
