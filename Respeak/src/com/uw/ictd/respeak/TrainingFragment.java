@@ -8,8 +8,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.text.method.ScrollingMovementMethod;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -25,18 +27,17 @@ public class TrainingFragment extends Fragment {
 	private AudioRecorder mRecorder = new AudioRecorder();
 
 	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_training);
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.fragment_training, parent, false);
 
-		mTrainingText = (TextView) findViewById(R.id.trainingText);
+		mTrainingText = (TextView) v.findViewById(R.id.trainingText);
 		mTrainingText.setText(readText());
 		mTrainingText.setMovementMethod(new ScrollingMovementMethod());
 
-		mRecordButton = (Button) findViewById(R.id.recordButtonTrain);
-		mRecordImageButton = (ImageButton) findViewById(R.id.recordImageButtonTrain);
-		mDoneButton = (Button) findViewById(R.id.doneButtonTrain);
-		mDoneImageButton = (ImageButton) findViewById(R.id.doneImageButtonTrain);
+		mRecordButton = (Button) v.findViewById(R.id.recordButtonTrain);
+		mRecordImageButton = (ImageButton) v.findViewById(R.id.recordImageButtonTrain);
+		mDoneButton = (Button) v.findViewById(R.id.doneButtonTrain);
+		mDoneImageButton = (ImageButton) v.findViewById(R.id.doneImageButtonTrain);
 		disableDoneButton();
 
 		// Starts recording
@@ -76,11 +77,11 @@ public class TrainingFragment extends Fragment {
 					disableDoneButton();
 					enableRecordButton();
 
-					Intent i = new Intent(TrainingActivity.this,
+					Intent i = new Intent(getActivity(),
 							SubmissionActivity.class);
 					i.putExtra(SubmissionActivity.EXTRA_RECORDED_FILE_NAME,
 							mRecorder.getFileName());
-					Bundle bundle = getIntent().getExtras();
+					Bundle bundle = getActivity().getIntent().getExtras();
 					if (bundle != null) {
 						i.putExtras(bundle);
 					}
@@ -90,7 +91,8 @@ public class TrainingFragment extends Fragment {
 		};
 		mDoneButton.setOnClickListener(doneListener);
 		mDoneImageButton.setOnClickListener(doneListener);
-
+		
+		return v;
 	}
 
 	// Reads from a training text file and converts into a string
