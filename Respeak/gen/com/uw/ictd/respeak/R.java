@@ -1586,6 +1586,7 @@ containing a value of this type.
         public static final int thank_you=0x7f090030;
         public static final int thank_you_details=0x7f090031;
         public static final int title_activity_listen=0x7f090049;
+        public static final int title_activity_pay_scale=0x7f09004d;
         public static final int title_activity_record=0x7f09004a;
         public static final int title_activity_thank_you=0x7f09004b;
         public static final int title_activity_training=0x7f09004c;

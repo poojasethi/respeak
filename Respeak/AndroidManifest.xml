@@ -67,7 +67,7 @@
         </activity>
          <activity
             android:name=".PayScaleActivity"
-            android:label="@string/title_activity_thank_you" >
+            android:label="@string/title_activity_pay_scale" >
         </activity>
         <activity
             android:name=".TrainingActivity"
