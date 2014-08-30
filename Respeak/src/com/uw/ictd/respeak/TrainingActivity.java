@@ -1,11 +1,11 @@
 package com.uw.ictd.respeak;
 
+import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 
-public class TrainingActivity extends ActionBarActivity {
+public class TrainingActivity extends Activity {
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
