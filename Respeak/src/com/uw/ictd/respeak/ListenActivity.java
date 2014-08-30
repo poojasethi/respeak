@@ -178,6 +178,7 @@ public class ListenActivity extends Activity {
 				DbxChooser.Result result = new DbxChooser.Result(data);
 				Log.d("main", "Link to selected file: " + result.getLink());
 
+				// Check if the user selected an mp3 file
 				if (result.getName().toString().endsWith(".mp3")
 						|| result.getName().toString().endsWith(".MP3")) {
 					// Update to show the requestor's name
