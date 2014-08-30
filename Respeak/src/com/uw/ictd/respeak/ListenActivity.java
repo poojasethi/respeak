@@ -6,6 +6,9 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -99,7 +102,7 @@ public class ListenActivity extends Activity {
 					long totalDuration = mPlayer.getDuration();
 					mAudioTotalDurationLabel.setText(TimeConverter
 							.milliSecondsToTimer(totalDuration));
-					
+
 					mPlayButton.setBackgroundResource(R.drawable.pause);
 				} else {
 					mPlayButton.setBackgroundResource(R.drawable.play);
@@ -221,11 +224,29 @@ public class ListenActivity extends Activity {
 		mPlayer.stop();
 	}
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.all_options_menu, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_item_settings:
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
 	// Update timer and audio progress bar
 	private void updateProgressBar() {
 		mHandler.postDelayed(mUpdateTimeTask, 100);
 	}
 
+	// Thread to update timers
 	private Runnable mUpdateTimeTask = new Runnable() {
 		public void run() {
 			long currentDuration = mPlayer.getCurrentPosition();
