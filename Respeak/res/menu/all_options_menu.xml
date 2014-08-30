@@ -6,5 +6,4 @@
         android:orderInCategory="1"
         android:title="@string/settings"
         android:showAsAction="never"/>
-
 </menu>

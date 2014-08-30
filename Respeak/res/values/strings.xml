@@ -29,7 +29,8 @@
     <string name="original_recording">Original Recording:</string>
     <string name="thank_you">Thank you for your submission!</string>
     <string name="thank_you_details">All payments will be awarded based on the perecentage accuracy of your speech.</string>
-    <string name="view_payment_scale">View the payment scale.</string>
+    <string name="view_payment_scale"><u>View the payment scale.</u></string>
+    <string name="payment_scale">payment scale</string>
     <string name="sms_update">An update of your accuracy and payment status will be sent via SMS within two business days.</string>
     <string name="do_more_respeaks">Do more respeaks</string>
     <string name="view_account_balance">View account balance</string>
