@@ -39,6 +39,10 @@
     <string name="high_payment">100%</string>
     <string name="medium_payment">50%</string>
     <string name="low_payment">0%</string>
+    <string name="your_current_accuracy_rate">Your current accuracy rate is:</string>
+    <string name="current_accuracy">0%</string>
+    <string name="last_updated">Last updated:</string>
+    <string name="date">TODAY\'S DATE</string>
     <string name="sms_update">An update of your accuracy and payment status will be sent via SMS within two business days.</string>
     <string name="do_more_respeaks">Do more respeaks</string>
     <string name="view_account_balance">View account balance</string>
@@ -63,10 +67,5 @@
     <color name="light_red_background">#FFCCB2</color>
     <color name="dark_red">#CC0000</color>
     <color name="green">#CCFF33</color>
-   
-
-    <string name="title_activity_pay_scale">PayScaleActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
 
 </resources>

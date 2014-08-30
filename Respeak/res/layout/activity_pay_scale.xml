@@ -24,15 +24,15 @@
                 style="@style/TableText"
                 android:layout_weight="1"
                 android:text="@string/accuracy"
-                android:textStyle="bold"
-                android:textColor="@color/gold" />
+                android:textColor="@color/gold"
+                android:textStyle="bold" />
 
             <TextView
                 style="@style/TableText"
                 android:layout_weight="1"
                 android:text="@string/payment"
-                android:textStyle="bold"
-                android:textColor="@color/gold" />
+                android:textColor="@color/gold"
+                android:textStyle="bold" />
         </TableRow>
 
         <TableRow>
@@ -78,6 +78,46 @@
                 android:layout_weight="1"
                 android:background="@color/light_gray"
                 android:text="@string/low_payment" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/your_current_accuracy_rate"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/accuracyRate"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/current_accuracy"
+                android:textColor="@color/light_blue" />
+            
+        </TableRow>
+        
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_weight="1"
+                android:text="@string/last_updated"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/date"
+                android:textColor="@color/light_blue" />
+            
         </TableRow>
     </TableLayout>
 

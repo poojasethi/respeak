@@ -18,6 +18,28 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+         <!-- Needed for Dropbox Sync API -->
+        <activity android:name="com.dropbox.sync.android.DbxAuthActivity" />
+        <activity
+            android:name="com.dropbox.client2.android.AuthActivity"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <data android:scheme="db-07r2uvgq7r0446r" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name="com.dropbox.sync.android.DbxSyncService"
+            android:enabled="true"
+            android:exported="false"
+            android:label="Dropbox Sync" />
+        
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name" >
@@ -43,35 +65,13 @@
             android:name=".SubmissionConfirmationActivity"
             android:label="@string/title_activity_thank_you" >
         </activity>
+         <activity
+            android:name=".PayScaleActivity"
+            android:label="@string/title_activity_thank_you" >
+        </activity>
         <activity
             android:name=".TrainingActivity"
             android:label="@string/title_activity_training" >
-        </activity>
-
-        <!-- Needed for Dropbox Sync API -->
-        <activity android:name="com.dropbox.sync.android.DbxAuthActivity" />
-        <activity
-            android:name="com.dropbox.client2.android.AuthActivity"
-            android:launchMode="singleTask" >
-            <intent-filter>
-                <data android:scheme="db-07r2uvgq7r0446r" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <service
-            android:name="com.dropbox.sync.android.DbxSyncService"
-            android:enabled="true"
-            android:exported="false"
-            android:label="Dropbox Sync" />
-
-        <activity
-            android:name=".PayScaleActivity"
-            android:label="@string/title_activity_pay_scale" >
         </activity>
     </application>
 
