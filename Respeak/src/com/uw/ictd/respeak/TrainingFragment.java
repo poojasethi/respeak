@@ -57,6 +57,7 @@ public class TrainingFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				mRecorder.startRecording();
+				mTrainingText.setBackgroundResource(R.color.light_red_background);
 				disableRecordButton();
 				enableDoneButton();
 				// if (!mRecorder.isRecording()) {
@@ -84,6 +85,7 @@ public class TrainingFragment extends Fragment {
 			public void onClick(View v) {
 				if (mRecorder != null) {
 					mRecorder.stopRecording();
+					mTrainingText.setBackgroundResource(R.color.lighter_gray);
 					disableDoneButton();
 					enableRecordButton();
 
