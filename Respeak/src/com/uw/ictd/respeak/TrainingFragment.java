@@ -3,11 +3,13 @@ package com.uw.ictd.respeak;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URI;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
-import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +18,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
 public class TrainingFragment extends Fragment {
 	public static int REQUEST_CODE = 100;
 	private static final String DIALOG_TRAINING = "training welcome";
-	private static final String EXTRA_RECORDED_FILE_NAME = "com.uw.ictd.respeak.recorded_file_name";
-
+	
 	private TextView mTrainingText;
 	private Button mRecordButton;
 	private ImageButton mRecordImageButton;
@@ -33,8 +35,11 @@ public class TrainingFragment extends Fragment {
 	private TextView mAudioTotalDurationTraining;
 	private SeekBar mAudioProgressBarTraining;
 	private ImageButton mPlayButtonTraining;
+	private Uri mRecordedFile;
 	private AudioRecorder mRecorder = new AudioRecorder();
-	
+	private AudioPlayer mPlayer;
+	private Handler mHandler = new Handler();
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -44,7 +49,8 @@ public class TrainingFragment extends Fragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup parent,
+			Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.fragment_training, parent, false);
 
 		mTrainingText = (TextView) v.findViewById(R.id.trainingText);
@@ -52,16 +58,22 @@ public class TrainingFragment extends Fragment {
 		mTrainingText.setMovementMethod(new ScrollingMovementMethod());
 
 		mRecordButton = (Button) v.findViewById(R.id.recordButtonTrain);
-		mRecordImageButton = (ImageButton) v.findViewById(R.id.recordImageButtonTrain);
+		mRecordImageButton = (ImageButton) v
+				.findViewById(R.id.recordImageButtonTrain);
 		mDoneButton = (Button) v.findViewById(R.id.doneButtonTrain);
-		mDoneImageButton = (ImageButton) v.findViewById(R.id.doneImageButtonTrain);
+		mDoneImageButton = (ImageButton) v
+				.findViewById(R.id.doneImageButtonTrain);
 		disableDoneButton();
-		
+
 		mYourRecording = (TextView) v.findViewById(R.id.yourRecording);
-		mAudioCurrentDurationTraining = (TextView) v.findViewById(R.id.audioCurrentDurationTraining);
-		mAudioTotalDurationTraining = (TextView) v.findViewById(R.id.audioTotalDurationTraining);
-		mAudioProgressBarTraining = (SeekBar) v.findViewById(R.id.audioProgressBarTraining);
-		mPlayButtonTraining = (ImageButton) v.findViewById(R.id.playButtonTraining);
+		mAudioCurrentDurationTraining = (TextView) v
+				.findViewById(R.id.audioCurrentDurationTraining);
+		mAudioTotalDurationTraining = (TextView) v
+				.findViewById(R.id.audioTotalDurationTraining);
+		mAudioProgressBarTraining = (SeekBar) v
+				.findViewById(R.id.audioProgressBarTraining);
+		mPlayButtonTraining = (ImageButton) v
+				.findViewById(R.id.playButtonTraining);
 		hidePlayBack();
 
 		// Starts recording
@@ -71,7 +83,8 @@ public class TrainingFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				mRecorder.startRecording();
-				mTrainingText.setBackgroundResource(R.color.light_red_background);
+				mTrainingText
+						.setBackgroundResource(R.color.light_red_background);
 				disableRecordButton();
 				enableDoneButton();
 				// if (!mRecorder.isRecording()) {
@@ -100,27 +113,82 @@ public class TrainingFragment extends Fragment {
 				if (mRecorder != null) {
 					mRecorder.stopRecording();
 					mTrainingText.setBackgroundResource(R.color.lighter_gray);
-					mTrainingText.scrollTo(0, 0); 
+					mTrainingText.scrollTo(0, 0);
 					disableDoneButton();
 					enableRecordButton();
 					hideRecording();
 					showPlayBack();
-
-//					Intent i = new Intent(getActivity(),
-//							SubmissionActivity.class);
-//					i.putExtra(SubmissionActivity.EXTRA_RECORDED_FILE_NAME,
-//							mRecorder.getFileName());
-//					Bundle bundle = getActivity().getIntent().getExtras();
-//					if (bundle != null) {
-//						i.putExtras(bundle);
-//					}
-//					startActivityForResult(i, REQUEST_CODE);
+					
+					// Get the name of the recorded file and initialize the audio player
+					mRecordedFile = Uri.parse(mRecorder.getFileName());
+					mPlayer = new AudioPlayer(mRecordedFile);
+				
+					// Intent i = new Intent(getActivity(),
+					// SubmissionActivity.class);
+					// i.putExtra(SubmissionActivity.EXTRA_RECORDED_FILE_NAME,
+					// mRecorder.getFileName());
+					// Bundle bundle = getActivity().getIntent().getExtras();
+					// if (bundle != null) {
+					// i.putExtras(bundle);
+					// }
+					// startActivityForResult(i, REQUEST_CODE);
 				}
 			}
 		};
 		mDoneButton.setOnClickListener(doneListener);
 		mDoneImageButton.setOnClickListener(doneListener);
-		
+
+		// Allows user to play/pause recording
+		mPlayButtonTraining.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				mPlayer.play(getActivity());
+				if (mPlayer.isPlaying()) {
+					// Update progress bar and total time
+					updateProgressBar();
+					long totalDuration = mPlayer.getDuration();
+					mAudioTotalDurationTraining.setText(TimeConverter
+							.milliSecondsToTimer(totalDuration));
+
+					mPlayButtonTraining.setBackgroundResource(R.drawable.pause);
+				} else {
+					mPlayButtonTraining.setBackgroundResource(R.drawable.play);
+				}
+			}
+		});
+
+		// Set listener on audio progress bar that tracks user's touch
+		OnSeekBarChangeListener seekBarChangeListener = new OnSeekBarChangeListener() {
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// Progress bar no longer updates
+				mHandler.removeCallbacks(mUpdateTimeTask);
+			}
+
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar) {
+				mHandler.removeCallbacks(mUpdateTimeTask);
+				int totalDuration = (int) mPlayer.getDuration();
+				int currentPosition = TimeConverter.progressToTimer(
+						seekBar.getProgress(), totalDuration);
+
+				// Move audio player forward or backward appropriate number of
+				// seconds
+				mPlayer.seekTo(currentPosition);
+
+				// Update timers
+				updateProgressBar();
+			}
+
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+			}
+		};
+		mAudioProgressBarTraining
+				.setOnSeekBarChangeListener(seekBarChangeListener);
+
 		return v;
 	}
 
@@ -171,7 +239,7 @@ public class TrainingFragment extends Fragment {
 		mRecordImageButton.setEnabled(true);
 		mRecordImageButton.setBackgroundResource(R.drawable.record);
 	}
-	
+
 	private void hidePlayBack() {
 		mYourRecording.setVisibility(View.GONE);
 		mAudioCurrentDurationTraining.setVisibility(View.GONE);
@@ -179,14 +247,14 @@ public class TrainingFragment extends Fragment {
 		mAudioProgressBarTraining.setVisibility(View.GONE);
 		mPlayButtonTraining.setVisibility(View.GONE);
 	}
-	
+
 	private void hideRecording() {
 		mRecordButton.setVisibility(View.GONE);
 		mRecordImageButton.setVisibility(View.GONE);
 		mDoneButton.setVisibility(View.GONE);
 		mDoneImageButton.setVisibility(View.GONE);
 	}
-	
+
 	private void showPlayBack() {
 		mYourRecording.setVisibility(View.VISIBLE);
 		mAudioCurrentDurationTraining.setVisibility(View.VISIBLE);
@@ -194,7 +262,7 @@ public class TrainingFragment extends Fragment {
 		mAudioProgressBarTraining.setVisibility(View.VISIBLE);
 		mPlayButtonTraining.setVisibility(View.VISIBLE);
 	}
-	
+
 	private void showRecording() {
 		mRecordButton.setVisibility(View.VISIBLE);
 		mRecordImageButton.setVisibility(View.VISIBLE);
@@ -202,9 +270,35 @@ public class TrainingFragment extends Fragment {
 		mDoneImageButton.setVisibility(View.VISIBLE);
 	}
 
+	// Update timer and audio progress bar
+	private void updateProgressBar() {
+		mHandler.postDelayed(mUpdateTimeTask, 100);
+	}
+
+	// Thread to update timers
+	private Runnable mUpdateTimeTask = new Runnable() {
+		public void run() {
+			long currentDuration = mPlayer.getCurrentPosition();
+			long totalDuration = mPlayer.getDuration();
+
+			// Update the current audio duration label
+			mAudioCurrentDurationTraining.setText(TimeConverter
+					.milliSecondsToTimer(currentDuration));
+
+			// Update the progress bar
+			int progress = TimeConverter.getProgressPercentage(currentDuration,
+					totalDuration);
+			mAudioProgressBarTraining.setProgress(progress);
+
+			// Run this thread after 100 milliseconds
+			mHandler.postDelayed(this, 100);
+		}
+	};
+
 	@Override
 	public void onPause() {
 		super.onPause();
 		mRecorder.stopRecording();
+		mPlayer.stop();
 	}
 }
