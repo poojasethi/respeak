@@ -40,6 +40,7 @@ public class SubmissionActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_submission);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 
 		mPlayButtonRecorded = (ImageButton) findViewById(R.id.playButtonUser);
 		mPlayButtonOriginal = (ImageButton) findViewById(R.id.playButtonOriginal);

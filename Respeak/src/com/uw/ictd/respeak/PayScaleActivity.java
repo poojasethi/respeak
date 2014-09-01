@@ -11,6 +11,7 @@ public class PayScaleActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pay_scale);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 	}
 
 	@Override

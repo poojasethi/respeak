@@ -11,6 +11,7 @@ public class TrainingActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_training);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		FragmentManager fm = getFragmentManager();
 		Fragment fragment = fm.findFragmentById(R.id.trainingFragmentContainer);
