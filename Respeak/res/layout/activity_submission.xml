@@ -29,7 +29,7 @@
             android:id="@+id/audioCurrentDurationRecorded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|bottom"
+            android:layout_gravity="start|bottom"
             android:text="0:00"
             android:textColor="@color/gold"
             android:textStyle="bold" />
@@ -43,7 +43,7 @@
             android:id="@+id/audioTotalDurationRecorded"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|bottom"
+            android:layout_gravity="end|bottom"
             android:text="0:00"
             android:textColor="@color/gold"
             android:textStyle="bold" />

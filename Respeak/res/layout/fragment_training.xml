@@ -13,6 +13,8 @@
         android:scrollbars="vertical"
         android:textSize="20sp" />
 
+    <!-- Recording Buttons -->
+    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,5 +54,53 @@
             android:text="@string/done"
             android:textColor="@color/light_blue" />
     </LinearLayout>
+
+     <!-- Playback Buttons -->
+     
+    <TextView
+        android:id="@+id/yourRecording"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/your_recording"
+        android:textColor="@color/light_blue"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingTop="10dp" >
+
+        <TextView
+            android:id="@+id/audioCurrentDurationTraining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|bottom"
+            android:text="0:00"
+            android:textColor="@color/gold"
+            android:textStyle="bold" />
+
+        <SeekBar
+            android:id="@+id/audioProgressBarTraining"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/audioTotalDurationTraining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:text="0:00"
+            android:textColor="@color/gold"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/playButtonTraining"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/play_button_selector" />
 
 </LinearLayout>

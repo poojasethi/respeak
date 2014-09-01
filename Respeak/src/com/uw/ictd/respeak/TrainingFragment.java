@@ -15,6 +15,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class TrainingFragment extends Fragment {
@@ -26,6 +27,11 @@ public class TrainingFragment extends Fragment {
 	private ImageButton mRecordImageButton;
 	private Button mDoneButton;
 	private ImageButton mDoneImageButton;
+	private TextView mYourRecording;
+	private TextView mAudioCurrentDurationTraining;
+	private TextView mAudioTotalDurationTraining;
+	private SeekBar mAudioProgressBarTraining;
+	private ImageButton mPlayButtonTraining;
 	private AudioRecorder mRecorder = new AudioRecorder();
 	
 	@Override
@@ -49,6 +55,13 @@ public class TrainingFragment extends Fragment {
 		mDoneButton = (Button) v.findViewById(R.id.doneButtonTrain);
 		mDoneImageButton = (ImageButton) v.findViewById(R.id.doneImageButtonTrain);
 		disableDoneButton();
+		
+		mYourRecording = (TextView) v.findViewById(R.id.yourRecording);
+		mAudioCurrentDurationTraining = (TextView) v.findViewById(R.id.audioCurrentDurationTraining);
+		mAudioTotalDurationTraining = (TextView) v.findViewById(R.id.audioTotalDurationTraining);
+		mAudioProgressBarTraining = (SeekBar) v.findViewById(R.id.audioProgressBarTraining);
+		mPlayButtonTraining = (ImageButton) v.findViewById(R.id.playButtonTraining);
+		hidePlayBack();
 
 		// Starts recording
 		// TODO: start timer when you press record
@@ -88,16 +101,18 @@ public class TrainingFragment extends Fragment {
 					mTrainingText.setBackgroundResource(R.color.lighter_gray);
 					disableDoneButton();
 					enableRecordButton();
+					hideRecording();
+					showPlayBack();
 
-					Intent i = new Intent(getActivity(),
-							SubmissionActivity.class);
-					i.putExtra(SubmissionActivity.EXTRA_RECORDED_FILE_NAME,
-							mRecorder.getFileName());
-					Bundle bundle = getActivity().getIntent().getExtras();
-					if (bundle != null) {
-						i.putExtras(bundle);
-					}
-					startActivityForResult(i, REQUEST_CODE);
+//					Intent i = new Intent(getActivity(),
+//							SubmissionActivity.class);
+//					i.putExtra(SubmissionActivity.EXTRA_RECORDED_FILE_NAME,
+//							mRecorder.getFileName());
+//					Bundle bundle = getActivity().getIntent().getExtras();
+//					if (bundle != null) {
+//						i.putExtras(bundle);
+//					}
+//					startActivityForResult(i, REQUEST_CODE);
 				}
 			}
 		};
@@ -153,6 +168,36 @@ public class TrainingFragment extends Fragment {
 		mRecordButton.setTextColor(getResources().getColor(R.color.light_blue));
 		mRecordImageButton.setEnabled(true);
 		mRecordImageButton.setBackgroundResource(R.drawable.record);
+	}
+	
+	private void hidePlayBack() {
+		mYourRecording.setVisibility(View.GONE);
+		mAudioCurrentDurationTraining.setVisibility(View.GONE);
+		mAudioTotalDurationTraining.setVisibility(View.GONE);
+		mAudioProgressBarTraining.setVisibility(View.GONE);
+		mPlayButtonTraining.setVisibility(View.GONE);
+	}
+	
+	private void hideRecording() {
+		mRecordButton.setVisibility(View.GONE);
+		mRecordImageButton.setVisibility(View.GONE);
+		mDoneButton.setVisibility(View.GONE);
+		mDoneImageButton.setVisibility(View.GONE);
+	}
+	
+	private void showPlayBack() {
+		mYourRecording.setVisibility(View.VISIBLE);
+		mAudioCurrentDurationTraining.setVisibility(View.VISIBLE);
+		mAudioTotalDurationTraining.setVisibility(View.VISIBLE);
+		mAudioProgressBarTraining.setVisibility(View.VISIBLE);
+		mPlayButtonTraining.setVisibility(View.VISIBLE);
+	}
+	
+	private void showRecording() {
+		mRecordButton.setVisibility(View.VISIBLE);
+		mRecordImageButton.setVisibility(View.VISIBLE);
+		mDoneButton.setVisibility(View.VISIBLE);
+		mDoneImageButton.setVisibility(View.VISIBLE);
 	}
 
 	@Override

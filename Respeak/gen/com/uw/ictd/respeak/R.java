@@ -1314,12 +1314,15 @@ containing a value of this type.
         public static final int audioCurrentDurationLabel=0x7f0b0041;
         public static final int audioCurrentDurationOriginal=0x7f0b0058;
         public static final int audioCurrentDurationRecorded=0x7f0b0054;
+        public static final int audioCurrentDurationTraining=0x7f0b0077;
         public static final int audioProgressBar=0x7f0b0042;
         public static final int audioProgressBarOriginal=0x7f0b0059;
         public static final int audioProgressBarRecorded=0x7f0b0055;
+        public static final int audioProgressBarTraining=0x7f0b0078;
         public static final int audioTotalDurationLabel=0x7f0b0043;
         public static final int audioTotalDurationOriginal=0x7f0b005a;
         public static final int audioTotalDurationRecorded=0x7f0b0056;
+        public static final int audioTotalDurationTraining=0x7f0b0079;
         public static final int beginning=0x7f0b0011;
         public static final int checkbox=0x7f0b002d;
         public static final int chooserButton=0x7f0b003f;
@@ -1363,7 +1366,7 @@ containing a value of this type.
         public static final int listenAgainImageButton=0x7f0b0045;
         public static final int logInButton=0x7f0b004a;
         public static final int maxRewardAmount=0x7f0b003d;
-        public static final int menu_item_settings=0x7f0b0076;
+        public static final int menu_item_settings=0x7f0b007b;
         public static final int middle=0x7f0b0012;
         public static final int moreRespeaksButton=0x7f0b0061;
         public static final int never=0x7f0b0009;
@@ -1374,6 +1377,7 @@ containing a value of this type.
         public static final int phoneNumberField=0x7f0b0049;
         public static final int playButton=0x7f0b0044;
         public static final int playButtonOriginal=0x7f0b005b;
+        public static final int playButtonTraining=0x7f0b007a;
         public static final int playButtonUser=0x7f0b0057;
         public static final int progress_circular=0x7f0b0018;
         public static final int progress_horizontal=0x7f0b0019;
@@ -1416,6 +1420,7 @@ containing a value of this type.
         public static final int withText=0x7f0b000c;
         public static final int yesButton=0x7f0b005f;
         public static final int yesImageButton=0x7f0b005e;
+        public static final int yourRecording=0x7f0b0076;
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within
