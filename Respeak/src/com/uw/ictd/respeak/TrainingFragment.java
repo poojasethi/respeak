@@ -21,6 +21,7 @@ import android.widget.TextView;
 public class TrainingFragment extends Fragment {
 	public static int REQUEST_CODE = 100;
 	private static final String DIALOG_TRAINING = "training welcome";
+	private static final String EXTRA_RECORDED_FILE_NAME = "com.uw.ictd.respeak.recorded_file_name";
 
 	private TextView mTrainingText;
 	private Button mRecordButton;
@@ -99,6 +100,7 @@ public class TrainingFragment extends Fragment {
 				if (mRecorder != null) {
 					mRecorder.stopRecording();
 					mTrainingText.setBackgroundResource(R.color.lighter_gray);
+					mTrainingText.scrollTo(0, 0); 
 					disableDoneButton();
 					enableRecordButton();
 					hideRecording();
