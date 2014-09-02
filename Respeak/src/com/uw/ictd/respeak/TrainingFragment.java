@@ -34,6 +34,8 @@ public class TrainingFragment extends Fragment {
 	private TextView mAudioCurrentDurationTraining;
 	private TextView mAudioTotalDurationTraining;
 	private SeekBar mAudioProgressBarTraining;
+	private Button mRecordAgainButton;
+	private Button mSubmitButton;
 	private ImageButton mPlayButtonTraining;
 	private Uri mRecordedFile;
 	private AudioRecorder mRecorder = new AudioRecorder();
@@ -74,6 +76,8 @@ public class TrainingFragment extends Fragment {
 				.findViewById(R.id.audioProgressBarTraining);
 		mPlayButtonTraining = (ImageButton) v
 				.findViewById(R.id.playButtonTraining);
+		mRecordAgainButton = (Button) v.findViewById(R.id.recordAgainButton);
+		mSubmitButton = (Button) v.findViewById(R.id.submitButton);
 		hidePlayBack();
 
 		// Starts recording
@@ -246,6 +250,8 @@ public class TrainingFragment extends Fragment {
 		mAudioTotalDurationTraining.setVisibility(View.GONE);
 		mAudioProgressBarTraining.setVisibility(View.GONE);
 		mPlayButtonTraining.setVisibility(View.GONE);
+		mRecordAgainButton.setVisibility(View.GONE);
+		mSubmitButton.setVisibility(View.GONE);
 	}
 
 	private void hideRecording() {
@@ -261,6 +267,8 @@ public class TrainingFragment extends Fragment {
 		mAudioTotalDurationTraining.setVisibility(View.VISIBLE);
 		mAudioProgressBarTraining.setVisibility(View.VISIBLE);
 		mPlayButtonTraining.setVisibility(View.VISIBLE);
+		mRecordAgainButton.setVisibility(View.VISIBLE);
+		mSubmitButton.setVisibility(View.VISIBLE);
 	}
 
 	private void showRecording() {
