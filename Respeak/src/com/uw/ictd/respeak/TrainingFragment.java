@@ -23,7 +23,8 @@ import android.widget.TextView;
 
 public class TrainingFragment extends Fragment {
 	public static int REQUEST_CODE = 100;
-	private static final String DIALOG_TRAINING = "training welcome";
+	private static final String DIALOG_TRAINING = "Welcome dialog";
+	private static final String DIALOG_SUBMISSION = "Submission dialog";
 	
 	private TextView mTrainingText;
 	private Button mRecordButton;
@@ -46,7 +47,7 @@ public class TrainingFragment extends Fragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		FragmentManager fm = getActivity().getFragmentManager();
-		TrainingDialogFragment dialog = new TrainingDialogFragment();
+		TrainingWelcomDialogFragment dialog = new TrainingWelcomDialogFragment();
 		dialog.show(fm, DIALOG_TRAINING);
 	}
 
@@ -196,6 +197,28 @@ public class TrainingFragment extends Fragment {
 		};
 		mAudioProgressBarTraining
 				.setOnSeekBarChangeListener(seekBarChangeListener);
+		
+		mRecordAgainButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mPlayer.stop();
+				mPlayButtonTraining.setBackgroundResource(R.drawable.play);
+				hidePlayBack();
+				showRecording();
+			}
+		});
+		
+		mSubmitButton.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				mPlayer.pause();
+				mPlayButtonTraining.setBackgroundResource(R.drawable.play);
+				FragmentManager fm = getActivity().getFragmentManager();
+				TrainingSubmissionDialogFragment dialog = new TrainingSubmissionDialogFragment(getActivity());
+				dialog.show(fm, DIALOG_SUBMISSION);	
+			}
+		});
 
 		return v;
 	}

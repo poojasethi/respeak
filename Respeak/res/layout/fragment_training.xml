@@ -68,7 +68,6 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:gravity="top"
-            android:background="@null"
             android:text="@string/your_recording"
             android:textColor="@color/light_blue"
             android:textStyle="bold" />
