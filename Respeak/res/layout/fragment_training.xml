@@ -59,7 +59,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="25dp"
         android:orientation="horizontal" >
 
         <TextView
@@ -67,6 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
+            android:gravity="top"
             android:background="@null"
             android:text="@string/your_recording"
             android:textColor="@color/light_blue"
@@ -77,6 +78,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
+            android:gravity="top"
             android:background="@null"
             android:text="@string/record_again"
             android:textColor="@color/red"
@@ -87,6 +89,7 @@
             android:id="@+id/submitButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="top"
             android:background="@null"
             android:text="@string/submit"
             android:textColor="@color/green"

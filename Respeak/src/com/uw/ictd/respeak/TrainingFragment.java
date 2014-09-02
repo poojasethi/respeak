@@ -122,6 +122,8 @@ public class TrainingFragment extends Fragment {
 					enableRecordButton();
 					hideRecording();
 					showPlayBack();
+					mRecordAgainButton.setVisibility(View.GONE);
+					mSubmitButton.setVisibility(View.GONE);
 					
 					// Get the name of the recorded file and initialize the audio player
 					mRecordedFile = Uri.parse(mRecorder.getFileName());
@@ -148,6 +150,8 @@ public class TrainingFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				mPlayer.play(getActivity());
+				mRecordAgainButton.setVisibility(View.VISIBLE);
+				mSubmitButton.setVisibility(View.VISIBLE);
 				if (mPlayer.isPlaying()) {
 					// Update progress bar and total time
 					updateProgressBar();
