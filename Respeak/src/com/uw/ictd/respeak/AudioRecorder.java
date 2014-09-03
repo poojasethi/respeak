@@ -37,6 +37,7 @@ public class AudioRecorder {
     protected void stopRecording() {
     	if (mRecorder != null && isRecording) {
 	        mRecorder.stop();
+	        mRecorder.reset();
 	        mRecorder.release();
 	        mRecorder = null;
 	        isRecording = false;

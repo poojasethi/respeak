@@ -21,6 +21,7 @@ public class AudioPlayer {
 	
 	public void stop() {
 		if (mPlayer != null) {
+			mPlayer.reset();
 			mPlayer.release();
 			mPlayer = null;
 		}

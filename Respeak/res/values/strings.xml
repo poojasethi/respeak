@@ -52,7 +52,7 @@
     <string name="welcome">Welcome!</string>
     <string name="are_you_sure">Are you sure you are ready to submit?</string>
     <string name ="training_dialog_submission">Once you submit, you cannot perform training again.</string>
-    <string name="training_dialog">Let\'s start training Respeak to understand your voice. Please record yourself reading the following passage outloud as clearly as possible.</string>
+    <string name="training_dialog">Let\'s start training Respeak to understand your voice. Please record yourself reading the following passage out loud. \n\nBe sure to read the entire passage and speak as naturally as possible. This task will take approximately 10 minutes.</string>
     <string name="image_description_recorder">Recorder</string>
     <string name="image_description_record_button">Press to record</string>
     <string name="image_description_done_button">Press if you are done recording</string>
