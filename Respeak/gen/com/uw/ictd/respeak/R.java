@@ -1288,13 +1288,15 @@ containing a value of this type.
         public static final int play=0x7f02006b;
         public static final int play_button_selector=0x7f02006c;
         public static final int record=0x7f02006d;
-        public static final int record_gray=0x7f02006e;
-        public static final int red_mic=0x7f02006f;
-        public static final int red_x=0x7f020070;
-        public static final int replay=0x7f020071;
-        public static final int requestor_image=0x7f020072;
-        public static final int tab_dropbox=0x7f020073;
-        public static final int tab_dropbox_inactive=0x7f020074;
+        public static final int record_again=0x7f02006e;
+        public static final int record_gray=0x7f02006f;
+        public static final int red_mic=0x7f020070;
+        public static final int red_x=0x7f020071;
+        public static final int replay=0x7f020072;
+        public static final int requestor_image=0x7f020073;
+        public static final int submit=0x7f020074;
+        public static final int tab_dropbox=0x7f020075;
+        public static final int tab_dropbox_inactive=0x7f020076;
     }
     public static final class id {
         public static final int accuracyRate=0x7f0b004c;
@@ -1314,15 +1316,15 @@ containing a value of this type.
         public static final int audioCurrentDurationLabel=0x7f0b0041;
         public static final int audioCurrentDurationOriginal=0x7f0b0058;
         public static final int audioCurrentDurationRecorded=0x7f0b0054;
-        public static final int audioCurrentDurationTraining=0x7f0b0079;
+        public static final int audioCurrentDurationTraining=0x7f0b0077;
         public static final int audioProgressBar=0x7f0b0042;
         public static final int audioProgressBarOriginal=0x7f0b0059;
         public static final int audioProgressBarRecorded=0x7f0b0055;
-        public static final int audioProgressBarTraining=0x7f0b007a;
+        public static final int audioProgressBarTraining=0x7f0b0078;
         public static final int audioTotalDurationLabel=0x7f0b0043;
         public static final int audioTotalDurationOriginal=0x7f0b005a;
         public static final int audioTotalDurationRecorded=0x7f0b0056;
-        public static final int audioTotalDurationTraining=0x7f0b007b;
+        public static final int audioTotalDurationTraining=0x7f0b0079;
         public static final int beginning=0x7f0b0011;
         public static final int checkbox=0x7f0b002d;
         public static final int chooserButton=0x7f0b003f;
@@ -1377,12 +1379,12 @@ containing a value of this type.
         public static final int phoneNumberField=0x7f0b0049;
         public static final int playButton=0x7f0b0044;
         public static final int playButtonOriginal=0x7f0b005b;
-        public static final int playButtonTraining=0x7f0b007c;
+        public static final int playButtonTraining=0x7f0b007a;
         public static final int playButtonUser=0x7f0b0057;
         public static final int progress_circular=0x7f0b0018;
         public static final int progress_horizontal=0x7f0b0019;
         public static final int radio=0x7f0b002f;
-        public static final int recordAgainButton=0x7f0b0077;
+        public static final int recordAgainButton=0x7f0b007b;
         public static final int recordButton=0x7f0b0051;
         public static final int recordButtonTrain=0x7f0b0073;
         public static final int recordImageButton=0x7f0b0050;
@@ -1408,7 +1410,7 @@ containing a value of this type.
         public static final int showTitle=0x7f0b0006;
         public static final int signUpButton=0x7f0b004b;
         public static final int split_action_bar=0x7f0b001e;
-        public static final int submitButton=0x7f0b0078;
+        public static final int submitButton=0x7f0b007c;
         public static final int submit_area=0x7f0b0039;
         public static final int tabMode=0x7f0b0002;
         public static final int title=0x7f0b002b;
