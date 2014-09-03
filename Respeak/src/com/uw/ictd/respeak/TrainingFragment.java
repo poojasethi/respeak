@@ -334,6 +334,8 @@ public class TrainingFragment extends Fragment {
 	public void onPause() {
 		super.onPause();
 		mRecorder.stopRecording();
-		mPlayer.stop();
+		if (mPlayer != null) {
+			mPlayer.stop();
+		}
 	}
 }
