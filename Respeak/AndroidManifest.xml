@@ -73,6 +73,10 @@
             android:name=".TrainingActivity"
             android:label="@string/title_activity_training" >
         </activity>
+        <activity
+            android:name=".AccountBalanceActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>
