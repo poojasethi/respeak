@@ -1,19 +1,26 @@
 package com.uw.ictd.respeak;
 
 import java.util.Date;
+import java.util.UUID;
 
 public class Transaction {
+	private UUID mId;
 	private String mRequestorName;
 	private double mMaxRewardAmount;
 	private double mEarnedRewardAmount;
 	private Date mDateCompleted;
 
-	public Transaction(String requestorName, double maxRewardAmount,
+	public Transaction(UUID id, String requestorName, double maxRewardAmount,
 			double earnedRewardAmount, Date dateCompleted) {
+		mId = id;
 		mRequestorName = requestorName;
 		mMaxRewardAmount = maxRewardAmount;
 		mEarnedRewardAmount = earnedRewardAmount;
 		mDateCompleted = dateCompleted;
+	}
+	
+	public UUID getId() {
+		return mId;
 	}
 
 	public String getRequestorName() {
