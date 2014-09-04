@@ -13,11 +13,11 @@ public class AccountBalanceActivity extends Activity {
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		FragmentManager fm = getFragmentManager();
-		Fragment fragment = fm.findFragmentById(R.id.trainingFragmentContainer);
+		Fragment fragment = fm.findFragmentById(R.id.historyFragmentContainer);
 		
 		if (fragment == null) {
 			fragment = new TrainingFragment();
-			fm.beginTransaction().add(R.id.trainingFragmentContainer, fragment).commit();
+			fm.beginTransaction().add(R.id.historyFragmentContainer, fragment).commit();
 		}
 	}
 }
