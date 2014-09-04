@@ -20,7 +20,7 @@ public class TransactionList {
 		mTransactions.add(test);
 	}
 	
-	private static TransactionList get(Context c) {
+	public static TransactionList get(Context c) {
 		if (sTransactionList == null) {
 			sTransactionList = new TransactionList(c.getApplicationContext());
 		}

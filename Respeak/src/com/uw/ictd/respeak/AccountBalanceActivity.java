@@ -16,7 +16,7 @@ public class AccountBalanceActivity extends Activity {
 		Fragment fragment = fm.findFragmentById(R.id.historyFragmentContainer);
 		
 		if (fragment == null) {
-			fragment = new TrainingFragment();
+			fragment = new HistoryListFragment();
 			fm.beginTransaction().add(R.id.historyFragmentContainer, fragment).commit();
 		}
 	}

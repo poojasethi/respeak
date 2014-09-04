@@ -37,5 +37,14 @@ public class SubmissionConfirmationActivity extends Activity {
 				startActivity(i);
 			}
 		});
+		
+		mAccountBalanceButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(SubmissionConfirmationActivity.this, AccountBalanceActivity.class);
+				startActivity(i);
+			}
+		});
 	}
 }
