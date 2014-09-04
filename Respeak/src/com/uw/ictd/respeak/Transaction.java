@@ -55,6 +55,10 @@ public class Transaction {
 		mDateCompleted = dateCompleted;
 	}
 	
+	@Override
+	public String toString() {
+		return mRequestorName + "\n" + mDateCompleted.toString();
+	}
 	
 
 }

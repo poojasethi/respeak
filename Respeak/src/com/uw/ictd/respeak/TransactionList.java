@@ -15,9 +15,11 @@ public class TransactionList {
 		mContext = context;
 		mTransactions = new ArrayList<Transaction>();
 		
-		// TODO remove test transaction later
+		// TODO remove test transactions later
 		Transaction test = new Transaction(UUID.randomUUID(), "MSRI", 2, 1, new Date());
-		mTransactions.add(test);
+		for (int i = 0; i < 100; i++) {
+			mTransactions.add(test);
+		}
 	}
 	
 	public static TransactionList get(Context c) {
