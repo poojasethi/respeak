@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin" >
+
+    <TextView
+        style="@style/GoldTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/balance_and_history" />
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TableRow>
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/last_earning"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/lastEarningAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/last_earning_amount"
+                android:textColor="@color/light_blue"/>
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_earning"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/nextEarningAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_earning_amount"
+                android:textColor="@color/light_blue"/>
+        </TableRow>
+
+        <TableRow>
+            
+            <TextView
+                android:layout_weight="2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_earning"
+                android:textColor="@color/white"
+                android:textStyle="bold" />
+            
+            <TextView
+                android:layout_weight="1"
+                android:id="@+id/totalEarningAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_earning_amount"
+                android:textColor="@color/light_blue"/>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
