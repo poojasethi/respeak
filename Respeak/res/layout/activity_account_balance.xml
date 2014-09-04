@@ -76,5 +76,10 @@
                 android:textColor="@color/light_blue"/>
         </TableRow>
     </TableLayout>
-
+    
+    <FrameLayout
+        android:id="@+id/historyFragmentContainer"
+        android:layout_width="match_parent" 
+        android:layout_height="match_parent"/>
+        
 </LinearLayout>
