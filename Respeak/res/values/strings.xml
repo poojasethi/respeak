@@ -10,6 +10,8 @@
     <string name="requestor">Requestor:</string>
     <string name="requestor_name">CGNet Swara</string>
     <string name="max_reward">Max Reward:</string>
+    <string name="amount_earned">Amount Earned:</string>
+    <string name="date_submitted">Date Submitted:</string>
     <string name="max_reward_amount">10 rupees</string>
     <string name="current_recording">Current Recording:</string>
     <string name="current_recording_selected">No file currently selected</string>
@@ -51,16 +53,16 @@
     <string name="settings">Settings</string>
     <string name="welcome">Welcome!</string>
     <string name="are_you_sure">Are you sure you are ready to submit?</string>
-    <string name ="training_dialog_submission">Once you submit, you cannot perform training again.</string>
+    <string name="training_dialog_submission">Once you submit, you cannot perform training again.</string>
     <string name="training_dialog">Let\'s start training Respeak to understand your voice. Please record yourself reading the following passage out loud. \n\nBe sure to read the entire passage and speak as naturally as possible. This task will take approximately 10 minutes.</string>
-	<string name="balance_and_history">balance and history</string>
-	<string name="last_earning">Earnings since last top-up:</string>
-	<string name="last_earning_amount">\u20B90</string>
-	<string name="next_earning">Amount needed till next top-up:</string>
-	<string name="next_earning_amount">\u20B90</string>
-	<string name="total_earning">Total earnings received:</string>
-	<string name="total_earning_amount">\u20B90</string>
-	<string name="top_ups_will_be_awarded">*Top-ups will be awarded after every \u20B9100 earned</string>
+    <string name="balance_and_history">balance and history</string>
+    <string name="last_earning">Earnings since last top-up:</string>
+    <string name="last_earning_amount">\u20B90</string>
+    <string name="next_earning">Amount needed till next top-up:</string>
+    <string name="next_earning_amount">\u20B90</string>
+    <string name="total_earning">Total earnings received:</string>
+    <string name="total_earning_amount">\u20B90</string>
+    <string name="top_ups_will_be_awarded">*Top-ups will be awarded after every \u20B9100 earned</string>
     <string name="image_description_recorder">Recorder</string>
     <string name="image_description_record_button">Press to record</string>
     <string name="image_description_done_button">Press if you are done recording</string>
@@ -80,5 +82,8 @@
     <color name="light_red_background">#FFCCB2</color>
     <color name="dark_red">#CC0000</color>
     <color name="green">#00E600</color>
+
+    <string name="title_activity_account_balance_details">AccountBalanceDetailsActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

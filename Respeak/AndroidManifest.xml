@@ -18,8 +18,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        
-         <!-- Needed for Dropbox Sync API -->
+
+        <!-- Needed for Dropbox Sync API -->
         <activity android:name="com.dropbox.sync.android.DbxAuthActivity" />
         <activity
             android:name="com.dropbox.client2.android.AuthActivity"
@@ -39,7 +39,7 @@
             android:enabled="true"
             android:exported="false"
             android:label="Dropbox Sync" />
-        
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/app_name" >
@@ -65,7 +65,7 @@
             android:name=".SubmissionConfirmationActivity"
             android:label="@string/title_activity_thank_you" >
         </activity>
-         <activity
+        <activity
             android:name=".PayScaleActivity"
             android:label="@string/title_activity_pay_scale" >
         </activity>
@@ -76,6 +76,10 @@
         <activity
             android:name=".AccountBalanceActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".AccountBalanceDetailsActivity"
+            android:label="@string/title_activity_account_balance_details" >
         </activity>
     </application>
 

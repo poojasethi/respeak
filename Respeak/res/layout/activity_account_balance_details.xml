@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/dark_gray"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".AccountBalanceActivity" >
+    
+     <TextView
+        style="@style/GoldTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/balance_and_history" />
+    
+      <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp" >
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/requestor"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/accountRequestorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/light_blue"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/max_reward"
+                android:textColor="@color/white"
+                android:textStyle="bold" 
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/accountMaxRewardAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/next_earning_amount"
+                android:textColor="@color/light_blue"
+                android:textSize="16sp" />
+        </TableRow>
+
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_earned"
+                android:textColor="@color/white"
+                android:textStyle="bold" 
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/accountAmountEarned"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_earning_amount"
+                android:textColor="@color/light_blue" 
+                android:textSize="16sp"/>
+        </TableRow>
+        
+        <TableRow>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date_submitted"
+                android:textColor="@color/white"
+                android:textStyle="bold" 
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/accountDateSubmitted"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textColor="@color/light_blue" 
+                android:textSize="16sp"/>
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>
