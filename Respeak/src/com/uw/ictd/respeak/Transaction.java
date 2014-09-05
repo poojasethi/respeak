@@ -59,6 +59,4 @@ public class Transaction {
 	public String toString() {
 		return mRequestorName + "\n" + mDateCompleted.toString();
 	}
-	
-
 }

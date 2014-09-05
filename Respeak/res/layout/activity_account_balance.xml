@@ -17,69 +17,95 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp" >
 
         <TableRow>
 
             <TextView
-                android:layout_weight="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/last_earning"
                 android:textColor="@color/white"
+                android:textSize="16sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/lastEarningAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/last_earning_amount"
-                android:textColor="@color/light_blue"/>
+                android:textColor="@color/light_blue"
+                android:textSize="16sp" />
         </TableRow>
 
-        <TableRow>
+        <TableRow
+            android:layout_marginBottom="10dp">
 
             <TextView
-                android:layout_weight="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/next_earning"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
-            
+                android:textStyle="bold" 
+                android:textSize="16sp"/>
+
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/nextEarningAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/next_earning_amount"
-                android:textColor="@color/light_blue"/>
+                android:textColor="@color/light_blue"
+                android:textSize="16sp" />
         </TableRow>
 
         <TableRow>
-            
+
             <TextView
-                android:layout_weight="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:text="@string/total_earning"
                 android:textColor="@color/white"
-                android:textStyle="bold" />
-            
+                android:textStyle="bold" 
+                android:textSize="16sp"/>
+
             <TextView
-                android:layout_weight="1"
                 android:id="@+id/totalEarningAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@string/total_earning_amount"
-                android:textColor="@color/light_blue"/>
+                android:textColor="@color/light_blue" 
+                android:textSize="16sp"/>
         </TableRow>
     </TableLayout>
     
+    <TextView
+        android:text="@string/top_ups_will_be_awarded" 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_gray"
+        android:textSize="12sp"/>
+    
+    <Button
+        android:id="@+id/viewPayScaleButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:gravity="top"
+        android:textSize="15sp"
+        android:text="@string/view_payment_scale"
+        android:textColor="@color/light_blue"
+        android:textStyle="bold" />
+
     <FrameLayout
         android:id="@+id/historyFragmentContainer"
-        android:layout_width="match_parent" 
-        android:layout_height="match_parent"/>
-        
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
 </LinearLayout>
