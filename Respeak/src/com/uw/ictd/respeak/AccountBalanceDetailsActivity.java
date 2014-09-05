@@ -17,6 +17,7 @@ public class AccountBalanceDetailsActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActionBar().setDisplayHomeAsUpEnabled(true);
 		setContentView(R.layout.activity_account_balance_details);
 		UUID crimeId = (UUID) getIntent().getSerializableExtra(EXTRA_TRANSACTION_ID);
 		mTransaction = TransactionList.get(this).getTransaction(crimeId);

@@ -14,6 +14,7 @@ public class HistoryListFragment extends ListFragment {
 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 		mTransactions = TransactionList.get(getActivity()).getTransactions();
 		
 		ArrayAdapter<Transaction> adapter = new ArrayAdapter<Transaction>(getActivity(), android.R.layout.simple_list_item_1, mTransactions);
