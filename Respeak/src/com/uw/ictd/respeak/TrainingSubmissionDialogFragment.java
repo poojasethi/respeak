@@ -26,7 +26,7 @@ public class TrainingSubmissionDialogFragment extends DialogFragment {
 				.setPositiveButton(android.R.string.yes, new OnClickListener() {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
-						Intent i = new Intent(mContext, SubmissionConfirmationActivity.class);
+						Intent i = new Intent(mContext, ListenActivity.class);
 						startActivity(i);
 					}
 				}).create();
