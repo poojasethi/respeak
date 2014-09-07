@@ -85,5 +85,6 @@
 
     <string name="title_activity_account_balance_details">AccountBalanceDetailsActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_settings">SettingsActivity</string>
 
 </resources>

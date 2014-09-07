@@ -1491,15 +1491,16 @@ containing a value of this type.
         public static final int activity_login=0x7f03001b;
         public static final int activity_pay_scale=0x7f03001c;
         public static final int activity_record=0x7f03001d;
-        public static final int activity_submission=0x7f03001e;
-        public static final int activity_submission_confirmation=0x7f03001f;
-        public static final int activity_training=0x7f030020;
-        public static final int app_store_interstitial=0x7f030021;
-        public static final int bottom_bar_light=0x7f030022;
-        public static final int bottom_buttons_light=0x7f030023;
-        public static final int fragment_training=0x7f030024;
-        public static final int fragment_training_dialog=0x7f030025;
-        public static final int support_simple_spinner_dropdown_item=0x7f030026;
+        public static final int activity_settings=0x7f03001e;
+        public static final int activity_submission=0x7f03001f;
+        public static final int activity_submission_confirmation=0x7f030020;
+        public static final int activity_training=0x7f030021;
+        public static final int app_store_interstitial=0x7f030022;
+        public static final int bottom_bar_light=0x7f030023;
+        public static final int bottom_buttons_light=0x7f030024;
+        public static final int fragment_training=0x7f030025;
+        public static final int fragment_training_dialog=0x7f030026;
+        public static final int support_simple_spinner_dropdown_item=0x7f030027;
     }
     public static final class menu {
         public static final int all_options_menu=0x7f0d0000;
@@ -1619,6 +1620,7 @@ containing a value of this type.
         public static final int title_activity_listen=0x7f090057;
         public static final int title_activity_pay_scale=0x7f09005b;
         public static final int title_activity_record=0x7f090058;
+        public static final int title_activity_settings=0x7f09005e;
         public static final int title_activity_thank_you=0x7f090059;
         public static final int title_activity_training=0x7f09005a;
         public static final int top_ups_will_be_awarded=0x7f090053;
