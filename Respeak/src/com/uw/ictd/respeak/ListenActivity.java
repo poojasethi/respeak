@@ -236,6 +236,8 @@ public class ListenActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.menu_item_settings:
+			Intent i = new Intent(this, SettingsActivity.class);
+			startActivity(i);
 			return true;
 		default:
 			return super.onOptionsItemSelected(item);

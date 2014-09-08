@@ -63,6 +63,11 @@
     <string name="total_earning">Total earnings received:</string>
     <string name="total_earning_amount">\u20B90</string>
     <string name="top_ups_will_be_awarded">*Top-ups will be awarded after every \u20B9100 earned</string>
+    <string name="pref_user_settings">User Settings</string>
+    <string name="pref_phone_number">Phone Number</string>
+    <string name="pref_phone_number_summ">Enter your phone number</string>
+    <string name="pref_full_name">Full Name</string>
+    <string name="pref_full_name_summ">Enter your name</string>
     <string name="image_description_recorder">Recorder</string>
     <string name="image_description_record_button">Press to record</string>
     <string name="image_description_done_button">Press if you are done recording</string>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="user_settings"
+        android:title="@string/pref_user_settings" >
+        
+        <EditTextPreference
+            android:key="phone_number"
+            android:summary="@string/pref_phone_number_summ"
+            android:title="@string/pref_phone_number" />
+        
+         <EditTextPreference
+            android:key="user_name"
+            android:summary="@string/pref_full_name_summ"
+            android:title="@string/pref_full_name" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

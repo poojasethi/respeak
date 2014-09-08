@@ -10,15 +10,15 @@ public class TrainingActivity extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_training);
+		setContentView(R.layout.activity_single_fragment_container);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
 		
 		FragmentManager fm = getFragmentManager();
-		Fragment fragment = fm.findFragmentById(R.id.trainingFragmentContainer);
+		Fragment fragment = fm.findFragmentById(R.id.singleFragmentContainer);
 		
 		if (fragment == null) {
 			fragment = new TrainingFragment();
-			fm.beginTransaction().add(R.id.trainingFragmentContainer, fragment).commit();
+			fm.beginTransaction().add(R.id.singleFragmentContainer, fragment).commit();
 		}
 	}
 }
