@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class AccountBalanceDetailsActivity extends Activity {
@@ -31,5 +32,16 @@ public class AccountBalanceDetailsActivity extends Activity {
 		mMaxRewardAmount.setText("\u20B9" + mTransaction.getMaxRewardAmount());
 		mAmountEarned.setText("\u20B9" + mTransaction.getEarnedRewardAmount());
 		mDateSubmitted.setText(mTransaction.getDateCompleted().toString());
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			onBackPressed();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 }

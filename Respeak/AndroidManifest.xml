@@ -52,18 +52,30 @@
         <activity
             android:name=".ListenActivity"
             android:label="@string/title_activity_listen" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
         </activity>
         <activity
             android:name=".RecordActivity"
             android:label="@string/title_activity_record" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListenActivity" />
         </activity>
         <activity
             android:name=".SubmissionActivity"
             android:label="@string/title_activity_record" >
+            <meta-data
+                android:name="android.support.RECORD_ACTIVITY"
+                android:value=".AccountBalanceActivity" />
         </activity>
         <activity
             android:name=".SubmissionConfirmationActivity"
             android:label="@string/title_activity_thank_you" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".SubmissionActivity" />
         </activity>
         <activity
             android:name=".PayScaleActivity"
@@ -72,6 +84,9 @@
         <activity
             android:name=".TrainingActivity"
             android:label="@string/title_activity_training" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
         </activity>
         <activity
             android:name=".AccountBalanceActivity"
@@ -80,6 +95,9 @@
         <activity
             android:name=".AccountBalanceDetailsActivity"
             android:label="@string/app_name" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AccountBalanceActivity" />
         </activity>
         <activity
             android:name=".SettingsActivity"

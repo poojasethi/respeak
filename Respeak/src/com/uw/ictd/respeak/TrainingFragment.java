@@ -46,7 +46,6 @@ public class TrainingFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 		FragmentManager fm = getActivity().getFragmentManager();
 		TrainingWelcomDialogFragment dialog = new TrainingWelcomDialogFragment();
 		dialog.show(fm, DIALOG_TRAINING);
