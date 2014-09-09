@@ -11,7 +11,7 @@
             android:title="@string/pref_phone_number" />
         
          <EditTextPreference
-            android:key="user_name"
+            android:key="full_name"
             android:summary="@string/pref_full_name_summ"
             android:title="@string/pref_full_name" />
     </PreferenceCategory>
