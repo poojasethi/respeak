@@ -6,9 +6,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -19,7 +16,7 @@ import android.widget.TextView;
 
 import com.dropbox.chooser.android.DbxChooser;
 
-public class ListenActivity extends Activity {
+public class ListenActivity extends MenuActivity {
 
 	private TextView mRequestorName;
 	private TextView mMaxRewardAmount;
@@ -223,25 +220,6 @@ public class ListenActivity extends Activity {
 	protected void onPause() {
 		super.onPause();
 		mPlayer.stop();
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.all_options_menu, menu);
-		return true;
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.menu_item_settings:
-			Intent i = new Intent(this, SettingsActivity.class);
-			startActivity(i);
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
 	}
 
 	// Update timer and audio progress bar

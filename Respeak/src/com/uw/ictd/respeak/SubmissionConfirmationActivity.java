@@ -1,13 +1,12 @@
 package com.uw.ictd.respeak;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class SubmissionConfirmationActivity extends Activity {
+public class SubmissionConfirmationActivity extends MenuActivity {
 	
 	private Button mViewPayScaleButton;
 	private Button mMoreRespeaksButton;

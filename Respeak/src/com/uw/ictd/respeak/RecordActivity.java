@@ -11,7 +11,7 @@ import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
-public class RecordActivity extends Activity {
+public class RecordActivity extends MenuActivity {
 	private static final int REQUEST_CODE = 0;
 	
 	private ImageView mRecorderPic;
