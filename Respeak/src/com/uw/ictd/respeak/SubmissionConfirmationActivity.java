@@ -45,5 +45,7 @@ public class SubmissionConfirmationActivity extends MenuActivity {
 				startActivity(i);
 			}
 		});
+		
+		
 	}
 }

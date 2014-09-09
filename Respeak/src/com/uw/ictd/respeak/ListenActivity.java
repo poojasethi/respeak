@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dropbox.chooser.android.DbxChooser;
 
@@ -36,7 +38,7 @@ public class ListenActivity extends MenuActivity {
 	// private UpdateTimeTask mUpdateTimeTask;
 
 	static final String EXTRA_PHONE_NUMBER = "com.uw.ictd.respeak.phone_number";
-	static final int REQUEST_CODE = 0;
+	static final String EXTRA_SUBMISSION = "com.uw.ictd.respeak.submission";
 	static final int DBX_CHOOSER_REQUEST = 0;
 	static final int REQUEST_LINK_TO_DBX = 0;
 	private static final String APP_KEY = "07r2uvgq7r0446r";
@@ -47,6 +49,14 @@ public class ListenActivity extends MenuActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_listen);
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		// If started by training activity, display a toast
+		Bundle bundle = getIntent().getExtras();
+		if (bundle != null && bundle.containsKey(EXTRA_SUBMISSION)) {
+			Toast toast = Toast.makeText(this, R.string.thank_you_toast, Toast.LENGTH_LONG);
+			toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+			toast.show();
+		}
 
 		mRequestorName = (TextView) findViewById(R.id.requestorName);
 		mMaxRewardAmount = (TextView) findViewById(R.id.maxRewardAmount);
@@ -131,7 +141,7 @@ public class ListenActivity extends MenuActivity {
 				Intent i = new Intent(ListenActivity.this, RecordActivity.class);
 				i.putExtra(SubmissionActivity.EXTRA_ORIGINAL_FILE_NAME,
 						mPlayer.getUri());
-				startActivityForResult(i, REQUEST_CODE);
+				startActivity(i);
 			}
 		};
 		mRespeakButton.setOnClickListener(respeakListener);

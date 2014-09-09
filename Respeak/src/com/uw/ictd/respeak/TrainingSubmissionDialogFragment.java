@@ -27,6 +27,7 @@ public class TrainingSubmissionDialogFragment extends DialogFragment {
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						Intent i = new Intent(mContext, ListenActivity.class);
+						i.putExtra(ListenActivity.EXTRA_SUBMISSION, true);
 						startActivity(i);
 					}
 				}).create();
