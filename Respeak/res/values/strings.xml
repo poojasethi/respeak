@@ -70,6 +70,9 @@
     <string name="pref_phone_number_summ">Enter your phone number</string>
     <string name="pref_full_name">Full Name</string>
     <string name="pref_full_name_summ">Enter your name</string>
+    <string name="pref_about">About</string>
+    <string name="pref_version_num">Version</string>
+    <string name="pref_version_num_summ">1.0.0</string>
     <string name="image_description_recorder">Recorder</string>
     <string name="image_description_record_button">Press to record</string>
     <string name="image_description_done_button">Press if you are done recording</string>
@@ -89,9 +92,5 @@
     <color name="light_red_background">#FFCCB2</color>
     <color name="dark_red">#CC0000</color>
     <color name="green">#00E600</color>
-
-    <string name="title_activity_account_balance_details">AccountBalanceDetailsActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_settings">SettingsActivity</string>
 
 </resources>
