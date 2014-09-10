@@ -38,6 +38,9 @@ public class MenuActivity extends Activity {
 			i = new Intent(this, AccountBalanceActivity.class);
 			startActivity(i);
 			return true;
+		case R.id.menu_item_pay_scale:
+			i = new Intent(this, PayScaleActivity.class);
+			startActivity(i);
 		default:
 			return super.onOptionsItemSelected(item);
 		}

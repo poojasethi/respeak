@@ -1376,7 +1376,8 @@ containing a value of this type.
         public static final int logInButton=0x7f0c0053;
         public static final int maxRewardAmount=0x7f0c0046;
         public static final int menu_item_account_history=0x7f0c0085;
-        public static final int menu_item_settings=0x7f0c0086;
+        public static final int menu_item_pay_scale=0x7f0c0086;
+        public static final int menu_item_settings=0x7f0c0087;
         public static final int middle=0x7f0c0012;
         public static final int moreRespeaksButton=0x7f0c006a;
         public static final int never=0x7f0c0009;
