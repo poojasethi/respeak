@@ -34,7 +34,6 @@ public class LoginActivity extends Activity {
 		this.getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
-
 		// Automatically detect the phone number and populates the edit text field
 		mPhoneNumber = getPhoneNumber();
 		mPhoneNumberField.setText(mPhoneNumber, TextView.BufferType.EDITABLE);
