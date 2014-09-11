@@ -1,14 +1,17 @@
 package com.uw.ictd.respeak;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.Gravity;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class LoginActivity extends Activity {
@@ -16,6 +19,7 @@ public class LoginActivity extends Activity {
 	private Button mLogInButton;
 	private Button mSignUpButton;
 	private EditText mPhoneNumberField;
+	private String mPhoneNumber;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +33,19 @@ public class LoginActivity extends Activity {
 		// Hides keyboard until user selects edit text (phone number field)
 		this.getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+		
+
+		// Automatically detect the phone number and populate the edit text field
+		mPhoneNumber = getPhoneNumber();
+		mPhoneNumberField.setText(mPhoneNumber, TextView.BufferType.EDITABLE);
 
 		mLogInButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				Intent i = new Intent(LoginActivity.this, ListenActivity.class);
+				
+				// Allow user to set the number
 				String phoneNumber = mPhoneNumberField.getText().toString();
 
 				// Check that the user put in a phone number
@@ -68,5 +79,10 @@ public class LoginActivity extends Activity {
 			return false;
 		}
 		return true;
+	}
+	
+	private String getPhoneNumber() {
+		TelephonyManager tMgr = (TelephonyManager) getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
+		return tMgr.getLine1Number();
 	}
 }
