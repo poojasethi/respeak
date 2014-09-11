@@ -35,7 +35,7 @@ public class LoginActivity extends Activity {
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 		
 
-		// Automatically detect the phone number and populate the edit text field
+		// Automatically detect the phone number and populates the edit text field
 		mPhoneNumber = getPhoneNumber();
 		mPhoneNumberField.setText(mPhoneNumber, TextView.BufferType.EDITABLE);
 
@@ -46,12 +46,11 @@ public class LoginActivity extends Activity {
 				Intent i = new Intent(LoginActivity.this, ListenActivity.class);
 				
 				// Allow user to set the number
-				String phoneNumber = mPhoneNumberField.getText().toString();
+				mPhoneNumber = mPhoneNumberField.getText().toString();
 
 				// Check that the user put in a phone number
-				if (checkPhoneNumber(phoneNumber)) {
-					i.putExtra(ListenActivity.EXTRA_PHONE_NUMBER, phoneNumber);
-					startActivityForResult(i, 0);
+				if (checkPhoneNumber(mPhoneNumber)) {
+					startActivity(i);
 				}
 			}
 		});
