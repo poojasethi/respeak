@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.telephony.TelephonyManager;
 import android.view.Gravity;
 import android.view.View;
@@ -17,7 +18,6 @@ import android.widget.Toast;
 
 public class LoginActivity extends Activity {
 
-	public static final String PREFS = "PrefsFile";
 	private Button mLogInButton;
 	private Button mSignUpButton;
 	private EditText mPhoneNumberField;
@@ -41,8 +41,8 @@ public class LoginActivity extends Activity {
 		// field
 
 		// Restore preferences
-		SharedPreferences settings = getSharedPreferences(PREFS, MODE_PRIVATE);
-		mPhoneNumber = settings.getString("phoneNumber", null);
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+		mPhoneNumber = settings.getString(SettingsFragment.KEY_PREF_PHONE_NUMBER, null);
 
 		// If the phone number isn't already saved in preferences, this is a
 		// first-time user
@@ -93,9 +93,9 @@ public class LoginActivity extends Activity {
 		super.onStop();
 
 		// Save the phone number last entered by the user
-		SharedPreferences settings = getSharedPreferences(PREFS, MODE_PRIVATE);
+		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
 		SharedPreferences.Editor editor = settings.edit();
-		editor.putString("phoneNumber", mPhoneNumber);
+		editor.putString(SettingsFragment.KEY_PREF_PHONE_NUMBER, mPhoneNumber);
 		editor.commit();
 		
 		// If this was a first time user, save their phone number
