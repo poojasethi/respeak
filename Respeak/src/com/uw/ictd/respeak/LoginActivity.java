@@ -92,13 +92,15 @@ public class LoginActivity extends Activity {
 	protected void onStop() {
 		super.onStop();
 
+		// Save the phone number last entered by the user
+		SharedPreferences settings = getSharedPreferences(PREFS, MODE_PRIVATE);
+		SharedPreferences.Editor editor = settings.edit();
+		editor.putString("phoneNumber", mPhoneNumber);
+		editor.commit();
+		
 		// If this was a first time user, save their phone number
 		if (mFirstTimeUser) {
-			SharedPreferences settings = getSharedPreferences(PREFS, MODE_PRIVATE);
-			SharedPreferences.Editor editor = settings.edit();
-			editor.putString("phoneNumber", mPhoneNumber);
 			mFirstTimeUser = false;
-			editor.commit();
 		}
 	}
 
