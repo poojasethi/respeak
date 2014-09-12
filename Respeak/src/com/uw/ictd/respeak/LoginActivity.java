@@ -19,7 +19,6 @@ import android.widget.Toast;
 public class LoginActivity extends Activity {
 
 	private Button mLogInButton;
-	private Button mSignUpButton;
 	private EditText mPhoneNumberField;
 	private String mPhoneNumber;
 	private static boolean mFirstTimeUser;
@@ -30,15 +29,11 @@ public class LoginActivity extends Activity {
 		setContentView(R.layout.activity_login);
 
 		mLogInButton = (Button) findViewById(R.id.logInButton);
-		mSignUpButton = (Button) findViewById(R.id.signUpButton);
 		mPhoneNumberField = (EditText) findViewById(R.id.phoneNumberField);
 
 		// Hides keyboard until user selects edit text (phone number field)
 		this.getWindow().setSoftInputMode(
 				WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-
-		// Automatically detect the phone number and populates the edit text
-		// field
 
 		// Restore preferences
 		SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -74,18 +69,6 @@ public class LoginActivity extends Activity {
 				}
 			}
 		});
-
-		// TODO: implement sign up activity using fragments
-		mSignUpButton.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				Intent i = new Intent(LoginActivity.this,
-						TrainingActivity.class);
-				startActivity(i);
-			}
-		});
-
 	}
 
 	@Override
@@ -116,7 +99,7 @@ public class LoginActivity extends Activity {
 		return true;
 	}
 
-	// Read phone number from phone
+	// Automatically detect the phone number
 	private String getPhoneNumber() {
 		TelephonyManager tMgr = (TelephonyManager) getApplicationContext()
 				.getSystemService(Context.TELEPHONY_SERVICE);
