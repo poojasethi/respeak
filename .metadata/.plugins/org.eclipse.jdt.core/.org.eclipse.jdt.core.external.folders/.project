@@ -10,9 +10,14 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>.link0</name>
+			<name>.link1</name>
 			<type>2</type>
 			<location>C:/Program Files (x86)/Android/android-sdk/sources/android-19</location>
+		</link>
+		<link>
+			<name>.link2</name>
+			<type>2</type>
+			<location>C:/Program Files (x86)/Android/android-sdk/sources/android-17</location>
 		</link>
 	</linkedResources>
 </projectDescription>
